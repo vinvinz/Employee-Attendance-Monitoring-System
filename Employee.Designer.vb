@@ -106,9 +106,9 @@ Partial Class Employee
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(169, 113)
+        Me.DataGridView1.Location = New System.Drawing.Point(171, 113)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(607, 288)
+        Me.DataGridView1.Size = New System.Drawing.Size(607, 291)
         Me.DataGridView1.TabIndex = 3
         '
         'Employee
