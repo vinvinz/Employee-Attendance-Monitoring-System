@@ -103,6 +103,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mobile-login-Cristina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
