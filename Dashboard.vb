@@ -6,4 +6,9 @@
     Private Sub Chart1_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub Dashboard_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Me.Dispose()
+        Login.Dispose()
+    End Sub
 End Class
