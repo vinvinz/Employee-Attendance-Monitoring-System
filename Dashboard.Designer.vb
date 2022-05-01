@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Dashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,42 +20,46 @@ Partial Class Dashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboard))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.logout_btn = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Panel1.Controls.Add(Me.logout_btn)
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(802, 38)
@@ -74,12 +78,14 @@ Partial Class Dashboard
         Me.Panel2.Size = New System.Drawing.Size(149, 450)
         Me.Panel2.TabIndex = 1
         '
-        'Panel3
+        'Button1
         '
-        Me.Panel3.Location = New System.Drawing.Point(149, 69)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(653, 381)
-        Me.Panel3.TabIndex = 0
+        Me.Button1.Location = New System.Drawing.Point(0, 113)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(149, 48)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "DASHBOARD"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'LinkLabel1
         '
@@ -92,6 +98,13 @@ Partial Class Dashboard
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Employee 1"
         '
+        'Panel3
+        '
+        Me.Panel3.Location = New System.Drawing.Point(149, 69)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(653, 381)
+        Me.Panel3.TabIndex = 0
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -101,15 +114,6 @@ Partial Class Dashboard
         Me.Label1.Size = New System.Drawing.Size(133, 20)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Emloyee Attendance"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(0, 113)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(149, 48)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "DASHBOARD"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Chart1
         '
@@ -145,26 +149,6 @@ Partial Class Dashboard
         Me.Panel4.Size = New System.Drawing.Size(534, 97)
         Me.Panel4.TabIndex = 5
         '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel5.Controls.Add(Me.Label3)
-        Me.Panel5.Controls.Add(Me.Label2)
-        Me.Panel5.Location = New System.Drawing.Point(55, 6)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(89, 83)
-        Me.Panel5.TabIndex = 0
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Panel6.Controls.Add(Me.Label5)
-        Me.Panel6.Controls.Add(Me.Label4)
-        Me.Panel6.Location = New System.Drawing.Point(216, 6)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(89, 83)
-        Me.Panel6.TabIndex = 1
-        '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(1, Byte), Integer))
@@ -175,35 +159,15 @@ Partial Class Dashboard
         Me.Panel7.Size = New System.Drawing.Size(89, 83)
         Me.Panel7.TabIndex = 2
         '
-        'Label2
+        'Label7
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(15, 15)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 13)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "PRESENT"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(43, 56)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(27, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "89%"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(12, 15)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "ATTRITION"
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(53, 56)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(27, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "89%"
         '
         'Label6
         '
@@ -215,6 +179,16 @@ Partial Class Dashboard
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "TURN OVER"
         '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.Label5)
+        Me.Panel6.Controls.Add(Me.Label4)
+        Me.Panel6.Location = New System.Drawing.Point(216, 6)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(89, 83)
+        Me.Panel6.TabIndex = 1
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -225,15 +199,62 @@ Partial Class Dashboard
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "89%"
         '
-        'Label7
+        'Label4
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(53, 56)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(27, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "89%"
+        Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(12, 15)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(65, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "ATTRITION"
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.Label3)
+        Me.Panel5.Controls.Add(Me.Label2)
+        Me.Panel5.Location = New System.Drawing.Point(55, 6)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(89, 83)
+        Me.Panel5.TabIndex = 0
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(43, 56)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(27, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "89%"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(15, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(58, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "PRESENT"
+        '
+        'logout_btn
+        '
+        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.logout_btn.Image = CType(resources.GetObject("logout_btn.Image"), System.Drawing.Image)
+        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.logout_btn.Location = New System.Drawing.Point(692, 3)
+        Me.logout_btn.Name = "logout_btn"
+        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
+        Me.logout_btn.TabIndex = 0
+        Me.logout_btn.Text = "Logout"
+        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout_btn.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -260,16 +281,17 @@ Partial Class Dashboard
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dashboard"
+        Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -294,4 +316,5 @@ Partial Class Dashboard
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents logout_btn As Button
 End Class

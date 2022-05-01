@@ -26,6 +26,8 @@ Public Class Login
             MsgBox("Login Success!")
             con.Close()
             Dashboard.Show()
+            TextBox1.Clear()
+            TextBox2.Clear()
             Me.Hide()
         Else
             MsgBox("Nahh can't login...")
