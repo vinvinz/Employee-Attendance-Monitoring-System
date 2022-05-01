@@ -96,19 +96,18 @@ Partial Class Login
         '
         Me.TextBox2.ForeColor = System.Drawing.SystemColors.ScrollBar
         Me.TextBox2.Location = New System.Drawing.Point(31, 302)
-        Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(190, 29)
+        Me.TextBox2.Size = New System.Drawing.Size(190, 20)
         Me.TextBox2.TabIndex = 2
         Me.TextBox2.Text = "Password"
+        Me.TextBox2.UseSystemPasswordChar = True
         '
         'TextBox1
         '
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.ScrollBar
         Me.TextBox1.Location = New System.Drawing.Point(31, 256)
-        Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(190, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(190, 20)
         Me.TextBox1.TabIndex = 1
         Me.TextBox1.Text = "Username"
         '

@@ -320,15 +320,15 @@ Partial Public Class EAMDataSet
         
         Private columnID As Global.System.Data.DataColumn
         
-        Private _columnFirst_Name As Global.System.Data.DataColumn
+        Private columnFirstName As Global.System.Data.DataColumn
+        
+        Private columnLastname As Global.System.Data.DataColumn
         
         Private columnStatus As Global.System.Data.DataColumn
         
-        Private _columnLast_name As Global.System.Data.DataColumn
+        Private _columntime_in As Global.System.Data.DataColumn
         
-        Private _columnTime_In As Global.System.Data.DataColumn
-        
-        Private _columnTime_out As Global.System.Data.DataColumn
+        Private _columntime_out As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -375,9 +375,17 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _First_NameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property FirstNameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnFirst_Name
+                Return Me.columnFirstName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property LastnameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastname
             End Get
         End Property
         
@@ -391,25 +399,17 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _Last_nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property _time_inColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnLast_name
+                Return Me._columntime_in
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _Time_InColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property _time_outColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnTime_In
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property _Time_outColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me._columnTime_out
+                Return Me._columntime_out
             End Get
         End Property
         
@@ -450,9 +450,9 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddEmployeesRow(ByVal _First_Name As String, ByVal Status As String, ByVal _Last_name As String, ByVal _Time_In As Date, ByVal _Time_out As Date) As EmployeesRow
+        Public Overloads Function AddEmployeesRow(ByVal FirstName As String, ByVal Lastname As String, ByVal Status As String, ByVal _time_in As Date, ByVal _time_out As Date) As EmployeesRow
             Dim rowEmployeesRow As EmployeesRow = CType(Me.NewRow,EmployeesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, _First_Name, Status, _Last_name, _Time_In, _Time_out}
+            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, Lastname, Status, _time_in, _time_out}
             rowEmployeesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmployeesRow)
             Return rowEmployeesRow
@@ -482,11 +482,11 @@ Partial Public Class EAMDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
-            Me._columnFirst_Name = MyBase.Columns("First-Name")
+            Me.columnFirstName = MyBase.Columns("FirstName")
+            Me.columnLastname = MyBase.Columns("Lastname")
             Me.columnStatus = MyBase.Columns("Status")
-            Me._columnLast_name = MyBase.Columns("Last-name")
-            Me._columnTime_In = MyBase.Columns("Time-In")
-            Me._columnTime_out = MyBase.Columns("Time-out")
+            Me._columntime_in = MyBase.Columns("time-in")
+            Me._columntime_out = MyBase.Columns("time-out")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -494,33 +494,29 @@ Partial Public Class EAMDataSet
         Private Sub InitClass()
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
-            Me._columnFirst_Name = New Global.System.Data.DataColumn("First-Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnFirst_Name.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFirst_Name")
-            Me._columnFirst_Name.ExtendedProperties.Add("Generator_UserColumnName", "First-Name")
-            MyBase.Columns.Add(Me._columnFirst_Name)
+            Me.columnFirstName = New Global.System.Data.DataColumn("FirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFirstName)
+            Me.columnLastname = New Global.System.Data.DataColumn("Lastname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastname)
             Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStatus)
-            Me._columnLast_name = New Global.System.Data.DataColumn("Last-name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnLast_name.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnLast_name")
-            Me._columnLast_name.ExtendedProperties.Add("Generator_UserColumnName", "Last-name")
-            MyBase.Columns.Add(Me._columnLast_name)
-            Me._columnTime_In = New Global.System.Data.DataColumn("Time-In", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnTime_In.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnTime_In")
-            Me._columnTime_In.ExtendedProperties.Add("Generator_UserColumnName", "Time-In")
-            MyBase.Columns.Add(Me._columnTime_In)
-            Me._columnTime_out = New Global.System.Data.DataColumn("Time-out", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnTime_out.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnTime_out")
-            Me._columnTime_out.ExtendedProperties.Add("Generator_UserColumnName", "Time-out")
-            MyBase.Columns.Add(Me._columnTime_out)
+            Me._columntime_in = New Global.System.Data.DataColumn("time-in", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me._columntime_in.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columntime_in")
+            Me._columntime_in.ExtendedProperties.Add("Generator_UserColumnName", "time-in")
+            MyBase.Columns.Add(Me._columntime_in)
+            Me._columntime_out = New Global.System.Data.DataColumn("time-out", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me._columntime_out.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columntime_out")
+            Me._columntime_out.ExtendedProperties.Add("Generator_UserColumnName", "time-out")
+            MyBase.Columns.Add(Me._columntime_out)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
-            Me._columnFirst_Name.MaxLength = 255
+            Me.columnFirstName.MaxLength = 255
+            Me.columnLastname.MaxLength = 255
             Me.columnStatus.MaxLength = 255
-            Me._columnLast_name.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -660,9 +656,9 @@ Partial Public Class EAMDataSet
         
         Private columnID As Global.System.Data.DataColumn
         
-        Private columnusername As Global.System.Data.DataColumn
+        Private columnUsername As Global.System.Data.DataColumn
         
-        Private columnpassword As Global.System.Data.DataColumn
+        Private columnPassword As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -709,17 +705,17 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property usernameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnusername
+                Return Me.columnUsername
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property passwordColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PasswordColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnpassword
+                Return Me.columnPassword
             End Get
         End Property
         
@@ -760,9 +756,9 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Add_HR_AccRow(ByVal username As String, ByVal password As String) As _HR_AccRow
+        Public Overloads Function Add_HR_AccRow(ByVal Username As String, ByVal Password As String) As _HR_AccRow
             Dim row_HR_AccRow As _HR_AccRow = CType(Me.NewRow,_HR_AccRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, username, password}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Password}
             row_HR_AccRow.ItemArray = columnValuesArray
             Me.Rows.Add(row_HR_AccRow)
             Return row_HR_AccRow
@@ -792,8 +788,8 @@ Partial Public Class EAMDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
-            Me.columnusername = MyBase.Columns("username")
-            Me.columnpassword = MyBase.Columns("password")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnPassword = MyBase.Columns("Password")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -801,18 +797,18 @@ Partial Public Class EAMDataSet
         Private Sub InitClass()
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
-            Me.columnusername = New Global.System.Data.DataColumn("username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnusername)
-            Me.columnpassword = New Global.System.Data.DataColumn("password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpassword)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPassword)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
-            Me.columnusername.MaxLength = 255
-            Me.columnpassword.MaxLength = 255
+            Me.columnUsername.MaxLength = 255
+            Me.columnPassword.MaxLength = 255
             Me.ExtendedProperties.Add("Generator_TableVarName", "_tableHR_Acc")
             Me.ExtendedProperties.Add("Generator_UserTableName", "HR-Acc")
         End Sub
@@ -972,16 +968,31 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _First_Name() As String
+        Public Property FirstName() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees._First_NameColumn),String)
+                    Return CType(Me(Me.tableEmployees.FirstNameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'First-Name' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees._First_NameColumn) = value
+                Me(Me.tableEmployees.FirstNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Lastname() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.LastnameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Lastname' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.LastnameColumn) = value
             End Set
         End Property
         
@@ -1002,59 +1013,56 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _Last_name() As String
+        Public Property _time_in() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees._Last_nameColumn),String)
+                    Return CType(Me(Me.tableEmployees._time_inColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Last-name' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'time-in' in table 'Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees._Last_nameColumn) = value
+                Me(Me.tableEmployees._time_inColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _Time_In() As Date
+        Public Property _time_out() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees._Time_InColumn),Date)
+                    Return CType(Me(Me.tableEmployees._time_outColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Time-In' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'time-out' in table 'Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees._Time_InColumn) = value
+                Me(Me.tableEmployees._time_outColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _Time_out() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableEmployees._Time_outColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Time-out' in table 'Employees' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableEmployees._Time_outColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_First_NameNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees._First_NameColumn)
+        Public Function IsFirstNameNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.FirstNameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_First_NameNull()
-            Me(Me.tableEmployees._First_NameColumn) = Global.System.Convert.DBNull
+        Public Sub SetFirstNameNull()
+            Me(Me.tableEmployees.FirstNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsLastnameNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.LastnameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetLastnameNull()
+            Me(Me.tableEmployees.LastnameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1071,38 +1079,26 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_Last_nameNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees._Last_nameColumn)
+        Public Function Is_time_inNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees._time_inColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_Last_nameNull()
-            Me(Me.tableEmployees._Last_nameColumn) = Global.System.Convert.DBNull
+        Public Sub Set_time_inNull()
+            Me(Me.tableEmployees._time_inColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_Time_InNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees._Time_InColumn)
+        Public Function Is_time_outNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees._time_outColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_Time_InNull()
-            Me(Me.tableEmployees._Time_InColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_Time_outNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees._Time_outColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_Time_outNull()
-            Me(Me.tableEmployees._Time_outColumn) = Global.System.Convert.DBNull
+        Public Sub Set_time_outNull()
+            Me(Me.tableEmployees._time_outColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1134,56 +1130,56 @@ Partial Public Class EAMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property username() As String
+        Public Property Username() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableHR_Acc.usernameColumn),String)
+                    Return CType(Me(Me._tableHR_Acc.UsernameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'username' in table 'HR-Acc' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Username' in table 'HR-Acc' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableHR_Acc.usernameColumn) = value
+                Me(Me._tableHR_Acc.UsernameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property password() As String
+        Public Property Password() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableHR_Acc.passwordColumn),String)
+                    Return CType(Me(Me._tableHR_Acc.PasswordColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'password' in table 'HR-Acc' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Password' in table 'HR-Acc' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableHR_Acc.passwordColumn) = value
+                Me(Me._tableHR_Acc.PasswordColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsusernameNull() As Boolean
-            Return Me.IsNull(Me._tableHR_Acc.usernameColumn)
+        Public Function IsUsernameNull() As Boolean
+            Return Me.IsNull(Me._tableHR_Acc.UsernameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetusernameNull()
-            Me(Me._tableHR_Acc.usernameColumn) = Global.System.Convert.DBNull
+        Public Sub SetUsernameNull()
+            Me(Me._tableHR_Acc.UsernameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IspasswordNull() As Boolean
-            Return Me.IsNull(Me._tableHR_Acc.passwordColumn)
+        Public Function IsPasswordNull() As Boolean
+            Return Me.IsNull(Me._tableHR_Acc.PasswordColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetpasswordNull()
-            Me(Me._tableHR_Acc.passwordColumn) = Global.System.Convert.DBNull
+        Public Sub SetPasswordNull()
+            Me(Me._tableHR_Acc.PasswordColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1390,73 +1386,72 @@ Namespace EAMDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Employees"
             tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("First-Name", "First-Name")
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName")
+            tableMapping.ColumnMappings.Add("Lastname", "Lastname")
             tableMapping.ColumnMappings.Add("Status", "Status")
-            tableMapping.ColumnMappings.Add("Last-name", "Last-name")
-            tableMapping.ColumnMappings.Add("Time-In", "Time-In")
-            tableMapping.ColumnMappings.Add("Time-out", "Time-out")
+            tableMapping.ColumnMappings.Add("time-in", "time-in")
+            tableMapping.ColumnMappings.Add("time-out", "time-out")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Employees` WHERE ((`ID` = ?) AND ((? = 1 AND `First-Name` IS NULL) O"& _ 
-                "R (`First-Name` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ("& _ 
-                "(? = 1 AND `Last-name` IS NULL) OR (`Last-name` = ?)) AND ((? = 1 AND `Time-In` "& _ 
-                "IS NULL) OR (`Time-In` = ?)) AND ((? = 1 AND `Time-out` IS NULL) OR (`Time-out` "& _ 
-                "= ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Employees` WHERE ((`ID` = ?) AND ((? = 1 AND `FirstName` IS NULL) OR"& _ 
+                " (`FirstName` = ?)) AND ((? = 1 AND `Lastname` IS NULL) OR (`Lastname` = ?)) AND"& _ 
+                " ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `time-in` IS N"& _ 
+                "ULL) OR (`time-in` = ?)) AND ((? = 1 AND `time-out` IS NULL) OR (`time-out` = ?)"& _ 
+                "))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_First-Name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_First-Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FirstName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FirstName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Lastname", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Lastname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Status", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Last-name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Last-name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Time-In", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Time-In", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Time-out", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_time-in", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_time-in", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_time-out", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`First-Name`, `Status`, `Last-name`, `Time-In`, `Time-ou"& _ 
-                "t`) VALUES (?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`FirstName`, `Lastname`, `Status`, `time-in`, `time-out`"& _ 
+                ") VALUES (?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First-Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FirstName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Lastname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last-name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Time-In", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("time-in", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees` SET `First-Name` = ?, `Status` = ?, `Last-name` = ?, `Time-In`"& _ 
-                " = ?, `Time-out` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `First-Name` IS NULL) OR "& _ 
-                "(`First-Name` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((?"& _ 
-                " = 1 AND `Last-name` IS NULL) OR (`Last-name` = ?)) AND ((? = 1 AND `Time-In` IS"& _ 
-                " NULL) OR (`Time-In` = ?)) AND ((? = 1 AND `Time-out` IS NULL) OR (`Time-out` = "& _ 
-                "?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees` SET `FirstName` = ?, `Lastname` = ?, `Status` = ?, `time-in` ="& _ 
+                " ?, `time-out` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `FirstName` IS NULL) OR (`F"& _ 
+                "irstName` = ?)) AND ((? = 1 AND `Lastname` IS NULL) OR (`Lastname` = ?)) AND ((?"& _ 
+                " = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `time-in` IS NULL)"& _ 
+                " OR (`time-in` = ?)) AND ((? = 1 AND `time-out` IS NULL) OR (`time-out` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("First-Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FirstName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Lastname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Last-name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Time-In", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("time-in", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_First-Name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_First-Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "First-Name", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FirstName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FirstName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Lastname", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Lastname", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Lastname", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Status", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Last-name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Last-name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Last-name", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Time-In", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Time-In", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-In", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Time-out", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Time-out", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_time-in", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_time-in", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-in", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_time-out", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_time-out", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "time-out", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Employee_Attendance_Monitoring.My.MySettings.Default.EAMConnectionString
+            Me._connection.ConnectionString = Global.Employee_Attendance_Monitoring.My.MySettings.Default.EAMConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1465,8 +1460,7 @@ Namespace EAMDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, [First-Name], Status, [Last-name], [Time-In], [Time-out] FROM Employee"& _ 
-                "s"
+            Me._commandCollection(0).CommandText = "SELECT ID, FirstName, Lastname, Status, [time-in], [time-out] FROM Employees"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1526,39 +1520,39 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal _Original_First_Name As String, ByVal Original_Status As String, ByVal _Original_Last_name As String, ByVal _Original_Time_In As Global.System.Nullable(Of Date), ByVal _Original_Time_out As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_FirstName As String, ByVal Original_Lastname As String, ByVal Original_Status As String, ByVal _Original_time_in As Global.System.Nullable(Of Date), ByVal _Original_time_out As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
-            If (_Original_First_Name Is Nothing) Then
+            If (Original_FirstName Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(_Original_First_Name,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_FirstName,String)
             End If
-            If (Original_Status Is Nothing) Then
+            If (Original_Lastname Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Status,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Lastname,String)
             End If
-            If (_Original_Last_name Is Nothing) Then
+            If (Original_Status Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(_Original_Last_name,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Status,String)
             End If
-            If (_Original_Time_In.HasValue = true) Then
+            If (_Original_time_in.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(_Original_Time_In.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(_Original_time_in.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (_Original_Time_out.HasValue = true) Then
+            If (_Original_time_out.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(_Original_Time_out.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(_Original_time_out.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
@@ -1582,29 +1576,29 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal _First_Name As String, ByVal Status As String, ByVal _Last_name As String, ByVal _Time_In As Global.System.Nullable(Of Date), ByVal _Time_out As Global.System.Nullable(Of Date)) As Integer
-            If (_First_Name Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal Lastname As String, ByVal Status As String, ByVal _time_in As Global.System.Nullable(Of Date), ByVal _time_out As Global.System.Nullable(Of Date)) As Integer
+            If (FirstName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(_First_Name,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(FirstName,String)
             End If
-            If (Status Is Nothing) Then
+            If (Lastname Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Status,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Lastname,String)
             End If
-            If (_Last_name Is Nothing) Then
+            If (Status Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(_Last_name,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Status,String)
             End If
-            If (_Time_In.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(_Time_In.Value,Date)
+            If (_time_in.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(_time_in.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (_Time_out.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(_Time_out.Value,Date)
+            If (_time_out.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(_time_out.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
@@ -1627,64 +1621,64 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal _First_Name As String, ByVal Status As String, ByVal _Last_name As String, ByVal _Time_In As Global.System.Nullable(Of Date), ByVal _Time_out As Global.System.Nullable(Of Date), ByVal Original_ID As Integer, ByVal _Original_First_Name As String, ByVal Original_Status As String, ByVal _Original_Last_name As String, ByVal _Original_Time_In As Global.System.Nullable(Of Date), ByVal _Original_Time_out As Global.System.Nullable(Of Date)) As Integer
-            If (_First_Name Is Nothing) Then
+        Public Overloads Overridable Function Update(ByVal FirstName As String, ByVal Lastname As String, ByVal Status As String, ByVal _time_in As Global.System.Nullable(Of Date), ByVal _time_out As Global.System.Nullable(Of Date), ByVal Original_ID As Integer, ByVal Original_FirstName As String, ByVal Original_Lastname As String, ByVal Original_Status As String, ByVal _Original_time_in As Global.System.Nullable(Of Date), ByVal _Original_time_out As Global.System.Nullable(Of Date)) As Integer
+            If (FirstName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(_First_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(FirstName,String)
             End If
-            If (Status Is Nothing) Then
+            If (Lastname Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Status,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Lastname,String)
             End If
-            If (_Last_name Is Nothing) Then
+            If (Status Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(_Last_name,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Status,String)
             End If
-            If (_Time_In.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(_Time_In.Value,Date)
+            If (_time_in.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(_time_in.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (_Time_out.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(_Time_out.Value,Date)
+            If (_time_out.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(_time_out.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
-            If (_Original_First_Name Is Nothing) Then
+            If (Original_FirstName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(_Original_First_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_FirstName,String)
             End If
-            If (Original_Status Is Nothing) Then
+            If (Original_Lastname Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Lastname,String)
             End If
-            If (_Original_Last_name Is Nothing) Then
+            If (Original_Status Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(_Original_Last_name,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Status,String)
             End If
-            If (_Original_Time_In.HasValue = true) Then
+            If (_Original_time_in.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(_Original_Time_In.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(_Original_time_in.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (_Original_Time_out.HasValue = true) Then
+            If (_Original_time_out.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(_Original_Time_out.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(_Original_time_out.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
@@ -1833,45 +1827,45 @@ Namespace EAMDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "HR-Acc"
             tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("username", "username")
-            tableMapping.ColumnMappings.Add("password", "password")
+            tableMapping.ColumnMappings.Add("Username", "Username")
+            tableMapping.ColumnMappings.Add("Password", "Password")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `HR-Acc` WHERE ((`ID` = ?) AND ((? = 1 AND `username` IS NULL) OR (`u"& _ 
-                "sername` = ?)) AND ((? = 1 AND `password` IS NULL) OR (`password` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `HR-Acc` WHERE ((`ID` = ?) AND ((? = 1 AND `Username` IS NULL) OR (`U"& _ 
+                "sername` = ?)) AND ((? = 1 AND `Password` IS NULL) OR (`Password` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `HR-Acc` (`username`, `password`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `HR-Acc` (`Username`, `Password`) VALUES (?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `HR-Acc` SET `username` = ?, `password` = ? WHERE ((`ID` = ?) AND ((? = 1 "& _ 
-                "AND `username` IS NULL) OR (`username` = ?)) AND ((? = 1 AND `password` IS NULL)"& _ 
-                " OR (`password` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `HR-Acc` SET `Username` = ?, `Password` = ? WHERE ((`ID` = ?) AND ((? = 1 "& _ 
+                "AND `Username` IS NULL) OR (`Username` = ?)) AND ((? = 1 AND `Password` IS NULL)"& _ 
+                " OR (`Password` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "username", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "password", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Employee_Attendance_Monitoring.My.MySettings.Default.EAMConnectionString
+            Me._connection.ConnectionString = Global.Employee_Attendance_Monitoring.My.MySettings.Default.EAMConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1880,7 +1874,7 @@ Namespace EAMDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, username, [password] FROM [HR-Acc]"
+            Me._commandCollection(0).CommandText = "SELECT ID, Username, [Password] FROM [HR-Acc]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1940,21 +1934,21 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_username As String, ByVal Original_password As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
-            If (Original_username Is Nothing) Then
+            If (Original_Username Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_username,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Username,String)
             End If
-            If (Original_password Is Nothing) Then
+            If (Original_Password Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_password,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Password,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1975,16 +1969,16 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal username As String, ByVal password As String) As Integer
-            If (username Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String) As Integer
+            If (Username Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(username,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Username,String)
             End If
-            If (password Is Nothing) Then
+            If (Password Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(password,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Password,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2005,31 +1999,31 @@ Namespace EAMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal username As String, ByVal password As String, ByVal Original_ID As Integer, ByVal Original_username As String, ByVal Original_password As String) As Integer
-            If (username Is Nothing) Then
+        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String) As Integer
+            If (Username Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(username,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Username,String)
             End If
-            If (password Is Nothing) Then
+            If (Password Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(password,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Password,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ID,Integer)
-            If (Original_username Is Nothing) Then
+            If (Original_Username Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_username,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Username,String)
             End If
-            If (Original_password Is Nothing) Then
+            If (Original_Password Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_password,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Password,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

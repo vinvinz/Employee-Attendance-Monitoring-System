@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 Public Class Login
-    Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EAM.accdb")
+    Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\EAM.mdb")
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -11,15 +11,15 @@ Public Class Login
 
     Private Sub login_btn_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
-        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR-Acc] WHERE username='" & TextBox1.Text & "' AND password='" & TextBox2.Text & "'", con)
+        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR-Acc] WHERE Username='" & TextBox1.Text & "' AND StrComp([Password], '" & TextBox2.Text & "', 0) = 0", con)
         Dim user As String = ""
         Dim pass As String = ""
 
         con.Open()
         Dim check As OleDbDataReader = cmd.ExecuteReader()
         If check.Read = True Then
-            user = check("username")
-            pass = check("password")
+            user = check("Username")
+            pass = check("Password")
             MsgBox("Login Success!")
             con.Close()
             Dashboard.Show()
