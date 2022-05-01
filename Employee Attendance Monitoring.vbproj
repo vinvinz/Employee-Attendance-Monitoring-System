@@ -169,7 +169,7 @@
     <None Include="Resources\bpos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EAM.accdb">
+    <Content Include="EAM.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

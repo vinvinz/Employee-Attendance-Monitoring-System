@@ -16,14 +16,15 @@ Public Class Login
 
         Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR-Acc] WHERE Username='" & TextBox1.Text & "' AND StrComp([Password], '" & TextBox2.Text & "', 0) = 0", con)
         '"SELECT * FROM Users WHERE Username='" & TextBox1.Text & "' AND Password='" & TextBox2.Text & "'", con'
+        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR-Acc] WHERE Username='" & TextBox1.Text & "' AND StrComp([Password], '" & TextBox2.Text & "', 0) = 0", con)
         Dim user As String = ""
         Dim pass As String = ""
 
         con.Open()
         Dim check As OleDbDataReader = cmd.ExecuteReader()
         If check.Read = True Then
-            user = check("username")
-            pass = check("password")
+            user = check("Username")
+            pass = check("Password")
             MsgBox("Login Success!")
             con.Close()
             Dashboard.Show()
