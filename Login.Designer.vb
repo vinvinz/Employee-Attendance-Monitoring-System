@@ -134,10 +134,9 @@ Partial Class Login
         '
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.TextBox1.Location = New System.Drawing.Point(15, 8)
-        Me.TextBox1.Multiline = True
+        Me.TextBox1.Location = New System.Drawing.Point(15, 9)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(156, 13)
         Me.TextBox1.TabIndex = 1
         '
         'Panel4
@@ -166,11 +165,10 @@ Partial Class Login
         '
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.TextBox2.Location = New System.Drawing.Point(15, 8)
-        Me.TextBox2.Multiline = True
+        Me.TextBox2.Location = New System.Drawing.Point(15, 10)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox2.Size = New System.Drawing.Size(158, 22)
+        Me.TextBox2.Size = New System.Drawing.Size(158, 13)
         Me.TextBox2.TabIndex = 2
         '
         'Login
@@ -182,7 +180,7 @@ Partial Class Login
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
