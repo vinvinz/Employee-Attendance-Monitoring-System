@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,26 @@ Partial Class Login
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.login_btn = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Usn_lbl = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Pass_lbl = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -61,9 +67,9 @@ Partial Class Login
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.login_btn)
-        Me.Panel1.Controls.Add(Me.TextBox2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Location = New System.Drawing.Point(538, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(261, 454)
@@ -92,26 +98,6 @@ Partial Class Login
         Me.login_btn.Text = "Login"
         Me.login_btn.UseVisualStyleBackColor = False
         '
-        'TextBox2
-        '
-        Me.TextBox2.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox2.Location = New System.Drawing.Point(31, 302)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(190, 29)
-        Me.TextBox2.TabIndex = 2
-        Me.TextBox2.Text = "Password"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox1.Location = New System.Drawing.Point(31, 256)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(190, 29)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.Text = "Username"
-        '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Mobile_login_Cristina
@@ -121,6 +107,71 @@ Partial Class Login
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Usn_lbl)
+        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Location = New System.Drawing.Point(31, 261)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(188, 35)
+        Me.Panel3.TabIndex = 7
+        '
+        'Usn_lbl
+        '
+        Me.Usn_lbl.AutoSize = True
+        Me.Usn_lbl.Enabled = False
+        Me.Usn_lbl.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Usn_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Usn_lbl.Location = New System.Drawing.Point(10, 8)
+        Me.Usn_lbl.Name = "Usn_lbl"
+        Me.Usn_lbl.Size = New System.Drawing.Size(57, 16)
+        Me.Usn_lbl.TabIndex = 5
+        Me.Usn_lbl.Text = "Username"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.TextBox1.Location = New System.Drawing.Point(15, 8)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox1.TabIndex = 1
+        '
+        'Panel4
+        '
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.Pass_lbl)
+        Me.Panel4.Controls.Add(Me.TextBox2)
+        Me.Panel4.Location = New System.Drawing.Point(31, 308)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(188, 35)
+        Me.Panel4.TabIndex = 8
+        '
+        'Pass_lbl
+        '
+        Me.Pass_lbl.AutoSize = True
+        Me.Pass_lbl.Enabled = False
+        Me.Pass_lbl.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Pass_lbl.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Pass_lbl.Location = New System.Drawing.Point(12, 9)
+        Me.Pass_lbl.Name = "Pass_lbl"
+        Me.Pass_lbl.Size = New System.Drawing.Size(55, 16)
+        Me.Pass_lbl.TabIndex = 6
+        Me.Pass_lbl.Text = "Password"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.TextBox2.Location = New System.Drawing.Point(15, 8)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox2.Size = New System.Drawing.Size(158, 22)
+        Me.TextBox2.TabIndex = 2
         '
         'Login
         '
@@ -136,6 +187,10 @@ Partial Class Login
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -147,4 +202,8 @@ Partial Class Login
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Pass_lbl As Label
+    Friend WithEvents Usn_lbl As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
 End Class
