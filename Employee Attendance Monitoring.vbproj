@@ -51,6 +51,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -76,6 +77,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee CRUD Forms\AddEmployee.Designer.vb">
+      <DependentUpon>AddEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee CRUD Forms\AddEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -119,6 +126,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee CRUD Forms\AddEmployee.resx">
+      <DependentUpon>AddEmployee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.vb</DependentUpon>
