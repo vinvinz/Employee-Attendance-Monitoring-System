@@ -89,7 +89,6 @@ Public Class Login
         If passFlag = 0 Then
             Pass_lbl.Text = ""
         End If
-        'Hello'
     End Sub
 
 End Class
