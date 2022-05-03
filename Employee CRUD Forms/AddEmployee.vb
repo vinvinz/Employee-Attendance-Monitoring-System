@@ -5,7 +5,7 @@ Imports System.Data.OleDb
 Public Class AddEmployee
 
     Dim EmployeeID
-    Dim Conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb")
+    Dim Conn As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Personal Computer\Source\Repos\Employee-Attendance-Monitoring\EAM.mdb")
     'Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\Personal Computer\Source\Repos\Employee-Attendance-Monitoring\EAM.mdb"'
 
     Public Function GetEmployeeID(ByVal ID)
@@ -25,11 +25,9 @@ Public Class AddEmployee
             cmd.ExecuteNonQuery()
             MsgBox("Successfully Added")
             Conn.Close()
+            Me.Hide()
+            Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
+            Employee.Show()
         End Using
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Hide()
-        Employee.Show()
     End Sub
 End Class
