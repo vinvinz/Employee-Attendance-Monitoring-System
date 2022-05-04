@@ -216,6 +216,8 @@
     <Content Include="EAM.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\19729.jpg" />
+    <None Include="Resources\21404.jpg" />
     <Content Include="Resources\Logout-Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

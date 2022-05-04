@@ -24,7 +24,10 @@ Public Class Employee
     End Function
 
     Private Sub Employee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Button1.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.BorderSize = 0
         Edit_btn.Enabled = False
+        Edit_btn.ForeColor = Color.White
         DataGridView1.DataSource = GetEmployeesList()
         DataGridView1.ClearSelection()
         With DataGridView1
