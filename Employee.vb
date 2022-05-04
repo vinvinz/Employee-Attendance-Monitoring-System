@@ -26,6 +26,7 @@ Public Class Employee
     Private Sub Employee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Edit_btn.Enabled = False
         DataGridView1.DataSource = GetEmployeesList()
+        DataGridView1.ClearSelection()
         With DataGridView1
             .RowHeadersVisible = False
             .Columns(0).HeaderCell.Value = "ID"

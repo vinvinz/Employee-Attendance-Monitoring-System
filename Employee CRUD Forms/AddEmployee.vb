@@ -50,8 +50,10 @@ Public Class AddEmployee
                 cmd.ExecuteNonQuery()
                 MsgBox("Successfully Added")
                 conn.Close()
-                Me.Close()
                 Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
+                Employee.DataGridView1.ClearSelection()
+                Employee.Edit_btn.Enabled = False
+                Me.Close()
                 Employee.Show()
             End Using
         Else

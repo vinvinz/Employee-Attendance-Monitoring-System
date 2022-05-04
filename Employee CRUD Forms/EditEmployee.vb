@@ -41,6 +41,8 @@ Public Class EditEmployee
             MsgBox("Successfully Updated")
             conn.Close()
             Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
+            Employee.DataGridView1.ClearSelection()
+            Employee.Edit_btn.Enabled = False
             Employee.Show()
             Me.Close()
         End Using
