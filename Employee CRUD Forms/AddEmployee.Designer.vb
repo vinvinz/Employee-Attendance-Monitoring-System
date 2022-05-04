@@ -31,9 +31,9 @@ Partial Class AddEmployee
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -134,13 +134,14 @@ Partial Class AddEmployee
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add to Employee Roster"
         '
-        'TextBox3
+        'TextBox4
         '
-        Me.TextBox3.Location = New System.Drawing.Point(122, 227)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(191, 93)
-        Me.TextBox3.TabIndex = 10
+        Me.TextBox4.Enabled = False
+        Me.TextBox4.Location = New System.Drawing.Point(122, 45)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
+        Me.TextBox4.Size = New System.Drawing.Size(85, 21)
+        Me.TextBox4.TabIndex = 12
         '
         'Label5
         '
@@ -151,14 +152,13 @@ Partial Class AddEmployee
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Employee ID:"
         '
-        'TextBox4
+        'TextBox3
         '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(122, 45)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(85, 21)
-        Me.TextBox4.TabIndex = 12
+        Me.TextBox3.Location = New System.Drawing.Point(122, 227)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(191, 93)
+        Me.TextBox3.TabIndex = 10
         '
         'AddEmployee
         '
@@ -168,7 +168,7 @@ Partial Class AddEmployee
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "AddEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Add Employee"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
