@@ -18,12 +18,15 @@ Public Class Login
         Dim user As String = ""
         Dim pass As String = ""
 
+
         con.Open()
         Dim check As OleDbDataReader = cmd.ExecuteReader()
+
         If check.Read = True Then
             user = check("Username")
             pass = check("Password")
             MsgBox("Login Success!")
+            Dashboard.LinkLabel1.Text = TextBox1.Text
             con.Close()
             Dashboard.Show()
             TextBox1.Clear()
