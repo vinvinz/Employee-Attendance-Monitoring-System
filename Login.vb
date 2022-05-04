@@ -27,6 +27,7 @@ Public Class Login
             pass = check("Password")
             MsgBox("Login Success!")
             Dashboard.LinkLabel1.Text = TextBox1.Text
+            Employee.LinkLabel1.Text = TextBox1.Text
             con.Close()
             Dashboard.Show()
             TextBox1.Clear()
