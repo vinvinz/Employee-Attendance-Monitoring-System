@@ -24,6 +24,7 @@ Public Class Employee
     End Function
 
     Private Sub Employee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Edit_btn.Enabled = False
         DataGridView1.DataSource = GetEmployeesList()
         With DataGridView1
             .RowHeadersVisible = False
@@ -41,6 +42,7 @@ Public Class Employee
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        Edit_btn.Enabled = True
         ID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
         EmployeeID = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
         EmployeeFname = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
@@ -52,5 +54,10 @@ Public Class Employee
     Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
         EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
         EditEmployee.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
+        Dashboard.Show()
     End Sub
 End Class
