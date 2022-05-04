@@ -39,7 +39,7 @@ Public Class AddEmployee
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) And Not String.IsNullOrEmpty(TextBox3.Text) Then
+        If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
             Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag)", conn)
                 cmd.Parameters.AddWithValue("@empID", TextBox4.Text)
                 cmd.Parameters.AddWithValue("@fname", TextBox1.Text)

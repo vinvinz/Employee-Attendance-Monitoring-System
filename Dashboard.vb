@@ -14,9 +14,8 @@ Public Class Dashboard
     End Sub
 
     Private Sub logout_btn_Click(sender As Object, e As EventArgs) Handles logout_btn.Click
-        Dim choice = ""
 
-        choice = MsgBox("Do you want to logout?", vbYesNo, "Confirm Logout")
+        Dim choice = MsgBox("Do you want to logout?", vbYesNo, "Confirm Logout")
         If choice = vbYes Then
             Me.Hide()
             Login.Show()
