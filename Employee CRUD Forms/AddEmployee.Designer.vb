@@ -73,9 +73,9 @@ Partial Class AddEmployee
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(24, 230)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 15)
+        Me.Label4.Size = New System.Drawing.Size(68, 15)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Status Tag"
+        Me.Label4.Text = "Status Tag:"
         '
         'TextBox1
         '
@@ -106,7 +106,7 @@ Partial Class AddEmployee
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(239, 283)
+        Me.Button1.Location = New System.Drawing.Point(238, 335)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 9
@@ -129,7 +129,7 @@ Partial Class AddEmployee
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(10, 21)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(379, 333)
+        Me.GroupBox1.Size = New System.Drawing.Size(379, 386)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Add to Employee Roster"
@@ -137,8 +137,9 @@ Partial Class AddEmployee
         'TextBox3
         '
         Me.TextBox3.Location = New System.Drawing.Point(122, 227)
+        Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(191, 21)
+        Me.TextBox3.Size = New System.Drawing.Size(191, 93)
         Me.TextBox3.TabIndex = 10
         '
         'Label5
@@ -152,6 +153,7 @@ Partial Class AddEmployee
         '
         'TextBox4
         '
+        Me.TextBox4.Enabled = False
         Me.TextBox4.Location = New System.Drawing.Point(122, 45)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.ReadOnly = True

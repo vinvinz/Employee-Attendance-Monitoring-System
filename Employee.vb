@@ -3,6 +3,7 @@ Public Class Employee
 
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
+    Dim ID
     Dim EmployeeID
     Dim EmployeeFname
     Dim EmployeeLname
@@ -39,11 +40,17 @@ Public Class Employee
         AddEmployee.Show()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        EmployeeID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        ID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+        EmployeeID = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
         EmployeeFname = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
         EmployeeLname = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
         Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
         StatusTag = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+    End Sub
+
+    Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
+        EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
+        EditEmployee.Show()
     End Sub
 End Class

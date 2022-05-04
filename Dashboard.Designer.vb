@@ -27,9 +27,12 @@ Partial Class Dashboard
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.logout_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -43,17 +46,14 @@ Partial Class Dashboard
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.logout_btn = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -64,6 +64,23 @@ Partial Class Dashboard
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(802, 38)
         Me.Panel1.TabIndex = 0
+        '
+        'logout_btn
+        '
+        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
+        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.logout_btn.Location = New System.Drawing.Point(692, 3)
+        Me.logout_btn.Name = "logout_btn"
+        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
+        Me.logout_btn.TabIndex = 0
+        Me.logout_btn.Text = "Logout"
+        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout_btn.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -78,6 +95,15 @@ Partial Class Dashboard
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(149, 450)
         Me.Panel2.TabIndex = 1
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(0, 167)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(149, 48)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "EMPLOYEE"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -98,6 +124,16 @@ Partial Class Dashboard
         Me.LinkLabel1.TabIndex = 2
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Employee 1"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -239,42 +275,6 @@ Partial Class Dashboard
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "PRESENT"
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(0, 167)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(149, 48)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "EMPLOYEE"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'logout_btn
-        '
-        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
-        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.logout_btn.Location = New System.Drawing.Point(692, 3)
-        Me.logout_btn.Name = "logout_btn"
-        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
-        Me.logout_btn.TabIndex = 0
-        Me.logout_btn.Text = "Logout"
-        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.logout_btn.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -293,6 +293,7 @@ Partial Class Dashboard
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
@@ -301,7 +302,6 @@ Partial Class Dashboard
         Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

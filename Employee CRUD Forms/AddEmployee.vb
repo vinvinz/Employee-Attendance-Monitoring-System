@@ -30,7 +30,6 @@ Public Class AddEmployee
             cmd.ExecuteNonQuery()
             MsgBox("Successfully Added")
             conn.Close()
-            Me.Refresh()
             Me.Close()
             Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
             Employee.Show()

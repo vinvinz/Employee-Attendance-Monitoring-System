@@ -117,6 +117,12 @@
     <Compile Include="Employee CRUD Forms\AddEmployee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Employee CRUD Forms\EditEmployee.Designer.vb">
+      <DependentUpon>EditEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee CRUD Forms\EditEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Employee.Designer.vb">
       <DependentUpon>Employee.vb</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee CRUD Forms\AddEmployee.resx">
       <DependentUpon>AddEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee CRUD Forms\EditEmployee.resx">
+      <DependentUpon>EditEmployee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.vb</DependentUpon>
