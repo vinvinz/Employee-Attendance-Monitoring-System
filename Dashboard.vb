@@ -59,4 +59,9 @@ Public Class Dashboard
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
 
     End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        Employee.Show()
+    End Sub
 End Class
