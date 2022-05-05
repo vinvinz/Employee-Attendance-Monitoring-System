@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A4538B6-2F31-4AF2-AA06-34452708A78A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Employee_Attendance_Monitoring.My.MyApplication</StartupObject>
+    <StartupObject>Employee_Attendance_Monitoring.Dashboard</StartupObject>
     <RootNamespace>Employee_Attendance_Monitoring</RootNamespace>
     <AssemblyName>Employee Attendance Monitoring</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -68,6 +68,27 @@
     <PlatformTarget>x64</PlatformTarget>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>Employee Attendance Monitoring.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>Employee Attendance Monitoring.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -110,6 +131,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EAMDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EAMDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EAMDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EAMDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EAMDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EAMDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EAMDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Employee CRUD Forms\AddEmployee.Designer.vb">
       <DependentUpon>AddEmployee.vb</DependentUpon>
@@ -187,6 +223,39 @@
     </None>
     <None Include="EAMDataSet.xss">
       <DependentUpon>EAMDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet1.xsc">
+      <DependentUpon>EAMDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EAMDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EAMDataSet1.xss">
+      <DependentUpon>EAMDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet2.xsc">
+      <DependentUpon>EAMDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EAMDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EAMDataSet2.xss">
+      <DependentUpon>EAMDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet3.xsc">
+      <DependentUpon>EAMDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="EAMDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EAMDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EAMDataSet3.xss">
+      <DependentUpon>EAMDataSet3.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

@@ -1,8 +1,13 @@
 ﻿Imports System.Data.OleDb
 Public Class Dashboard
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'EAMDataSet3.Employees' table. You can move, or remove it, as needed.
+        Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
+
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
+
+
     End Sub
 
     Private Sub Chart1_Click(sender As Object, e As EventArgs)
@@ -53,6 +58,17 @@ Public Class Dashboard
         countPrsntToday.Parameters.AddWithValue("@date1", DateTimePicker1.Value.Date)
         Dim countPrsntGenerated = CInt(countPrsntToday.ExecuteScalar())
         TextBox1.Text = CStr(countPrsntGenerated)
+
+        Dim countTermiEmployees As New OleDbCommand("SELECT COUNT(*) From [EmployeeRoster] WHERE EmpStatus='Terminated'", conn)
+        Dim TotalTermiEmp = CInt(countTermiEmployees.ExecuteScalar())
+
+        Dim countTotalEmployees As New OleDbCommand("SELECT COUNT(*) FROM [EmployeeRoster]", conn)
+        Dim TotalEmp = CInt(countTotalEmployees.ExecuteScalar())
+
+        Dim TurnOverRate = TotalTermiEmp / TotalEmp * 100
+
+        TextBox2.Text = Math.Ceiling(TurnOverRate) & "%"
+
         conn.Close()
     End Sub
 
@@ -63,5 +79,17 @@ Public Class Dashboard
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
         Employee.Show()
+    End Sub
+
+    Private Sub Chart1_Click_1(sender As Object, e As EventArgs) Handles Chart1.Click
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
     End Sub
 End Class
