@@ -27,6 +27,7 @@ Public Class Employee
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Edit_btn.Enabled = False
+        Delete_btn.Enabled = False
         Edit_btn.ForeColor = Color.White
         DataGridView1.DataSource = GetEmployeesList()
         DataGridView1.ClearSelection()
@@ -47,6 +48,7 @@ Public Class Employee
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Edit_btn.Enabled = True
+        Delete_btn.Enabled = True
         ID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
         EmployeeID = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
         EmployeeFname = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
@@ -63,5 +65,22 @@ Public Class Employee
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
         Dashboard.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Delete_btn.Click
+        Dim opt = MessageBox.Show("Are you sure you want to Delete Employee with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        If (opt = 1) Then
+            Using cmd As New OleDbCommand("DELETE FROM EmployeeRoster WHERE ID=@id", conn)
+                cmd.Parameters.AddWithValue("@id", ID)
+                conn.Open()
+                cmd.ExecuteNonQuery()
+                MsgBox("Delete Success")
+                conn.Close()
+                DataGridView1.DataSource = GetEmployeesList()
+                DataGridView1.ClearSelection()
+                Edit_btn.Enabled = False
+                Delete_btn.Enabled = False
+            End Using
+        End If
     End Sub
 End Class
