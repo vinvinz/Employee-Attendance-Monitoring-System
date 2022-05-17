@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Employee
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,12 @@ Partial Class Employee
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -35,7 +37,8 @@ Partial Class Employee
         Me.Edit_btn = New System.Windows.Forms.Button()
         Me.Delete_btn = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.SearchBox = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,6 +53,17 @@ Partial Class Employee
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(802, 38)
         Me.Panel1.TabIndex = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(8, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(117, 19)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "COMPANY NAME"
         '
         'LinkLabel1
         '
@@ -130,22 +144,32 @@ Partial Class Employee
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(1, 0, 4, 0)
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.Location = New System.Drawing.Point(171, 113)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.Location = New System.Drawing.Point(170, 130)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(607, 273)
+        Me.DataGridView1.Size = New System.Drawing.Size(607, 260)
         Me.DataGridView1.TabIndex = 3
         '
         'Add_btn
@@ -155,7 +179,7 @@ Partial Class Employee
         Me.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Add_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Add_btn.Location = New System.Drawing.Point(392, 403)
+        Me.Add_btn.Location = New System.Drawing.Point(392, 407)
         Me.Add_btn.Name = "Add_btn"
         Me.Add_btn.Size = New System.Drawing.Size(113, 33)
         Me.Add_btn.TabIndex = 4
@@ -169,7 +193,7 @@ Partial Class Employee
         Me.Edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Edit_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Edit_btn.Location = New System.Drawing.Point(511, 403)
+        Me.Edit_btn.Location = New System.Drawing.Point(511, 407)
         Me.Edit_btn.Name = "Edit_btn"
         Me.Edit_btn.Size = New System.Drawing.Size(113, 33)
         Me.Edit_btn.TabIndex = 5
@@ -183,7 +207,7 @@ Partial Class Employee
         Me.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Delete_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Delete_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Delete_btn.Location = New System.Drawing.Point(630, 403)
+        Me.Delete_btn.Location = New System.Drawing.Point(630, 407)
         Me.Delete_btn.Name = "Delete_btn"
         Me.Delete_btn.Size = New System.Drawing.Size(113, 33)
         Me.Delete_btn.TabIndex = 6
@@ -200,16 +224,28 @@ Partial Class Employee
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "EMPLOYEE ROSTER"
         '
-        'Label3
+        'SearchBox
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(8, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 19)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "COMPANY NAME"
+        Me.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SearchBox.Location = New System.Drawing.Point(526, 99)
+        Me.SearchBox.MinimumSize = New System.Drawing.Size(168, 25)
+        Me.SearchBox.Name = "SearchBox"
+        Me.SearchBox.Size = New System.Drawing.Size(168, 25)
+        Me.SearchBox.TabIndex = 8
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(699, 97)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 25)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Search"
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Employee
         '
@@ -217,6 +253,8 @@ Partial Class Employee
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.SearchBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete_btn)
         Me.Controls.Add(Me.Edit_btn)
@@ -251,4 +289,6 @@ Partial Class Employee
     Friend WithEvents Delete_btn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents SearchBox As TextBox
+    Friend WithEvents Button3 As Button
 End Class

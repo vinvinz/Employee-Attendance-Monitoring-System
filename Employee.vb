@@ -14,13 +14,34 @@ Public Class Employee
 
         Dim Dt As New DataTable
 
-        Using cmd As New OleDbCommand("Select * From EmployeeRoster ORDER BY ID ASC", conn)
+        Using cmd As New OleDbCommand("SELECT * FROM EmployeeRoster ORDER BY ID ASC", conn)
             conn.Open()
             Dim readList As OleDbDataReader = cmd.ExecuteReader()
             Dt.Load(readList)
+            'DataGridView1.AutoResizeColumns()
+            'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
             conn.Close()
         End Using
         Return Dt
+    End Function
+
+    Public Function SearchEmployee() As DataTable
+        Dim Test As New DataTable
+        Using cmd As New OleDbCommand(
+        "SELECT * FROM EmployeeRoster WHERE (
+        [EmployeeFName] LIKE @searchtxt OR
+        [EmployeeLName] LIKE @searchtxt OR
+        [EmpStatus] LIKE @searchtxt OR
+        [EmployeeID] LIKE @searchtxt)", conn)
+            cmd.Parameters.AddWithValue("@searchtxt", "%" & SearchBox.Text & "%")
+            conn.Open()
+            Dim readList As OleDbDataReader = cmd.ExecuteReader()
+            Test.Load(readList)
+            'DataGridView1.AutoResizeColumns()
+            'DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+            conn.Close()
+        End Using
+        Return Test
     End Function
 
     Private Sub Employee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -37,7 +58,7 @@ Public Class Employee
             .Columns(1).HeaderCell.Value = "Employee ID"
             .Columns(2).HeaderCell.Value = "First Name"
             .Columns(3).HeaderCell.Value = "Last Name"
-            .Columns(4).HeaderCell.Value = "Employee Status"
+            .Columns(4).HeaderCell.Value = "Status"
             .Columns(5).HeaderCell.Value = "Status Tag"
         End With
     End Sub
@@ -81,6 +102,27 @@ Public Class Employee
                 Edit_btn.Enabled = False
                 Delete_btn.Enabled = False
             End Using
+        End If
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        SearchEmployee()
+        DataGridView1.DataSource = SearchEmployee()
+        DataGridView1.ClearSelection()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged
+        If (SearchBox.Text = "") Then
+            DataGridView1.DataSource = GetEmployeesList()
+            DataGridView1.ClearSelection()
         End If
     End Sub
 End Class
