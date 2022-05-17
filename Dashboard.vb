@@ -6,7 +6,7 @@ Public Class Dashboard
 
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
-
+        Button3.FlatAppearance.BorderSize = 0
 
     End Sub
 
@@ -91,5 +91,10 @@ Public Class Dashboard
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
 
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Hide()
+        Admin.Show()
     End Sub
 End Class

@@ -47,6 +47,7 @@ Public Class Employee
     Private Sub Employee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
+        Button4.FlatAppearance.BorderSize = 0
         Edit_btn.Enabled = False
         Delete_btn.Enabled = False
         Edit_btn.ForeColor = Color.White
@@ -124,5 +125,10 @@ Public Class Employee
             DataGridView1.DataSource = GetEmployeesList()
             DataGridView1.ClearSelection()
         End If
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Hide()
+        Admin.Show()
     End Sub
 End Class

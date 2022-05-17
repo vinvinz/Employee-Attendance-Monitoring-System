@@ -23,9 +23,9 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -39,28 +39,29 @@ Partial Class Dashboard
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Generate = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.EmployeesBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.logout_btn = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.EmployeesBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EAMDataSet3 = New Employee_Attendance_Monitoring.EAMDataSet3()
+        Me.EAMDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EAMDataSet1 = New Employee_Attendance_Monitoring.EAMDataSet1()
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet = New Employee_Attendance_Monitoring.EAMDataSet()
         Me.EmployeesTableAdapter = New Employee_Attendance_Monitoring.EAMDataSetTableAdapters.EmployeesTableAdapter()
-        Me.EAMDataSet1 = New Employee_Attendance_Monitoring.EAMDataSet1()
         Me.EmployeesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeesTableAdapter1 = New Employee_Attendance_Monitoring.EAMDataSet1TableAdapters.EmployeesTableAdapter()
-        Me.EAMDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet2 = New Employee_Attendance_Monitoring.EAMDataSet2()
         Me.EmployeesBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeesTableAdapter2 = New Employee_Attendance_Monitoring.EAMDataSet2TableAdapters.EmployeesTableAdapter()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.EmployeesBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EAMDataSet3 = New Employee_Attendance_Monitoring.EAMDataSet3()
-        Me.EmployeesBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmployeesTableAdapter3 = New Employee_Attendance_Monitoring.EAMDataSet3TableAdapters.EmployeesTableAdapter()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -69,17 +70,17 @@ Partial Class Dashboard
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EAMDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EAMDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -106,6 +107,7 @@ Partial Class Dashboard
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.LinkLabel1)
@@ -175,22 +177,22 @@ Partial Class Dashboard
         '
         'Chart1
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.DataSource = Me.EmployeesBindingSource4
-        Legend4.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend4)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(161, 192)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series4.IsValueShownAsLabel = True
-        Series4.Legend = "Legend1"
-        Series4.Name = "Attendance"
-        Series4.XValueMember = "WorkDate"
-        Series4.YValueMembers = "ID"
-        Me.Chart1.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.IsValueShownAsLabel = True
+        Series1.Legend = "Legend1"
+        Series1.Name = "Attendance"
+        Series1.XValueMember = "WorkDate"
+        Series1.YValueMembers = "ID"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(627, 246)
         Me.Chart1.TabIndex = 4
         Me.Chart1.Text = "Chart1"
@@ -238,6 +240,17 @@ Partial Class Dashboard
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(114, 83)
         Me.Panel7.TabIndex = 2
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.Red
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(14, 53)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 28)
+        Me.TextBox2.TabIndex = 6
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label6
         '
@@ -302,6 +315,11 @@ Partial Class Dashboard
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "PRESENT"
         '
+        'EmployeesBindingSource3
+        '
+        Me.EmployeesBindingSource3.DataMember = "Employees"
+        Me.EmployeesBindingSource3.DataSource = Me.EAMDataSet1BindingSource
+        '
         'logout_btn
         '
         Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
@@ -329,6 +347,39 @@ Partial Class Dashboard
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(0, 205)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(149, 48)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "ADMIN"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'EmployeesBindingSource4
+        '
+        Me.EmployeesBindingSource4.DataMember = "Employees"
+        Me.EmployeesBindingSource4.DataSource = Me.EAMDataSet3
+        '
+        'EAMDataSet3
+        '
+        Me.EAMDataSet3.DataSetName = "EAMDataSet3"
+        Me.EAMDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EAMDataSet1BindingSource
+        '
+        Me.EAMDataSet1BindingSource.DataSource = Me.EAMDataSet1
+        Me.EAMDataSet1BindingSource.Position = 0
+        '
+        'EAMDataSet1
+        '
+        Me.EAMDataSet1.DataSetName = "EAMDataSet1"
+        Me.EAMDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'EmployeesBindingSource
         '
         Me.EmployeesBindingSource.DataMember = "Employees"
@@ -343,11 +394,6 @@ Partial Class Dashboard
         '
         Me.EmployeesTableAdapter.ClearBeforeFill = True
         '
-        'EAMDataSet1
-        '
-        Me.EAMDataSet1.DataSetName = "EAMDataSet1"
-        Me.EAMDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'EmployeesBindingSource1
         '
         Me.EmployeesBindingSource1.DataMember = "Employees"
@@ -356,11 +402,6 @@ Partial Class Dashboard
         'EmployeesTableAdapter1
         '
         Me.EmployeesTableAdapter1.ClearBeforeFill = True
-        '
-        'EAMDataSet1BindingSource
-        '
-        Me.EAMDataSet1BindingSource.DataSource = Me.EAMDataSet1
-        Me.EAMDataSet1BindingSource.Position = 0
         '
         'EAMDataSet2
         '
@@ -375,32 +416,6 @@ Partial Class Dashboard
         'EmployeesTableAdapter2
         '
         Me.EmployeesTableAdapter2.ClearBeforeFill = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.Red
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(14, 53)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 28)
-        Me.TextBox2.TabIndex = 6
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'EmployeesBindingSource3
-        '
-        Me.EmployeesBindingSource3.DataMember = "Employees"
-        Me.EmployeesBindingSource3.DataSource = Me.EAMDataSet1BindingSource
-        '
-        'EAMDataSet3
-        '
-        Me.EAMDataSet3.DataSetName = "EAMDataSet3"
-        Me.EAMDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EmployeesBindingSource4
-        '
-        Me.EmployeesBindingSource4.DataMember = "Employees"
-        Me.EmployeesBindingSource4.DataSource = Me.EAMDataSet3
         '
         'EmployeesTableAdapter3
         '
@@ -432,17 +447,17 @@ Partial Class Dashboard
         Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EAMDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EAMDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -484,4 +499,5 @@ Partial Class Dashboard
     Friend WithEvents EAMDataSet3 As EAMDataSet3
     Friend WithEvents EmployeesBindingSource4 As BindingSource
     Friend WithEvents EmployeesTableAdapter3 As EAMDataSet3TableAdapters.EmployeesTableAdapter
+    Friend WithEvents Button3 As Button
 End Class
