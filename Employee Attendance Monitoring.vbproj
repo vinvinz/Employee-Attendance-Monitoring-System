@@ -121,6 +121,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin Panel Forms\Register.Designer.vb">
+      <DependentUpon>Register.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel Forms\Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Panel Forms\UpdateAccount.Designer.vb">
+      <DependentUpon>UpdateAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel Forms\UpdateAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin.Designer.vb">
       <DependentUpon>Admin.vb</DependentUpon>
     </Compile>
@@ -196,6 +208,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Admin Panel Forms\Register.resx">
+      <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Panel Forms\UpdateAccount.resx">
+      <DependentUpon>UpdateAccount.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.vb</DependentUpon>
     </EmbeddedResource>

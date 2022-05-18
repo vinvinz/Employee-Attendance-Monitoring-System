@@ -71,12 +71,16 @@ Public Class Employee
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Edit_btn.Enabled = True
         Delete_btn.Enabled = True
-        ID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
-        EmployeeID = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
-        EmployeeFname = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
-        EmployeeLname = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
-        Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
-        StatusTag = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+        Try
+            ID = DataGridView1.SelectedRows(0).Cells(0).Value.ToString()
+            EmployeeID = DataGridView1.SelectedRows(0).Cells(1).Value.ToString()
+            EmployeeFname = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
+            EmployeeLname = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
+            Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
+            StatusTag = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
