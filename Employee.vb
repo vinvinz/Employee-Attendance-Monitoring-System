@@ -3,6 +3,8 @@ Public Class Employee
 
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
+    Dim cookie = New LoginSession()
+
     Dim ID
     Dim EmployeeID
     Dim EmployeeFname
@@ -62,6 +64,14 @@ Public Class Employee
             .Columns(4).HeaderCell.Value = "Status"
             .Columns(5).HeaderCell.Value = "Status Tag"
         End With
+
+        If (cookie.GetUserType() = "admin") Then
+            Button4.Visible = True
+        End If
+
+        If (cookie.GetUserType() = "user") Then
+            Button4.Visible = False
+        End If
     End Sub
 
     Private Sub Add_btn_Click(sender As Object, e As EventArgs) Handles Add_btn.Click

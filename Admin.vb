@@ -4,6 +4,8 @@ Public Class Admin
 
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
+    Dim cookie = New LoginSession()
+
     Dim ID
     Dim Usn
     Dim Pass

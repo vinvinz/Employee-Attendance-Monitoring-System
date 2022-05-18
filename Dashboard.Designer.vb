@@ -23,18 +23,23 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.logout_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.EmployeesBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EAMDataSet3 = New Employee_Attendance_Monitoring.EAMDataSet3()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Generate = New System.Windows.Forms.Button()
@@ -47,11 +52,6 @@ Partial Class Dashboard
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.EmployeesBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.logout_btn = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.EmployeesBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EAMDataSet3 = New Employee_Attendance_Monitoring.EAMDataSet3()
         Me.EAMDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet1 = New Employee_Attendance_Monitoring.EAMDataSet1()
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -65,15 +65,15 @@ Partial Class Dashboard
         Me.EmployeesTableAdapter3 = New Employee_Attendance_Monitoring.EAMDataSet3TableAdapters.EmployeesTableAdapter()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,6 +104,23 @@ Partial Class Dashboard
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "COMPANY NAME"
         '
+        'logout_btn
+        '
+        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
+        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.logout_btn.Location = New System.Drawing.Point(692, 3)
+        Me.logout_btn.Name = "logout_btn"
+        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
+        Me.logout_btn.TabIndex = 0
+        Me.logout_btn.Text = "Logout"
+        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout_btn.UseVisualStyleBackColor = False
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
@@ -118,6 +135,19 @@ Partial Class Dashboard
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(149, 450)
         Me.Panel2.TabIndex = 1
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(0, 205)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(149, 48)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "ADMIN"
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button2
         '
@@ -158,6 +188,16 @@ Partial Class Dashboard
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Employee 1"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Panel3
         '
         Me.Panel3.Location = New System.Drawing.Point(149, 69)
@@ -177,25 +217,35 @@ Partial Class Dashboard
         '
         'Chart1
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
         Me.Chart1.DataSource = Me.EmployeesBindingSource4
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(161, 192)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series1.IsValueShownAsLabel = True
-        Series1.Legend = "Legend1"
-        Series1.Name = "Attendance"
-        Series1.XValueMember = "WorkDate"
-        Series1.YValueMembers = "ID"
-        Me.Chart1.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series2.IsValueShownAsLabel = True
+        Series2.Legend = "Legend1"
+        Series2.Name = "Attendance"
+        Series2.XValueMember = "WorkDate"
+        Series2.YValueMembers = "ID"
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(627, 246)
         Me.Chart1.TabIndex = 4
         Me.Chart1.Text = "Chart1"
+        '
+        'EmployeesBindingSource4
+        '
+        Me.EmployeesBindingSource4.DataMember = "Employees"
+        Me.EmployeesBindingSource4.DataSource = Me.EAMDataSet3
+        '
+        'EAMDataSet3
+        '
+        Me.EAMDataSet3.DataSetName = "EAMDataSet3"
+        Me.EAMDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel4
         '
@@ -320,56 +370,6 @@ Partial Class Dashboard
         Me.EmployeesBindingSource3.DataMember = "Employees"
         Me.EmployeesBindingSource3.DataSource = Me.EAMDataSet1BindingSource
         '
-        'logout_btn
-        '
-        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
-        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.logout_btn.Location = New System.Drawing.Point(692, 3)
-        Me.logout_btn.Name = "logout_btn"
-        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
-        Me.logout_btn.TabIndex = 0
-        Me.logout_btn.Text = "Logout"
-        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.logout_btn.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(0, 205)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(149, 48)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "ADMIN"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'EmployeesBindingSource4
-        '
-        Me.EmployeesBindingSource4.DataMember = "Employees"
-        Me.EmployeesBindingSource4.DataSource = Me.EAMDataSet3
-        '
-        'EAMDataSet3
-        '
-        Me.EAMDataSet3.DataSetName = "EAMDataSet3"
-        Me.EAMDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'EAMDataSet1BindingSource
         '
         Me.EAMDataSet1BindingSource.DataSource = Me.EAMDataSet1
@@ -439,7 +439,10 @@ Partial Class Dashboard
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
@@ -448,9 +451,6 @@ Partial Class Dashboard
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.EmployeesBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EAMDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EAMDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EAMDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

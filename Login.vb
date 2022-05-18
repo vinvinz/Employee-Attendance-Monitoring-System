@@ -3,6 +3,7 @@ Public Class Login
     Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb")
     Dim usnFlag = 0
     Dim passFlag = 0
+    Dim cookie = New LoginSession()
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -14,10 +15,9 @@ Public Class Login
 
     Private Sub login_btn_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
-        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR-Acc] WHERE Username='" & TextBox1.Text & "' AND StrComp([Password], '" & TextBox2.Text & "', 0) = 0", con)
+        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM [HR_Accounts] WHERE Username='" & TextBox1.Text & "' AND StrComp([Password], '" & TextBox2.Text & "', 0) = 0", con)
         Dim user As String = ""
         Dim pass As String = ""
-
 
         con.Open()
         Dim check As OleDbDataReader = cmd.ExecuteReader()
@@ -25,14 +25,24 @@ Public Class Login
         If check.Read = True Then
             user = check("Username")
             pass = check("Password")
-            MsgBox("Login Success!")
+
+            'FETCHING USER ID FOR USER SESSION
+            cookie.setUserID(check.GetValue(0))
+            cookie.StartSession()
             Dashboard.LinkLabel1.Text = TextBox1.Text
             Employee.LinkLabel1.Text = TextBox1.Text
             con.Close()
-            Dashboard.Show()
+            If (cookie.GetUserStatus() = "enabled" Or cookie.GetUserStatus() = "disabled") Then
+                MsgBox("Login Success!")
+                con.Close()
+                Dashboard.Show()
+                Me.Hide()
+            ElseIf (cookie.GetUserStatus() = "banned") Then
+                MessageBox.Show("You are banned and can't login.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
             TextBox1.Clear()
             TextBox2.Clear()
-            Me.Hide()
         Else
             MsgBox("Nahh can't login...")
             con.Close()

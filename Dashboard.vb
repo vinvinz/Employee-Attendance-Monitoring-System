@@ -1,5 +1,8 @@
 ﻿Imports System.Data.OleDb
 Public Class Dashboard
+
+    Dim cookie = New LoginSession()
+
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'EAMDataSet3.Employees' table. You can move, or remove it, as needed.
         Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
@@ -7,7 +10,14 @@ Public Class Dashboard
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Button3.FlatAppearance.BorderSize = 0
+        Button3.Visible = False
+        If (cookie.GetUserType() = "admin") Then
+            Button3.Visible = True
+        End If
 
+        If (cookie.GetUserType() = "user") Then
+            Button3.Visible = False
+        End If
     End Sub
 
     Private Sub Chart1_Click(sender As Object, e As EventArgs)
@@ -15,6 +25,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Button3.Visible = False
         Me.Dispose()
         Login.Dispose()
     End Sub
@@ -23,6 +34,9 @@ Public Class Dashboard
 
         Dim choice = MsgBox("Do you want to logout?", vbYesNo, "Confirm Logout")
         If choice = vbYes Then
+            cookie.EndSession()
+            Button3.Visible = False
+            Employee.Button4.Visible = False
             Me.Hide()
             Login.Show()
         End If
