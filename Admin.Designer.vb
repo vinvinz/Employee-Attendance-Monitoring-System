@@ -33,6 +33,7 @@ Partial Class Admin
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -41,30 +42,29 @@ Partial Class Admin
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.admin_lbl = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.user_lbl = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.enabled_lbl = New System.Windows.Forms.Label()
-        Me.disabled_lbl = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.banned_lbl = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.disabled_lbl = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -155,6 +155,16 @@ Partial Class Admin
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "DASHBOARD"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -254,6 +264,7 @@ Partial Class Admin
         'Timer1
         '
         Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'Panel4
         '
@@ -264,101 +275,6 @@ Partial Class Admin
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(79, 74)
         Me.Panel4.TabIndex = 13
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.Panel5.Controls.Add(Me.user_lbl)
-        Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Location = New System.Drawing.Point(321, 104)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(79, 74)
-        Me.Panel5.TabIndex = 14
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.SandyBrown
-        Me.Panel6.Controls.Add(Me.enabled_lbl)
-        Me.Panel6.Controls.Add(Me.Label5)
-        Me.Panel6.Location = New System.Drawing.Point(423, 104)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(79, 74)
-        Me.Panel6.TabIndex = 14
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.Crimson
-        Me.Panel7.Controls.Add(Me.banned_lbl)
-        Me.Panel7.Controls.Add(Me.Label7)
-        Me.Panel7.Location = New System.Drawing.Point(622, 104)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(79, 74)
-        Me.Panel7.TabIndex = 16
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.LightSlateGray
-        Me.Panel8.Controls.Add(Me.disabled_lbl)
-        Me.Panel8.Controls.Add(Me.Label6)
-        Me.Panel8.Location = New System.Drawing.Point(523, 104)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(79, 74)
-        Me.Panel8.TabIndex = 15
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(9, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ADMINS"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(13, 9)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(53, 16)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "USERS"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(7, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(69, 16)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "ENABLED"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(4, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 16)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "DISABLED"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(8, 9)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(62, 16)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "BANNED"
         '
         'admin_lbl
         '
@@ -372,6 +288,27 @@ Partial Class Admin
         Me.admin_lbl.TabIndex = 1
         Me.admin_lbl.Text = "0"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label1.Location = New System.Drawing.Point(9, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(58, 16)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "ADMINS"
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Panel5.Controls.Add(Me.user_lbl)
+        Me.Panel5.Controls.Add(Me.Label4)
+        Me.Panel5.Location = New System.Drawing.Point(321, 104)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(79, 74)
+        Me.Panel5.TabIndex = 14
+        '
         'user_lbl
         '
         Me.user_lbl.AutoSize = True
@@ -383,6 +320,27 @@ Partial Class Admin
         Me.user_lbl.Size = New System.Drawing.Size(21, 22)
         Me.user_lbl.TabIndex = 2
         Me.user_lbl.Text = "0"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(13, 9)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 16)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "USERS"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel6.Controls.Add(Me.enabled_lbl)
+        Me.Panel6.Controls.Add(Me.Label5)
+        Me.Panel6.Location = New System.Drawing.Point(423, 104)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(79, 74)
+        Me.Panel6.TabIndex = 14
         '
         'enabled_lbl
         '
@@ -396,17 +354,26 @@ Partial Class Admin
         Me.enabled_lbl.TabIndex = 3
         Me.enabled_lbl.Text = "0"
         '
-        'disabled_lbl
+        'Label5
         '
-        Me.disabled_lbl.AutoSize = True
-        Me.disabled_lbl.BackColor = System.Drawing.Color.Transparent
-        Me.disabled_lbl.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.disabled_lbl.ForeColor = System.Drawing.Color.White
-        Me.disabled_lbl.Location = New System.Drawing.Point(26, 34)
-        Me.disabled_lbl.Name = "disabled_lbl"
-        Me.disabled_lbl.Size = New System.Drawing.Size(21, 22)
-        Me.disabled_lbl.TabIndex = 4
-        Me.disabled_lbl.Text = "0"
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(7, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(69, 16)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "ENABLED"
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.Crimson
+        Me.Panel7.Controls.Add(Me.banned_lbl)
+        Me.Panel7.Controls.Add(Me.Label7)
+        Me.Panel7.Location = New System.Drawing.Point(622, 104)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(79, 74)
+        Me.Panel7.TabIndex = 16
         '
         'banned_lbl
         '
@@ -420,15 +387,49 @@ Partial Class Admin
         Me.banned_lbl.TabIndex = 5
         Me.banned_lbl.Text = "0"
         '
-        'PictureBox1
+        'Label7
         '
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.bpos
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(8, 9)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(62, 16)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "BANNED"
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.LightSlateGray
+        Me.Panel8.Controls.Add(Me.disabled_lbl)
+        Me.Panel8.Controls.Add(Me.Label6)
+        Me.Panel8.Location = New System.Drawing.Point(523, 104)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(79, 74)
+        Me.Panel8.TabIndex = 15
+        '
+        'disabled_lbl
+        '
+        Me.disabled_lbl.AutoSize = True
+        Me.disabled_lbl.BackColor = System.Drawing.Color.Transparent
+        Me.disabled_lbl.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.disabled_lbl.ForeColor = System.Drawing.Color.White
+        Me.disabled_lbl.Location = New System.Drawing.Point(26, 34)
+        Me.disabled_lbl.Name = "disabled_lbl"
+        Me.disabled_lbl.Size = New System.Drawing.Size(21, 22)
+        Me.disabled_lbl.TabIndex = 4
+        Me.disabled_lbl.Text = "0"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(4, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(72, 16)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "DISABLED"
         '
         'Admin
         '
@@ -455,6 +456,7 @@ Partial Class Admin
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
@@ -466,7 +468,6 @@ Partial Class Admin
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

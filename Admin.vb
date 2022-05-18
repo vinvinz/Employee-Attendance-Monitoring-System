@@ -24,24 +24,28 @@ Public Class Admin
     End Function
 
     Public Function GetBannerCounts()
-        conn.Open()
-        Dim countAdmin As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccType='admin'", conn)
-        Dim adminCount = CInt(countAdmin.ExecuteScalar())
-        Dim countUser As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccType='user'", conn)
-        Dim userCount = CInt(countUser.ExecuteScalar())
-        Dim countEnabled As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='enabled'", conn)
-        Dim enabledCount = CInt(countEnabled.ExecuteScalar())
-        Dim countDisabled As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='disabled'", conn)
-        Dim disabledCount = CInt(countDisabled.ExecuteScalar())
-        Dim countBanned As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='banned'", conn)
-        Dim bannedCount = CInt(countBanned.ExecuteScalar())
-        conn.Close()
+        Try
+            conn.Open()
+            Dim countAdmin As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccType='admin'", conn)
+            Dim adminCount = CInt(countAdmin.ExecuteScalar())
+            Dim countUser As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccType='user'", conn)
+            Dim userCount = CInt(countUser.ExecuteScalar())
+            Dim countEnabled As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='enabled'", conn)
+            Dim enabledCount = CInt(countEnabled.ExecuteScalar())
+            Dim countDisabled As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='disabled'", conn)
+            Dim disabledCount = CInt(countDisabled.ExecuteScalar())
+            Dim countBanned As New OleDbCommand("SELECT COUNT(*) From HR_Accounts WHERE AccStatus='banned'", conn)
+            Dim bannedCount = CInt(countBanned.ExecuteScalar())
+            conn.Close()
+            admin_lbl.Text = adminCount
+            user_lbl.Text = userCount
+            enabled_lbl.Text = enabledCount
+            disabled_lbl.Text = disabledCount
+            banned_lbl.Text = bannedCount
 
-        admin_lbl.Text = adminCount
-        user_lbl.Text = userCount
-        enabled_lbl.Text = enabledCount
-        disabled_lbl.Text = disabledCount
-        banned_lbl.Text = bannedCount
+        Catch ex As Exception
+
+        End Try
         Return 0
     End Function
 
@@ -49,6 +53,8 @@ Public Class Admin
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Button3.FlatAppearance.BorderSize = 0
+        Button5.Enabled = False
+        Button6.Enabled = False
         DataGridView1.DataSource = GetHRAccounts()
         DataGridView1.ClearSelection()
         With DataGridView1
@@ -86,12 +92,32 @@ Public Class Admin
             Pass = DataGridView1.SelectedRows(0).Cells(2).Value.ToString()
             Type = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
             Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
+            Button5.Enabled = True
+            Button6.Enabled = True
         Catch ex As Exception
 
         End Try
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        UpdateAccount.SetAccountData(ID, Usn, Pass, Type, Status)
+        UpdateAccount.Show()
+    End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim opt = MessageBox.Show("Are you sure you want to Delete Account with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        If (opt = 1) Then
+            Using cmd As New OleDbCommand("DELETE FROM HR_Accounts WHERE ID=@id", conn)
+                cmd.Parameters.AddWithValue("@id", ID)
+                conn.Open()
+                cmd.ExecuteNonQuery()
+                MsgBox("Delete Success")
+                conn.Close()
+                DataGridView1.DataSource = GetHRAccounts()
+                DataGridView1.ClearSelection()
+                Button5.Enabled = False
+                Button6.Enabled = False
+            End Using
+        End If
     End Sub
 End Class
