@@ -40,11 +40,14 @@ Public Class Login
             ElseIf (cookie.GetUserStatus() = "banned") Then
                 MessageBox.Show("You are banned and can't login.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-
+            If (cookie.GetUserType() = "admin") Then
+                Dashboard.Button3.Visible = True
+                Employee.Button4.Visible = True
+            End If
             TextBox1.Clear()
-            TextBox2.Clear()
-        Else
-            MsgBox("Nahh can't login...")
+                TextBox2.Clear()
+            Else
+                MsgBox("Nahh can't login...")
             con.Close()
         End If
     End Sub
