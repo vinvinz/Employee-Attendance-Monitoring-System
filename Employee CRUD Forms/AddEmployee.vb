@@ -7,17 +7,27 @@ Public Class AddEmployee
     Dim rowCount
 
     Private Sub AddEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim count_rows As New OleDbCommand("SELECT COUNT(*) From [EmployeeRoster]", conn)
-        conn.Open()
-        rowCount = CInt(count_rows.ExecuteScalar())
-        conn.Close()
-        Dim IdCountLen = CType(rowCount + 1, String).Length
-        If (IdCountLen.Equals(1)) Then
-            TextBox4.Text = ("2022030" & rowCount + 1)
-        ElseIf (IdCountLen > 1) Then
-            TextBox4.Text = ("202203" & rowCount + 1)
-        End If
+
     End Sub
+
+    Public Function GenerateEmployeeID()
+        Dim EmployeeID
+        Try
+            Dim count_rows As New OleDbCommand("SELECT COUNT(*) From [EmployeeRoster]", conn)
+            conn.Open()
+            rowCount = CInt(count_rows.ExecuteScalar())
+            conn.Close()
+            Dim IdCountLen = CType(rowCount + 1, String).Length
+            If (IdCountLen.Equals(1)) Then
+                EmployeeID = ("2022030" & rowCount + 1)
+            ElseIf (IdCountLen > 1) Then
+                EmployeeID = ("202203" & rowCount + 1)
+            End If
+        Catch ex As Exception
+
+        End Try
+        Return EmployeeID
+    End Function
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
         If Not (Asc(e.KeyChar) = 8) Then
@@ -39,35 +49,40 @@ Public Class AddEmployee
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim arrImage() As Byte
-        Dim mstream As New System.IO.MemoryStream()
 
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
-            Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @img)", conn)
-                'Profile Picture
-                PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
-                arrImage = mstream.GetBuffer()
-                Dim FileSize As UInt32
-                FileSize = mstream.Length
-                mstream.Close()
+            Try
+                Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @img)", conn)
+                    'Profile Picture
+                    Dim arrImage() As Byte
+                    Dim mstream As New System.IO.MemoryStream()
+                    PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                    arrImage = mstream.GetBuffer()
+                    Dim FileSize As UInt32
+                    FileSize = mstream.Length
+                    mstream.Close()
 
-                cmd.Parameters.AddWithValue("@empID", TextBox4.Text)
-                cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
-                cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
-                cmd.Parameters.AddWithValue("@empStatus", ComboBox2.Text)
-                cmd.Parameters.AddWithValue("@empStatusTag", TextBox3.Text)
-                cmd.Parameters.AddWithValue("@img", arrImage)
+                    cmd.Parameters.AddWithValue("@empID", GenerateEmployeeID())
+                    cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
+                    cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
+                    cmd.Parameters.AddWithValue("@empStatus", ComboBox2.Text)
+                    cmd.Parameters.AddWithValue("@empStatusTag", TextBox3.Text)
+                    cmd.Parameters.AddWithValue("@img", arrImage)
 
-                conn.Open()
-                cmd.ExecuteNonQuery()
-                MsgBox("Successfully Added")
-                conn.Close()
-                Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
-                Employee.DataGridView1.ClearSelection()
-                Employee.Edit_btn.Enabled = False
-                Me.Close()
-                Employee.Show()
-            End Using
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                    MsgBox("Successfully Added")
+                    conn.Close()
+                    Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
+                    Employee.DataGridView1.ClearSelection()
+                    Employee.Edit_btn.Enabled = False
+                    Me.Close()
+                    Employee.Show()
+                End Using
+
+            Catch ex As Exception
+
+            End Try
         Else
             MsgBox("Empty Field Detected", vbCritical, "Warning")
         End If
@@ -75,7 +90,6 @@ Public Class AddEmployee
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
-            EmpOpenDialog = New OpenFileDialog()
             With EmpOpenDialog
                 .CheckFileExists = True
                 .CheckPathExists = True
@@ -87,12 +101,9 @@ Public Class AddEmployee
                 .RestoreDirectory = True
                 .Title = "Select a file to open"
                 .ValidateNames = True
+
                 If .ShowDialog = DialogResult.OK Then
-                    Try
-                        PictureBox1.Image = Image.FromFile(EmpOpenDialog.FileName)
-                    Catch fileException As Exception
-                        Throw fileException
-                    End Try
+                    PictureBox1.Image = Image.FromFile(EmpOpenDialog.FileName)
                 End If
             End With
         Catch ex As Exception
@@ -100,7 +111,11 @@ Public Class AddEmployee
         End Try
     End Sub
 
-    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles EmpOpenDialog.FileOk
+    Private Sub EmpOpenDialog_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles EmpOpenDialog.FileOk
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class
