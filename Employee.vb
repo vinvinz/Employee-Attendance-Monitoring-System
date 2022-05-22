@@ -16,7 +16,7 @@ Public Class Employee
 
         Dim Dt As New DataTable
 
-        Using cmd As New OleDbCommand("SELECT * FROM EmployeeRoster ORDER BY ID ASC", conn)
+        Using cmd As New OleDbCommand("SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag FROM EmployeeRoster ORDER BY ID ASC", conn)
             conn.Open()
             Dim readList As OleDbDataReader = cmd.ExecuteReader()
             Dt.Load(readList)
@@ -124,10 +124,6 @@ Public Class Employee
 
     End Sub
 
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
-
-    End Sub
-
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         SearchEmployee()
         DataGridView1.DataSource = SearchEmployee()
@@ -144,5 +140,10 @@ Public Class Employee
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Me.Hide()
         Admin.Show()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Profile.GetUserID(ID)
+        Profile.Show()
     End Sub
 End Class

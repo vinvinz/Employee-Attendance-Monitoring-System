@@ -39,13 +39,25 @@ Public Class AddEmployee
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim arrImage() As Byte
+        Dim mstream As New System.IO.MemoryStream()
+
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
-            Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag)", conn)
+            Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @img)", conn)
+                'Profile Picture
+                PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                arrImage = mstream.GetBuffer()
+                Dim FileSize As UInt32
+                FileSize = mstream.Length
+                mstream.Close()
+
                 cmd.Parameters.AddWithValue("@empID", TextBox4.Text)
                 cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
                 cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
                 cmd.Parameters.AddWithValue("@empStatus", ComboBox2.Text)
                 cmd.Parameters.AddWithValue("@empStatusTag", TextBox3.Text)
+                cmd.Parameters.AddWithValue("@img", arrImage)
+
                 conn.Open()
                 cmd.ExecuteNonQuery()
                 MsgBox("Successfully Added")
@@ -61,4 +73,34 @@ Public Class AddEmployee
         End If
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            EmpOpenDialog = New OpenFileDialog()
+            With EmpOpenDialog
+                .CheckFileExists = True
+                .CheckPathExists = True
+                .DefaultExt = "jpg"
+                .DereferenceLinks = True
+                .FileName = ""
+                .Filter = "(*.jpg)|*.jpg|(*.png)|*.png|(*.jpg)|*.jpg|All files|*.*"
+                .Multiselect = False
+                .RestoreDirectory = True
+                .Title = "Select a file to open"
+                .ValidateNames = True
+                If .ShowDialog = DialogResult.OK Then
+                    Try
+                        PictureBox1.Image = Image.FromFile(EmpOpenDialog.FileName)
+                    Catch fileException As Exception
+                        Throw fileException
+                    End Try
+                End If
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation, Me.Text)
+        End Try
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles EmpOpenDialog.FileOk
+
+    End Sub
 End Class
