@@ -1,31 +1,53 @@
 ﻿Imports System.Data.OleDb
+Imports System.IO
 
 Public Class EditEmployee
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
-    Public Shared Id
-    Public Shared empID
-    Public Shared empFname
-    Public Shared empLname
-    Public Shared empStatus
-    Public Shared empStatusTag
+    Dim Id
+    Dim empID
+    Dim empFname
+    Dim empLname
+    Dim empStatus
+    Dim empStatusTag
+
+    Dim arrImage() As Byte
 
     Public Function setData(ByVal ID, ByVal EmpID, ByVal EmpFname, ByVal EmpLname, ByVal EmpStatus, ByVal EmpStatusTag)
-        EditEmployee.Id = ID
-        EditEmployee.empID = EmpID
-        EditEmployee.empFname = EmpFname
-        EditEmployee.empLname = EmpLname
-        EditEmployee.empStatus = EmpStatus
-        EditEmployee.empStatusTag = EmpStatusTag
+        Me.Id = ID
+        Me.empID = EmpID
+        Me.empFname = EmpFname
+        Me.empLname = EmpLname
+        Me.empStatus = EmpStatus
+        Me.empStatusTag = EmpStatusTag
         Return 0
     End Function
 
+    Public Function FetchEmployeeImage()
+        Dim cmd As New OleDbCommand("SELECT profile_img FROM EmployeeRoster WHERE ID=@id", conn)
+        cmd.Parameters.AddWithValue("@id", Id)
+        Dim stream As New IO.MemoryStream()
+        conn.Open()
+        Dim image As Byte() = DirectCast(cmd.ExecuteScalar(), Byte())
+        stream.Write(image, 0, image.Length)
+        Dim bitmap As New Bitmap(stream)
+        stream.Close()
+        conn.Close()
+        Return bitmap
+    End Function
+
     Private Sub EditEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox4.Text = empID
-        TextBox1.Text = empFname
-        TextBox2.Text = empLname
-        ComboBox2.SelectedIndex = ComboBox2.FindString(empStatus)
-        TextBox3.Text = empStatusTag
+        Try
+            TextBox4.Text = empID
+            TextBox1.Text = empFname
+            TextBox2.Text = empLname
+            ComboBox2.SelectedIndex = ComboBox2.FindString(empStatus)
+            TextBox3.Text = empStatusTag
+            PictureBox1.Image = FetchEmployeeImage()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
         If Not (Asc(e.KeyChar) = 8) Then
@@ -47,12 +69,13 @@ Public Class EditEmployee
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
-            Using cmd As New OleDbCommand("UPDATE EmployeeRoster SET EmployeeID=@empId, EmployeeFName=@fname, EmployeeLName=@lname, EmpStatus=@status, EmpStatusTag=@tag WHERE ID=@Id", conn)
+            Using cmd As New OleDbCommand("UPDATE EmployeeRoster SET EmployeeID=@empId, EmployeeFName=@fname, EmployeeLName=@lname, EmpStatus=@status, EmpStatusTag=@tag, profile_img=@img WHERE ID=@Id", conn)
                 cmd.Parameters.AddWithValue("@empId", TextBox4.Text)
                 cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
                 cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
                 cmd.Parameters.AddWithValue("@status", ComboBox2.Text)
                 cmd.Parameters.AddWithValue("@tag", TextBox3.Text)
+                cmd.Parameters.AddWithValue("@img", arrImage)
                 cmd.Parameters.AddWithValue("@Id", Id)
                 conn.Open()
                 cmd.ExecuteNonQuery()
@@ -72,4 +95,40 @@ Public Class EditEmployee
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            With OpenFileDialog1
+                .CheckFileExists = True
+                .CheckPathExists = True
+                .DefaultExt = "jpg"
+                .DereferenceLinks = True
+                .FileName = ""
+                .Filter = "(*.jpg)|*.jpg|(*.png)|*.png|(*.jpg)|*.jpg|All files|*.*"
+                .Multiselect = False
+                .RestoreDirectory = True
+                .Title = "Select a file to open"
+                .ValidateNames = True
+
+                If .ShowDialog = DialogResult.OK Then
+                    Try
+                        PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
+
+                        Dim mstream As New System.IO.MemoryStream()
+                        PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                        arrImage = mstream.GetBuffer()
+                        Dim FileSize As UInt32
+                        FileSize = mstream.Length
+                        mstream.Close()
+                    Catch fileException As Exception
+                        Throw fileException
+                    End Try
+                End If
+
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation, Me.Text)
+        End Try
+    End Sub
+
 End Class

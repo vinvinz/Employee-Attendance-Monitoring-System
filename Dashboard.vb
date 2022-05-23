@@ -18,7 +18,13 @@ Public Class Dashboard
         If (cookie.GetUserType() = "user") Then
             Button3.Visible = False
         End If
+
     End Sub
+
+    Public Function SetProfileInfo()
+        PictureBox1.Image = cookie.GetUserImage()
+        Return Nothing
+    End Function
 
     Private Sub Chart1_Click(sender As Object, e As EventArgs)
 

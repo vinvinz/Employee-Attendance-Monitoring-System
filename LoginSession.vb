@@ -26,6 +26,15 @@ Public Class LoginSession
         Return UserStatus
     End Function
 
+    Public Function GetLinkedID(ByVal IdNum)
+        Dim isLinked As New OleDbCommand("SELECT EmployeeID FROM HR_Accounts WHERE ID=@id", conn)
+        isLinked.Parameters.AddWithValue("@id", IdNum)
+        conn.Open()
+        Dim empID = isLinked.ExecuteScalar().ToString()
+        conn.Close()
+        Return empID
+    End Function
+
     Public Function StartSession()
         Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM HR_Accounts WHERE ID=@id", conn)
         cmd.Parameters.AddWithValue("@id", UserID)
@@ -43,7 +52,26 @@ Public Class LoginSession
         UserID = Nothing
         UserType = Nothing
         UserStatus = Nothing
-        Return 0
+        Return Nothing
+    End Function
+
+    Public Function GetUserImage()
+        If (Not (GetLinkedID(UserID) = "")) Then
+            Try
+                Dim cmd As New OleDbCommand("SELECT profile_img FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.ID = HR_Accounts.EmployeeID WHERE EmployeeRoster.ID=@id", conn)
+                cmd.Parameters.AddWithValue("@id", GetLinkedID(UserID))
+                Dim stream As New IO.MemoryStream()
+                conn.Open()
+                Dim image As Byte() = DirectCast(cmd.ExecuteScalar(), Byte())
+                stream.Write(image, 0, image.Length)
+                Dim bitmap As New Bitmap(stream)
+                stream.Close()
+                conn.Close()
+                Return bitmap
+            Catch ex As Exception
+            End Try
+        End If
+        Return Nothing
     End Function
 
 End Class

@@ -93,14 +93,14 @@ Public Class test
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        sql = "UPDATE EmployeeRoster SET profile_img=@img WHERE ID=1"
+        sql = "UPDATE EmployeeRoster SET profile_img=@img WHERE ID=6"
         saveImage(sql)
         MsgBox("Image has been saved in the database")
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim stream As New IO.MemoryStream()
-        Using dmc As New OleDbCommand("select profile_img from EmployeeRoster where ID=4", con)
+        Using dmc As New OleDbCommand("select profile_img from EmployeeRoster where ID=6", con)
             con.Open()
             Dim image As Byte() = DirectCast(dmc.ExecuteScalar(), Byte())
             stream.Write(image, 0, image.Length)
@@ -109,5 +109,10 @@ Public Class test
             stream.Close()
             con.Close()
         End Using
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim cookie As New LoginSession()
+        PictureBox3.Image = cookie.GetUserImage()
     End Sub
 End Class

@@ -27,6 +27,7 @@ Public Class Login
             pass = check("Password")
 
             'FETCHING USER ID FOR USER SESSION
+            MsgBox(check.GetValue(0))
             cookie.setUserID(check.GetValue(0))
             cookie.StartSession()
             Dashboard.LinkLabel1.Text = TextBox1.Text
@@ -35,6 +36,7 @@ Public Class Login
             If (cookie.GetUserStatus() = "enabled" Or cookie.GetUserStatus() = "disabled") Then
                 MsgBox("Login Success!")
                 con.Close()
+                Dashboard.SetProfileInfo()
                 Dashboard.Show()
                 Me.Hide()
             ElseIf (cookie.GetUserStatus() = "banned") Then

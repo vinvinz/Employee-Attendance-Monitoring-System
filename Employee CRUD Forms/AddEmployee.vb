@@ -11,7 +11,7 @@ Public Class AddEmployee
     End Sub
 
     Public Function GenerateEmployeeID()
-        Dim EmployeeID
+        Dim EmployeeID = Nothing
         Try
             Dim count_rows As New OleDbCommand("SELECT COUNT(*) From [EmployeeRoster]", conn)
             conn.Open()

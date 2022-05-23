@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A4538B6-2F31-4AF2-AA06-34452708A78A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Employee_Attendance_Monitoring.Employee</StartupObject>
+    <StartupObject>Employee_Attendance_Monitoring.Login</StartupObject>
     <RootNamespace>Employee_Attendance_Monitoring</RootNamespace>
     <AssemblyName>Employee Attendance Monitoring</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -189,6 +189,12 @@
     <Compile Include="Employee CRUD Forms\test.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Employee CRUD Forms\UploadImage.Designer.vb">
+      <DependentUpon>UploadImage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee CRUD Forms\UploadImage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Employee.Designer.vb">
       <DependentUpon>Employee.vb</DependentUpon>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee CRUD Forms\test.resx">
       <DependentUpon>test.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee CRUD Forms\UploadImage.resx">
+      <DependentUpon>UploadImage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.vb</DependentUpon>

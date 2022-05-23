@@ -12,6 +12,7 @@ Public Class Employee
     Dim Status
     Dim StatusTag
 
+
     Public Function GetEmployeesList() As DataTable
 
         Dim Dt As New DataTable
@@ -96,6 +97,7 @@ Public Class Employee
     Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
         EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
         EditEmployee.Show()
+        Me.Hide()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -143,7 +145,11 @@ Public Class Employee
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Profile.GetUserID(ID)
-        Profile.Show()
+        If ID = Nothing Then
+            MsgBox("Please select employee from the list.")
+        Else
+            Profile.GetUserID(ID)
+            Profile.Show()
+        End If
     End Sub
 End Class
