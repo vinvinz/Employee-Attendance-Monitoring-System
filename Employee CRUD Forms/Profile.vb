@@ -26,9 +26,13 @@ Public Class Profile
             StatTag = fetch("EmpStatusTag")
         End If
         conn.Close()
+        Try
+            name_lbl.Text = name_lbl.Text & "" & name
+            empstatus_lbl.Text = empstatus_lbl.Text & "" & EmpStat
+            TextBox1.Text = StatTag
+        Catch ex As Exception
 
-        name_lbl.Text = name_lbl.Text & "" & name
-        empstatus_lbl.Text = empstatus_lbl.Text & "" & EmpStat
+        End Try
         Try
             Using dmc As New OleDbCommand("select profile_img from EmployeeRoster where ID=@id", conn)
 

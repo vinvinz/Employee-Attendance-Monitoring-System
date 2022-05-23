@@ -22,7 +22,10 @@ Public Class Dashboard
     End Sub
 
     Public Function SetProfileInfo()
-        PictureBox1.Image = cookie.GetUserImage()
+        PictureBox1.Image = My.Resources.download
+        If (cookie.GetUserImage() IsNot Nothing) Then
+            PictureBox1.Image = cookie.GetUserImage()
+        End If
         Return Nothing
     End Function
 
@@ -116,5 +119,11 @@ Public Class Dashboard
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Hide()
         Admin.Show()
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Me.Hide()
+        UserProfile.SetProfileInfo()
+        UserProfile.Show()
     End Sub
 End Class

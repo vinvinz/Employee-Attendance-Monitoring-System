@@ -73,12 +73,15 @@ Partial Class Profile
         '
         'TextBox1
         '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Cursor = System.Windows.Forms.Cursors.Default
         Me.TextBox1.Location = New System.Drawing.Point(39, 333)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(170, 76)
         Me.TextBox1.TabIndex = 4
+        Me.TextBox1.TabStop = False
         '
         'Profile
         '

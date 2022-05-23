@@ -8,6 +8,9 @@ Public Class LoginSession
     Public Shared UserID
     Public Shared UserType
     Public Shared UserStatus
+    Public Shared Username
+    Public Shared UserFName
+    Public Shared UserLName
 
     Public Function SetUserID(ByVal ID)
         UserID = ID
@@ -16,6 +19,10 @@ Public Class LoginSession
 
     Public Function GetUserID()
         Return UserID
+    End Function
+
+    Public Function GetUsername()
+        Return Username
     End Function
 
     Public Function GetUserType()
@@ -35,24 +42,17 @@ Public Class LoginSession
         Return empID
     End Function
 
-    Public Function StartSession()
-        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM HR_Accounts WHERE ID=@id", conn)
-        cmd.Parameters.AddWithValue("@id", UserID)
+    Public Function GetUserFullName()
+        Dim FullName = Nothing
+        Dim cmd As New OleDbCommand("SELECT EmployeeFName, EmployeeLName FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.ID = HR_Accounts.EmployeeID WHERE EmployeeRoster.ID=@id", conn)
+        cmd.Parameters.AddWithValue("@id", GetLinkedID(UserID))
         conn.Open()
-        Dim FetchValues As OleDbDataReader = cmd.ExecuteReader()
-        If (FetchValues.Read = True) Then
-            UserType = FetchValues("AccType")
-            UserStatus = FetchValues("AccStatus")
+        Dim FetchName As OleDbDataReader = cmd.ExecuteReader()
+        If (FetchName.Read = True) Then
+            FullName = FetchName("EmployeeFName") & " " & FetchName("EmployeeLName")
         End If
         conn.Close()
-        Return 0
-    End Function
-
-    Public Function EndSession()
-        UserID = Nothing
-        UserType = Nothing
-        UserStatus = Nothing
-        Return Nothing
+        Return FullName
     End Function
 
     Public Function GetUserImage()
@@ -74,4 +74,24 @@ Public Class LoginSession
         Return Nothing
     End Function
 
+    Public Function StartSession()
+        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM HR_Accounts WHERE ID=@id", conn)
+        cmd.Parameters.AddWithValue("@id", UserID)
+        conn.Open()
+        Dim FetchValues As OleDbDataReader = cmd.ExecuteReader()
+        If (FetchValues.Read = True) Then
+            Username = FetchValues("Username")
+            UserType = FetchValues("AccType")
+            UserStatus = FetchValues("AccStatus")
+        End If
+        conn.Close()
+        Return 0
+    End Function
+
+    Public Function EndSession()
+        UserID = Nothing
+        UserType = Nothing
+        UserStatus = Nothing
+        Return Nothing
+    End Function
 End Class

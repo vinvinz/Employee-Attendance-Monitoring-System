@@ -27,7 +27,6 @@ Public Class Login
             pass = check("Password")
 
             'FETCHING USER ID FOR USER SESSION
-            MsgBox(check.GetValue(0))
             cookie.setUserID(check.GetValue(0))
             cookie.StartSession()
             Dashboard.LinkLabel1.Text = TextBox1.Text
