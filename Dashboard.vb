@@ -101,6 +101,7 @@ Public Class Dashboard
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
+        Employee.SetProfileInfo()
         Employee.Show()
     End Sub
 
@@ -118,6 +119,7 @@ Public Class Dashboard
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Hide()
+        Admin.SetProfileInfo()
         Admin.Show()
     End Sub
 

@@ -28,6 +28,15 @@ Public Class Employee
         Return Dt
     End Function
 
+    Public Function SetProfileInfo()
+        LinkLabel1.Text = cookie.GetUsername()
+        PictureBox1.Image = My.Resources.download
+        If (cookie.GetUserImage() IsNot Nothing) Then
+            PictureBox1.Image = cookie.GetUserImage()
+        End If
+        Return Nothing
+    End Function
+
     Public Function SearchEmployee() As DataTable
         Dim Test As New DataTable
         Using cmd As New OleDbCommand(
@@ -76,7 +85,12 @@ Public Class Employee
     End Sub
 
     Private Sub Add_btn_Click(sender As Object, e As EventArgs) Handles Add_btn.Click
-        AddEmployee.Show()
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to add Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            AddEmployee.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -95,30 +109,39 @@ Public Class Employee
     End Sub
 
     Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
-        EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
-        EditEmployee.Show()
-        Me.Hide()
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to edit Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
+            EditEmployee.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
+        Dashboard.SetProfileInfo()
         Dashboard.Show()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Delete_btn.Click
-        Dim opt = MessageBox.Show("Are you sure you want to Delete Employee with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-        If (opt = 1) Then
-            Using cmd As New OleDbCommand("DELETE FROM EmployeeRoster WHERE ID=@id", conn)
-                cmd.Parameters.AddWithValue("@id", ID)
-                conn.Open()
-                cmd.ExecuteNonQuery()
-                MsgBox("Delete Success")
-                conn.Close()
-                DataGridView1.DataSource = GetEmployeesList()
-                DataGridView1.ClearSelection()
-                Edit_btn.Enabled = False
-                Delete_btn.Enabled = False
-            End Using
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to delete Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            Dim opt = MessageBox.Show("Are you sure you want to Delete Employee with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            If (opt = 1) Then
+                Using cmd As New OleDbCommand("DELETE FROM EmployeeRoster WHERE ID=@id", conn)
+                    cmd.Parameters.AddWithValue("@id", ID)
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                    MsgBox("Delete Success")
+                    conn.Close()
+                    DataGridView1.DataSource = GetEmployeesList()
+                    DataGridView1.ClearSelection()
+                    Edit_btn.Enabled = False
+                    Delete_btn.Enabled = False
+                End Using
+            End If
         End If
     End Sub
 
@@ -141,6 +164,7 @@ Public Class Employee
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Me.Hide()
+        Admin.SetProfileInfo()
         Admin.Show()
     End Sub
 

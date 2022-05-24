@@ -6,6 +6,13 @@
         Button3.FlatAppearance.BorderSize = 0
         LinkLabel1.LinkVisited = True
 
+        If (cookie.GetUserType() = "admin") Then
+            Button3.Visible = True
+        End If
+
+        If (cookie.GetUserType() = "user") Then
+            Button3.Visible = False
+        End If
     End Sub
 
     Public Function SetProfileInfo()
@@ -18,7 +25,23 @@
             PictureBox2.Image = cookie.GetUserImage()
         End If
         Return Nothing
-
-        Return Nothing
     End Function
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
+        Dashboard.SetProfileInfo()
+        Dashboard.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        Employee.SetProfileInfo()
+        Employee.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Hide()
+        Admin.SetProfileInfo()
+        Admin.Show()
+    End Sub
 End Class

@@ -13,6 +13,8 @@ Public Class EditEmployee
 
     Dim arrImage() As Byte
 
+    Dim imgChangedFlag = 0
+
     Public Function setData(ByVal ID, ByVal EmpID, ByVal EmpFname, ByVal EmpLname, ByVal EmpStatus, ByVal EmpStatusTag)
         Me.Id = ID
         Me.empID = EmpID
@@ -36,6 +38,15 @@ Public Class EditEmployee
         Return bitmap
     End Function
 
+    Public Function SaveEmployeeImage()
+        Dim cmd As New OleDbCommand("SELECT profile_img FROM EmployeeRoster WHERE ID=@id", conn)
+        cmd.Parameters.AddWithValue("@id", Id)
+        conn.Open()
+        Dim image As Byte() = DirectCast(cmd.ExecuteScalar(), Byte())
+        conn.Close()
+        Return image
+    End Function
+
     Private Sub EditEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             TextBox4.Text = empID
@@ -47,7 +58,6 @@ Public Class EditEmployee
         Catch ex As Exception
 
         End Try
-
     End Sub
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
         If Not (Asc(e.KeyChar) = 8) Then
@@ -68,6 +78,10 @@ Public Class EditEmployee
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If (imgChangedFlag = 0) Then
+            arrImage = SaveEmployeeImage()
+        End If
+
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
             Using cmd As New OleDbCommand("UPDATE EmployeeRoster SET EmployeeID=@empId, EmployeeFName=@fname, EmployeeLName=@lname, EmpStatus=@status, EmpStatusTag=@tag, profile_img=@img WHERE ID=@Id", conn)
                 cmd.Parameters.AddWithValue("@empId", TextBox4.Text)
@@ -84,6 +98,7 @@ Public Class EditEmployee
                 Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
                 Employee.DataGridView1.ClearSelection()
                 Employee.Edit_btn.Enabled = False
+                Employee.Delete_btn.Enabled = False
                 Employee.Show()
                 Me.Close()
             End Using
@@ -113,18 +128,17 @@ Public Class EditEmployee
                 If .ShowDialog = DialogResult.OK Then
                     Try
                         PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
-
                         Dim mstream As New System.IO.MemoryStream()
                         PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
                         arrImage = mstream.GetBuffer()
                         Dim FileSize As UInt32
                         FileSize = mstream.Length
                         mstream.Close()
+                        imgChangedFlag = 1
                     Catch fileException As Exception
                         Throw fileException
                     End Try
                 End If
-
             End With
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation, Me.Text)

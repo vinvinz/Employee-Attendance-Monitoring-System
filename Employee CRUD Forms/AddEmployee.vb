@@ -76,7 +76,7 @@ Public Class AddEmployee
                     Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
                     Employee.DataGridView1.ClearSelection()
                     Employee.Edit_btn.Enabled = False
-                    Me.Close()
+                    Me.Hide()
                     Employee.Show()
                 End Using
 

@@ -51,6 +51,15 @@ Public Class Admin
         Return 0
     End Function
 
+    Public Function SetProfileInfo()
+        LinkLabel1.Text = cookie.GetUsername()
+        PictureBox1.Image = My.Resources.download
+        If (cookie.GetUserImage() IsNot Nothing) Then
+            PictureBox1.Image = cookie.GetUserImage()
+        End If
+        Return Nothing
+    End Function
+
     Private Sub AdminForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
@@ -84,7 +93,11 @@ Public Class Admin
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Register.Show()
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to Register a new account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            Register.Show()
+        End If
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -102,24 +115,32 @@ Public Class Admin
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        UpdateAccount.SetAccountData(ID, Usn, Pass, Type, Status)
-        UpdateAccount.Show()
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to Update account Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            UpdateAccount.SetAccountData(ID, Usn, Pass, Type, Status)
+            UpdateAccount.Show()
+        End If
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Dim opt = MessageBox.Show("Are you sure you want to Delete Account with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-        If (opt = 1) Then
-            Using cmd As New OleDbCommand("DELETE FROM HR_Accounts WHERE ID=@id", conn)
-                cmd.Parameters.AddWithValue("@id", ID)
-                conn.Open()
-                cmd.ExecuteNonQuery()
-                MsgBox("Delete Success")
-                conn.Close()
-                DataGridView1.DataSource = GetHRAccounts()
-                DataGridView1.ClearSelection()
-                Button5.Enabled = False
-                Button6.Enabled = False
-            End Using
+        If (cookie.GetUserStatus() = "disabled") Then
+            MessageBox.Show("You have no permission to Delete an account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled") Then
+            Dim opt = MessageBox.Show("Are you sure you want to Delete Account with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            If (opt = 1) Then
+                Using cmd As New OleDbCommand("DELETE FROM HR_Accounts WHERE ID=@id", conn)
+                    cmd.Parameters.AddWithValue("@id", ID)
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                    MsgBox("Delete Success")
+                    conn.Close()
+                    DataGridView1.DataSource = GetHRAccounts()
+                    DataGridView1.ClearSelection()
+                    Button5.Enabled = False
+                    Button6.Enabled = False
+                End Using
+            End If
         End If
     End Sub
 End Class
