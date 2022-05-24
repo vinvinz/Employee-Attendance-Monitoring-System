@@ -176,6 +176,7 @@ Partial Class Login
         '
         'Login
         '
+        Me.AcceptButton = Me.login_btn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)

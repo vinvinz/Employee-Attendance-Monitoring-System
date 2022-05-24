@@ -44,4 +44,15 @@
         Admin.SetProfileInfo()
         Admin.Show()
     End Sub
+
+    Private Sub logout_btn_Click(sender As Object, e As EventArgs) Handles logout_btn.Click
+        Dim choice = MsgBox("Do you want to logout?", vbYesNo, "Confirm Logout")
+        If choice = vbYes Then
+            cookie.EndSession()
+            Button3.Visible = False
+            Employee.Button4.Visible = False
+            Me.Hide()
+            Login.Show()
+        End If
+    End Sub
 End Class

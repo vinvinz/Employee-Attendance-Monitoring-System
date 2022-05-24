@@ -143,4 +143,10 @@ Public Class Admin
             End If
         End If
     End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Me.Hide()
+        UserProfile.SetProfileInfo()
+        UserProfile.Show()
+    End Sub
 End Class
