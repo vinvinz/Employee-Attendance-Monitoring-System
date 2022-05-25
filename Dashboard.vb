@@ -1,11 +1,12 @@
 ﻿Imports System.Data.OleDb
 Public Class Dashboard
-
+    Dim conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb")
     Dim cookie = New LoginSession()
+    Dim EmployeeCount
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'EAMDataSet3.Employees' table. You can move, or remove it, as needed.
-        Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
+        'Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
 
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
@@ -18,8 +19,35 @@ Public Class Dashboard
         If (cookie.GetUserType() = "user") Then
             Button3.Visible = False
         End If
-
+        SetAttendanceTable()
     End Sub
+
+    Public Function SetAttendanceTable()
+        Dim dateToday As DateTime = Date.Today()
+        dateToday = dateToday.AddDays(-7)
+        CountTotalEmployees()
+        For a = 0 To 6
+            Dim cmd As New OleDbCommand("SELECT COUNT(*) FROM Employees WHERE WorkDate=@date AND Attendance=Yes", conn)
+            cmd.Parameters.AddWithValue("@date", dateToday.AddDays(a))
+            conn.Open()
+            'MsgBox(dateToday.AddDays(a).ToString("dddd") & " " & cmd.ExecuteScalar())
+            Me.Chart1.Series("Attendance").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), cmd.ExecuteScalar())
+            'Me.Chart1.Series("Absent").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), EmployeeCount)
+            conn.Close()
+        Next
+        'MsgBox(dateToday)
+        'MsgBox(dateToday.AddDays(-6))
+        Return Nothing
+    End Function
+
+    'FOR COUNTING TOTAL NUMBER OF EMPLOYEE
+    Public Function CountTotalEmployees()
+        Dim totalEmp As New OleDbCommand("SELECT COUNT(*) FROM [EmployeeRoster]", conn)
+        conn.Open()
+        EmployeeCount = CInt(totalEmp.ExecuteScalar())
+        conn.Close()
+        Return Nothing
+    End Function
 
     Public Function SetProfileInfo()
         PictureBox1.Image = My.Resources.download
@@ -74,8 +102,6 @@ Public Class Dashboard
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Generate.Click
         'Dim dtepcker As Date = DateTimePicker1.Value.Date
-
-        Dim conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb")
         conn.Open()
         Dim countPrsntToday As New OleDbCommand("SELECT COUNT(*) From [Employees] WHERE WorkDate=@date1", conn)
         countPrsntToday.Parameters.AddWithValue("@date1", DateTimePicker1.Value.Date)
@@ -105,7 +131,7 @@ Public Class Dashboard
         Employee.Show()
     End Sub
 
-    Private Sub Chart1_Click_1(sender As Object, e As EventArgs) Handles Chart1.Click
+    Private Sub Chart1_Click_1(sender As Object, e As EventArgs)
 
     End Sub
 
