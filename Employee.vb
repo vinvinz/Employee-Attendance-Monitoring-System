@@ -89,7 +89,6 @@ Public Class Employee
             MessageBox.Show("You have no permission to add Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf (cookie.GetUserStatus() = "enabled") Then
             AddEmployee.Show()
-            Me.Hide()
         End If
     End Sub
 
@@ -114,7 +113,6 @@ Public Class Employee
         ElseIf (cookie.GetUserStatus() = "enabled") Then
             EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
             EditEmployee.Show()
-            Me.Hide()
         End If
     End Sub
 
@@ -174,6 +172,7 @@ Public Class Employee
         Else
             Profile.GetUserID(ID)
             Profile.Show()
+            Profile.GetAttendance()
         End If
     End Sub
 
