@@ -19,13 +19,14 @@ Public Class Dashboard
         If (cookie.GetUserType() = "user") Then
             Button3.Visible = False
         End If
+        CountTotalEmployees()
         SetAttendanceTable()
+        attrition_lbl.Text = CalculateAttritionRate() & "%"
     End Sub
 
     Public Function SetAttendanceTable()
         Dim dateToday As DateTime = Date.Today()
         dateToday = dateToday.AddDays(-7)
-        CountTotalEmployees()
         For a = 0 To 6
             Dim cmd As New OleDbCommand("SELECT COUNT(*) FROM Employees WHERE WorkDate=@date AND Attendance=Yes", conn)
             cmd.Parameters.AddWithValue("@date", dateToday.AddDays(a))
@@ -38,6 +39,32 @@ Public Class Dashboard
         'MsgBox(dateToday)
         'MsgBox(dateToday.AddDays(-6))
         Return Nothing
+    End Function
+
+    Public Function CalculateAttritionRate()
+        Dim dateToday As DateTime = Date.Today()
+        Dim dateFrom = dateToday.AddDays(-30).ToString("d")
+        Dim dateTo = dateToday.ToString("d")
+        Dim term = Nothing
+        Dim emp = Nothing
+        'MsgBox("SELECT COUNT(*) FROM EmployeeLogs WHERE LogDate BETWEEN " & Date.Today & " AND " & dateToday.AddDays(-30))
+        'MsgBox(dateFrom & " " & dateTo)
+
+        Dim countEmployed As New OleDbCommand("SELECT COUNT(*) FROM EmployeeLogs WHERE Type='employed' AND LogDate BETWEEN @from AND @to", conn)
+        countEmployed.Parameters.AddWithValue("@from", dateFrom)
+        countEmployed.Parameters.AddWithValue("@to", dateTo)
+        Dim countTerminated As New OleDbCommand("SELECT COUNT(*) FROM EmployeeLogs WHERE Type='terminated' AND LogDate BETWEEN @from AND @to", conn)
+        countTerminated.Parameters.AddWithValue("@from", dateFrom)
+        countTerminated.Parameters.AddWithValue("@to", dateTo)
+
+        conn.Open()
+        emp = countEmployed.ExecuteScalar()
+        term = countTerminated.ExecuteScalar()
+        conn.Close()
+
+        Dim averageNumberOfEmp = (emp + (emp - term)) / 2
+        Dim AttritionRate = (term / averageNumberOfEmp) * 100
+        Return AttritionRate
     End Function
 
     'FOR COUNTING TOTAL NUMBER OF EMPLOYEE
@@ -92,7 +119,7 @@ Public Class Dashboard
 
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -106,7 +133,7 @@ Public Class Dashboard
         Dim countPrsntToday As New OleDbCommand("SELECT COUNT(*) From [Employees] WHERE WorkDate=@date1", conn)
         countPrsntToday.Parameters.AddWithValue("@date1", DateTimePicker1.Value.Date)
         Dim countPrsntGenerated = CInt(countPrsntToday.ExecuteScalar())
-        TextBox1.Text = CStr(countPrsntGenerated)
+        present_lbl.Text = CStr(countPrsntGenerated)
 
         Dim countTermiEmployees As New OleDbCommand("SELECT COUNT(*) From [EmployeeRoster] WHERE EmpStatus='Terminated'", conn)
         Dim TotalTermiEmp = CInt(countTermiEmployees.ExecuteScalar())
@@ -116,7 +143,7 @@ Public Class Dashboard
 
         Dim TurnOverRate = TotalTermiEmp / TotalEmp * 100
 
-        TextBox2.Text = Math.Ceiling(TurnOverRate) & "%"
+        turnover_lbl.Text = Math.Ceiling(TurnOverRate) & "%"
 
         conn.Close()
     End Sub
@@ -139,7 +166,7 @@ Public Class Dashboard
 
     End Sub
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 

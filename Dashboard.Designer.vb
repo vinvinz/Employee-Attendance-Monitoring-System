@@ -23,9 +23,9 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.logout_btn = New System.Windows.Forms.Button()
@@ -43,12 +43,10 @@ Partial Class Dashboard
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Generate = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.EmployeesBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -63,6 +61,9 @@ Partial Class Dashboard
         Me.EmployeesTableAdapter2 = New Employee_Attendance_Monitoring.EAMDataSet2TableAdapters.EmployeesTableAdapter()
         Me.EmployeesTableAdapter3 = New Employee_Attendance_Monitoring.EAMDataSet3TableAdapters.EmployeesTableAdapter()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.attrition_lbl = New System.Windows.Forms.Label()
+        Me.present_lbl = New System.Windows.Forms.Label()
+        Me.turnover_lbl = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -262,38 +263,28 @@ Partial Class Dashboard
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(1, Byte), Integer), CType(CType(1, Byte), Integer))
-        Me.Panel7.Controls.Add(Me.TextBox2)
+        Me.Panel7.Controls.Add(Me.turnover_lbl)
         Me.Panel7.Controls.Add(Me.Label6)
         Me.Panel7.Location = New System.Drawing.Point(273, 6)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(114, 83)
         Me.Panel7.TabIndex = 2
         '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.Red
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(14, 53)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 28)
-        Me.TextBox2.TabIndex = 6
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(9, 15)
+        Me.Label6.Location = New System.Drawing.Point(18, 14)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 13)
+        Me.Label6.Size = New System.Drawing.Size(83, 16)
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "TURN OVER"
         '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.attrition_lbl)
         Me.Panel6.Controls.Add(Me.Label4)
         Me.Panel6.Location = New System.Drawing.Point(146, 6)
         Me.Panel6.Name = "Panel6"
@@ -303,43 +294,32 @@ Partial Class Dashboard
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(12, 15)
+        Me.Label4.Location = New System.Drawing.Point(23, 15)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(61, 13)
+        Me.Label4.Size = New System.Drawing.Size(71, 16)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "ATTRITION"
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(151, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel5.Controls.Add(Me.TextBox1)
+        Me.Panel5.Controls.Add(Me.present_lbl)
         Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Location = New System.Drawing.Point(14, 6)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(112, 83)
         Me.Panel5.TabIndex = 0
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(9, 53)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 28)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(15, 15)
+        Me.Label2.Location = New System.Drawing.Point(22, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
+        Me.Label2.Size = New System.Drawing.Size(69, 16)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "PRESENT"
         '
@@ -401,20 +381,54 @@ Partial Class Dashboard
         '
         'Chart1
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend3)
         Me.Chart1.Location = New System.Drawing.Point(185, 235)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Attendance"
-        Series1.YValuesPerPoint = 4
-        Me.Chart1.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Attendance"
+        Series3.YValuesPerPoint = 4
+        Me.Chart1.Series.Add(Series3)
         Me.Chart1.Size = New System.Drawing.Size(551, 235)
         Me.Chart1.TabIndex = 6
         Me.Chart1.Text = "Chart1"
+        '
+        'attrition_lbl
+        '
+        Me.attrition_lbl.AutoSize = True
+        Me.attrition_lbl.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.attrition_lbl.ForeColor = System.Drawing.Color.White
+        Me.attrition_lbl.Location = New System.Drawing.Point(41, 44)
+        Me.attrition_lbl.Name = "attrition_lbl"
+        Me.attrition_lbl.Size = New System.Drawing.Size(27, 22)
+        Me.attrition_lbl.TabIndex = 1
+        Me.attrition_lbl.Text = "%"
+        Me.attrition_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'present_lbl
+        '
+        Me.present_lbl.AutoSize = True
+        Me.present_lbl.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.present_lbl.ForeColor = System.Drawing.Color.White
+        Me.present_lbl.Location = New System.Drawing.Point(43, 44)
+        Me.present_lbl.Name = "present_lbl"
+        Me.present_lbl.Size = New System.Drawing.Size(0, 22)
+        Me.present_lbl.TabIndex = 2
+        Me.present_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'turnover_lbl
+        '
+        Me.turnover_lbl.AutoSize = True
+        Me.turnover_lbl.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.turnover_lbl.ForeColor = System.Drawing.Color.White
+        Me.turnover_lbl.Location = New System.Drawing.Point(48, 44)
+        Me.turnover_lbl.Name = "turnover_lbl"
+        Me.turnover_lbl.Size = New System.Drawing.Size(0, 22)
+        Me.turnover_lbl.TabIndex = 3
+        Me.turnover_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Dashboard
         '
@@ -474,7 +488,6 @@ Partial Class Dashboard
     Friend WithEvents Label2 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents logout_btn As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Generate As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Button2 As Button
@@ -489,11 +502,13 @@ Partial Class Dashboard
     Friend WithEvents EAMDataSet2 As EAMDataSet2
     Friend WithEvents EmployeesBindingSource2 As BindingSource
     Friend WithEvents EmployeesTableAdapter2 As EAMDataSet2TableAdapters.EmployeesTableAdapter
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents EmployeesBindingSource3 As BindingSource
     Friend WithEvents EAMDataSet3 As EAMDataSet3
     Friend WithEvents EmployeesBindingSource4 As BindingSource
     Friend WithEvents EmployeesTableAdapter3 As EAMDataSet3TableAdapters.EmployeesTableAdapter
     Friend WithEvents Button3 As Button
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents attrition_lbl As Label
+    Friend WithEvents turnover_lbl As Label
+    Friend WithEvents present_lbl As Label
 End Class
