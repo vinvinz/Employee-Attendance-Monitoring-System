@@ -40,7 +40,7 @@ Public Class Employee
     Public Function SearchEmployee() As DataTable
         Dim Test As New DataTable
         Using cmd As New OleDbCommand(
-        "SELECT * FROM EmployeeRoster WHERE (
+        "SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag FROM EmployeeRoster WHERE (
         [EmployeeFName] LIKE @searchtxt OR
         [EmployeeLName] LIKE @searchtxt OR
         [EmpStatus] LIKE @searchtxt OR
@@ -85,9 +85,9 @@ Public Class Employee
     End Sub
 
     Private Sub Add_btn_Click(sender As Object, e As EventArgs) Handles Add_btn.Click
-        If (cookie.GetUserStatus() = "disabled") Then
+        If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
             MessageBox.Show("You have no permission to add Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf (cookie.GetUserStatus() = "enabled") Then
+        ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
             AddEmployee.Show()
         End If
     End Sub
@@ -108,9 +108,9 @@ Public Class Employee
     End Sub
 
     Private Sub Edit_btn_Click(sender As Object, e As EventArgs) Handles Edit_btn.Click
-        If (cookie.GetUserStatus() = "disabled") Then
+        If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
             MessageBox.Show("You have no permission to edit Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf (cookie.GetUserStatus() = "enabled") Then
+        ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
             EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
             EditEmployee.Show()
         End If
@@ -123,9 +123,9 @@ Public Class Employee
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Delete_btn.Click
-        If (cookie.GetUserStatus() = "disabled") Then
+        If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
             MessageBox.Show("You have no permission to delete Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf (cookie.GetUserStatus() = "enabled") Then
+        ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
             Dim opt = MessageBox.Show("Are you sure you want to Delete Employee with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             If (opt = 1) Then
                 Using cmd As New OleDbCommand("DELETE FROM EmployeeRoster WHERE ID=@id", conn)
