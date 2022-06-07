@@ -44,7 +44,8 @@ Public Class Employee
         [EmployeeFName] LIKE @searchtxt OR
         [EmployeeLName] LIKE @searchtxt OR
         [EmpStatus] LIKE @searchtxt OR
-        [EmployeeID] LIKE @searchtxt)", conn)
+        [EmployeeID] LIKE @searchtxt OR
+        [EmpStatusTag] LIKE @searchtxt)", conn)
             cmd.Parameters.AddWithValue("@searchtxt", "%" & SearchBox.Text & "%")
             conn.Open()
             Dim readList As OleDbDataReader = cmd.ExecuteReader()
@@ -179,6 +180,6 @@ Public Class Employee
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Me.Hide()
         UserProfile.SetProfileInfo()
-        UserProfile.Show()
+        UserProfile.ShowDialog()
     End Sub
 End Class

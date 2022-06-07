@@ -66,6 +66,7 @@ Public Class Admin
         Button3.FlatAppearance.BorderSize = 0
         Button5.Enabled = False
         Button6.Enabled = False
+        Button7.Enabled = False
         DataGridView1.DataSource = GetHRAccounts()
         DataGridView1.ClearSelection()
         With DataGridView1
@@ -75,6 +76,7 @@ Public Class Admin
             .Columns(2).HeaderCell.Value = "Password"
             .Columns(3).HeaderCell.Value = "Account Type"
             .Columns(4).HeaderCell.Value = "Account Status"
+            .Columns(5).HeaderCell.Value = "Linked Employee ID"
         End With
     End Sub
 
@@ -109,6 +111,7 @@ Public Class Admin
             Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
             Button5.Enabled = True
             Button6.Enabled = True
+            Button7.Enabled = True
         Catch ex As Exception
 
         End Try
@@ -148,5 +151,10 @@ Public Class Admin
         Me.Hide()
         UserProfile.SetProfileInfo()
         UserProfile.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Link.SetTableID(ID)
+        Link.Show()
     End Sub
 End Class

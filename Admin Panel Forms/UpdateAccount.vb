@@ -55,6 +55,7 @@ Public Class UpdateAccount
             Admin.DataGridView1.ClearSelection()
             Admin.Button5.Enabled = False
             Admin.Button6.Enabled = False
+            Admin.Button7.Enabled = False
             Me.Close()
         End Using
     End Sub

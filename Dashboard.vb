@@ -26,13 +26,14 @@ Public Class Dashboard
 
     Public Function SetAttendanceTable()
         Dim dateToday As DateTime = Date.Today()
-        dateToday = dateToday.AddDays(-7)
+        dateToday = dateToday.AddDays(-20)
         For a = 0 To 6
             Dim cmd As New OleDbCommand("SELECT COUNT(*) FROM Employees WHERE WorkDate=@date AND Attendance=Yes", conn)
             cmd.Parameters.AddWithValue("@date", dateToday.AddDays(a))
             conn.Open()
             'MsgBox(dateToday.AddDays(a).ToString("dddd") & " " & cmd.ExecuteScalar())
-            Me.Chart1.Series("Attendance").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), cmd.ExecuteScalar())
+            Me.Chart1.Series("Present").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), cmd.ExecuteScalar())
+            Me.Chart1.Series("Absent").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), EmployeeCount - CInt(cmd.ExecuteScalar()))
             'Me.Chart1.Series("Absent").Points.AddXY(dateToday.AddDays(a).ToString("dddd"), EmployeeCount)
             conn.Close()
         Next
@@ -43,7 +44,7 @@ Public Class Dashboard
 
     Public Function CalculateAttritionRate()
         Dim dateToday As DateTime = Date.Today()
-        Dim dateFrom = dateToday.AddDays(-30).ToString("d")
+        Dim dateFrom = dateToday.AddDays(-100).ToString("d")
         Dim dateTo = dateToday.ToString("d")
         Dim term = Nothing
         Dim emp = Nothing

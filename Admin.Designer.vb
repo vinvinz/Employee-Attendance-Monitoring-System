@@ -23,9 +23,9 @@ Partial Class Admin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -56,6 +56,8 @@ Partial Class Admin
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.disabled_lbl = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +67,7 @@ Partial Class Admin
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -73,7 +76,7 @@ Partial Class Admin
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(-1, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(802, 38)
+        Me.Panel1.Size = New System.Drawing.Size(864, 38)
         Me.Panel1.TabIndex = 3
         '
         'Label3
@@ -111,7 +114,7 @@ Partial Class Admin
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(149, 450)
+        Me.Panel2.Size = New System.Drawing.Size(149, 503)
         Me.Panel2.TabIndex = 4
         '
         'Button3
@@ -177,7 +180,7 @@ Partial Class Admin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(189, 65)
+        Me.Label2.Location = New System.Drawing.Point(180, 53)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 22)
         Me.Label2.TabIndex = 8
@@ -191,32 +194,32 @@ Partial Class Admin
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(183, 194)
+        Me.DataGridView1.Location = New System.Drawing.Point(184, 205)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(562, 181)
+        Me.DataGridView1.Size = New System.Drawing.Size(641, 233)
         Me.DataGridView1.TabIndex = 9
         '
         'Button4
@@ -226,7 +229,7 @@ Partial Class Admin
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button4.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Button4.Location = New System.Drawing.Point(182, 391)
+        Me.Button4.Location = New System.Drawing.Point(215, 452)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(113, 33)
         Me.Button4.TabIndex = 10
@@ -240,7 +243,7 @@ Partial Class Admin
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button5.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Button5.Location = New System.Drawing.Point(504, 391)
+        Me.Button5.Location = New System.Drawing.Point(522, 452)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(113, 33)
         Me.Button5.TabIndex = 11
@@ -254,7 +257,7 @@ Partial Class Admin
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button6.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Button6.Location = New System.Drawing.Point(632, 391)
+        Me.Button6.Location = New System.Drawing.Point(665, 452)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(113, 33)
         Me.Button6.TabIndex = 12
@@ -271,7 +274,7 @@ Partial Class Admin
         Me.Panel4.BackColor = System.Drawing.Color.RoyalBlue
         Me.Panel4.Controls.Add(Me.admin_lbl)
         Me.Panel4.Controls.Add(Me.Label1)
-        Me.Panel4.Location = New System.Drawing.Point(222, 104)
+        Me.Panel4.Location = New System.Drawing.Point(31, 12)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(79, 74)
         Me.Panel4.TabIndex = 13
@@ -304,7 +307,7 @@ Partial Class Admin
         Me.Panel5.BackColor = System.Drawing.Color.CornflowerBlue
         Me.Panel5.Controls.Add(Me.user_lbl)
         Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Location = New System.Drawing.Point(321, 104)
+        Me.Panel5.Location = New System.Drawing.Point(130, 12)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(79, 74)
         Me.Panel5.TabIndex = 14
@@ -337,7 +340,7 @@ Partial Class Admin
         Me.Panel6.BackColor = System.Drawing.Color.SandyBrown
         Me.Panel6.Controls.Add(Me.enabled_lbl)
         Me.Panel6.Controls.Add(Me.Label5)
-        Me.Panel6.Location = New System.Drawing.Point(423, 104)
+        Me.Panel6.Location = New System.Drawing.Point(232, 12)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(79, 74)
         Me.Panel6.TabIndex = 14
@@ -370,7 +373,7 @@ Partial Class Admin
         Me.Panel7.BackColor = System.Drawing.Color.Crimson
         Me.Panel7.Controls.Add(Me.banned_lbl)
         Me.Panel7.Controls.Add(Me.Label7)
-        Me.Panel7.Location = New System.Drawing.Point(622, 104)
+        Me.Panel7.Location = New System.Drawing.Point(431, 12)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(79, 74)
         Me.Panel7.TabIndex = 16
@@ -403,7 +406,7 @@ Partial Class Admin
         Me.Panel8.BackColor = System.Drawing.Color.LightSlateGray
         Me.Panel8.Controls.Add(Me.disabled_lbl)
         Me.Panel8.Controls.Add(Me.Label6)
-        Me.Panel8.Location = New System.Drawing.Point(523, 104)
+        Me.Panel8.Location = New System.Drawing.Point(332, 12)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(79, 74)
         Me.Panel8.TabIndex = 15
@@ -431,17 +434,41 @@ Partial Class Admin
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "DISABLED"
         '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Button7.ForeColor = System.Drawing.Color.GhostWhite
+        Me.Button7.Location = New System.Drawing.Point(355, 452)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(135, 33)
+        Me.Button7.TabIndex = 17
+        Me.Button7.Text = "LINK ACCOUNT"
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Panel9.Controls.Add(Me.Panel7)
+        Me.Panel9.Controls.Add(Me.Panel6)
+        Me.Panel9.Controls.Add(Me.Panel8)
+        Me.Panel9.Controls.Add(Me.Panel5)
+        Me.Panel9.Controls.Add(Me.Panel4)
+        Me.Panel9.Location = New System.Drawing.Point(233, 90)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(539, 98)
+        Me.Panel9.TabIndex = 18
+        '
         'Admin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.Panel5)
-        Me.Controls.Add(Me.Panel4)
+        Me.ClientSize = New System.Drawing.Size(863, 503)
+        Me.Controls.Add(Me.Panel9)
+        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -468,6 +495,7 @@ Partial Class Admin
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -503,4 +531,6 @@ Partial Class Admin
     Friend WithEvents Panel8 As Panel
     Friend WithEvents disabled_lbl As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Panel9 As Panel
 End Class

@@ -164,6 +164,7 @@ Partial Class UpdateAccount
         Me.Name = "UpdateAccount"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "UpdateAccount"
+        Me.TopMost = True
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

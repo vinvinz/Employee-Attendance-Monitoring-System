@@ -28,7 +28,7 @@ Public Class Register
         If (ctr = 1) Then
             MsgBox("Error")
         ElseIf (ctr = 0) Then
-            Using cmd As New OleDbCommand("INSERT INTO HR_Accounts ([Username], [Password], [AccType], [AccStatus]) VALUES (@usn, @pass, @type, 'enabled')", conn)
+            Using cmd As New OleDbCommand("INSERT INTO HR_Accounts ([Username], [Password], [AccType], [AccStatus]) VALUES (@usn, @pass, @type, 'disabled')", conn)
                 cmd.Parameters.AddWithValue("@usn", usn)
                 cmd.Parameters.AddWithValue("@pass", pass)
                 cmd.Parameters.AddWithValue("@type", accType)
@@ -38,6 +38,9 @@ Public Class Register
                 MessageBox.Show("Account Registered Successfully")
                 Admin.DataGridView1.DataSource = Admin.GetHRAccounts()
                 Admin.DataGridView1.ClearSelection()
+                Admin.Button5.Enabled = False
+                Admin.Button6.Enabled = False
+                Admin.Button7.Enabled = False
                 Me.Close()
             End Using
         End If

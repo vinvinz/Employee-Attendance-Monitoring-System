@@ -16,8 +16,10 @@
     End Sub
 
     Public Function SetProfileInfo()
+        cookie.FetchUserData()
         LinkLabel1.Text = cookie.GetUsername()
-        Label1.Text = Label1.Text & cookie.GetUserFullName
+        name_lbl.Text = cookie.GetUserFullName()
+        empID_lbl.Text = cookie.GetEmpID()
         PictureBox1.Image = My.Resources.download
         PictureBox2.Image = My.Resources.download
         If (cookie.GetUserImage() IsNot Nothing) Then
@@ -55,4 +57,5 @@
             Login.Show()
         End If
     End Sub
+
 End Class

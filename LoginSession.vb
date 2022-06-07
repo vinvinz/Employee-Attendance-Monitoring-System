@@ -5,12 +5,19 @@ Public Class LoginSession
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
 
+    'GLOBAL VARIABLE FOR USAGE OF MULTIPLE FORMS
+    'use Get Function to fetch values
     Public Shared UserID
     Public Shared UserType
     Public Shared UserStatus
     Public Shared Username
-    Public Shared UserFName
-    Public Shared UserLName
+
+
+    'GLOBAL VARIABLES OF USER DATA
+    Public Shared FullName
+    Public Shared EmpID
+    Public Shared EmployeeStatus
+    Public Shared EmployeeStatusTag
 
     Public Function SetUserID(ByVal ID)
         UserID = ID
@@ -33,8 +40,25 @@ Public Class LoginSession
         Return UserStatus
     End Function
 
+
+    Public Function GetUserFullName()
+        Return FullName
+    End Function
+
+    Public Function GetEmpID()
+        Return EmpID
+    End Function
+
+    Public Function GetEmpStatus()
+        Return EmployeeStatus
+    End Function
+
+    Public Function GetEmpStatusTag()
+        Return EmployeeStatusTag
+    End Function
+
     Public Function GetLinkedID(ByVal IdNum)
-        Dim isLinked As New OleDbCommand("SELECT EmployeeID FROM HR_Accounts WHERE ID=@id", conn)
+        Dim isLinked As New OleDbCommand("SELECT EmpID FROM HR_Accounts WHERE ID=@id", conn)
         isLinked.Parameters.AddWithValue("@id", IdNum)
         conn.Open()
         Dim empID = isLinked.ExecuteScalar().ToString()
@@ -42,23 +66,29 @@ Public Class LoginSession
         Return empID
     End Function
 
-    Public Function GetUserFullName()
-        Dim FullName = Nothing
-        Dim cmd As New OleDbCommand("SELECT EmployeeFName, EmployeeLName FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.ID = HR_Accounts.EmployeeID WHERE EmployeeRoster.ID=@id", conn)
+    Public Function FetchUserData()
+        Dim cmd As New OleDbCommand("SELECT * FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.EmployeeID = HR_Accounts.EmpID WHERE EmployeeRoster.EmployeeID=@id", conn)
         cmd.Parameters.AddWithValue("@id", GetLinkedID(UserID))
         conn.Open()
-        Dim FetchName As OleDbDataReader = cmd.ExecuteReader()
-        If (FetchName.Read = True) Then
-            FullName = FetchName("EmployeeFName") & " " & FetchName("EmployeeLName")
-        End If
+        Try
+            Dim FetchValue As OleDbDataReader = cmd.ExecuteReader()
+            If (FetchValue.Read = True) Then
+                FullName = FetchValue("EmployeeFName") & " " & FetchValue("EmployeeLName")
+                EmpID = FetchValue("EmployeeID")
+                EmployeeStatus = FetchValue("EmpStatus")
+                EmployeeStatusTag = FetchValue("EmpStatusTag")
+            End If
+        Catch ex As Exception
+
+        End Try
         conn.Close()
-        Return FullName
+        Return Nothing
     End Function
 
     Public Function GetUserImage()
         If (Not (GetLinkedID(UserID) = "")) Then
             Try
-                Dim cmd As New OleDbCommand("SELECT profile_img FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.ID = HR_Accounts.EmployeeID WHERE EmployeeRoster.ID=@id", conn)
+                Dim cmd As New OleDbCommand("SELECT profile_img FROM EmployeeRoster INNER JOIN HR_Accounts ON EmployeeRoster.EmployeeID = HR_Accounts.EmpID WHERE EmployeeRoster.EmployeeID=@id", conn)
                 cmd.Parameters.AddWithValue("@id", GetLinkedID(UserID))
                 Dim stream As New IO.MemoryStream()
                 conn.Open()
@@ -69,6 +99,7 @@ Public Class LoginSession
                 conn.Close()
                 Return bitmap
             Catch ex As Exception
+                MsgBox(String.Format("Error: {0}", ex.Message))
             End Try
         End If
         Return Nothing

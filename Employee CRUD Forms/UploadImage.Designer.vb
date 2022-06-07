@@ -48,6 +48,7 @@ Partial Class UploadImage
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UploadImage"
         Me.Text = "UploadImage"
+        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

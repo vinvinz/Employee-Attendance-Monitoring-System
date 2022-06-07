@@ -34,6 +34,9 @@ Partial Class UserProfile
         Me.logout_btn = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.name_lbl = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.empID_lbl = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -178,12 +181,42 @@ Partial Class UserProfile
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(183, 285)
+        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(443, 116)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 22)
+        Me.Label1.Size = New System.Drawing.Size(63, 19)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Name: "
+        '
+        'name_lbl
+        '
+        Me.name_lbl.AutoSize = True
+        Me.name_lbl.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.name_lbl.Location = New System.Drawing.Point(500, 114)
+        Me.name_lbl.Name = "name_lbl"
+        Me.name_lbl.Size = New System.Drawing.Size(50, 22)
+        Me.name_lbl.TabIndex = 6
+        Me.name_lbl.Text = "name"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(443, 75)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(117, 19)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Employee ID:"
+        '
+        'empID_lbl
+        '
+        Me.empID_lbl.AutoSize = True
+        Me.empID_lbl.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.empID_lbl.Location = New System.Drawing.Point(566, 73)
+        Me.empID_lbl.Name = "empID_lbl"
+        Me.empID_lbl.Size = New System.Drawing.Size(50, 22)
+        Me.empID_lbl.TabIndex = 8
+        Me.empID_lbl.Text = "name"
         '
         'UserProfile
         '
@@ -191,6 +224,9 @@ Partial Class UserProfile
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.empID_lbl)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.name_lbl)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel1)
@@ -222,4 +258,7 @@ Partial Class UserProfile
     Friend WithEvents logout_btn As Button
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents name_lbl As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents empID_lbl As Label
 End Class
