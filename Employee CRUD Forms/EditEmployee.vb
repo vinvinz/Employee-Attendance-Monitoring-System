@@ -5,23 +5,27 @@ Public Class EditEmployee
     Dim ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EAM.mdb"
     Dim conn As New OleDbConnection(ConnString)
     Dim Id
-    Dim empID
     Dim empFname
     Dim empLname
     Dim empStatus
     Dim empStatusTag
+    Dim department
+    Dim jobTitle
+    Dim position
 
     Dim arrImage() As Byte
 
     Dim imgChangedFlag = 0
 
-    Public Function setData(ByVal ID, ByVal EmpID, ByVal EmpFname, ByVal EmpLname, ByVal EmpStatus, ByVal EmpStatusTag)
+    Public Function setData(ByVal ID, ByVal EmpFname, ByVal EmpLname, ByVal EmpStatus, ByVal EmpStatusTag, ByVal Department, ByVal JobTitle, ByVal Position)
         Me.Id = ID
-        Me.empID = EmpID
         Me.empFname = EmpFname
         Me.empLname = EmpLname
         Me.empStatus = EmpStatus
         Me.empStatusTag = EmpStatusTag
+        Me.department = Department
+        Me.jobTitle = JobTitle
+        Me.position = Position
         Return 0
     End Function
 
@@ -49,11 +53,13 @@ Public Class EditEmployee
 
     Private Sub EditEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            TextBox4.Text = empID
             TextBox1.Text = empFname
             TextBox2.Text = empLname
             ComboBox2.SelectedIndex = ComboBox2.FindString(empStatus)
             TextBox3.Text = empStatusTag
+            TextBox4.Text = department
+            TextBox5.Text = jobTitle
+            TextBox6.Text = position
             PictureBox1.Image = FetchEmployeeImage()
         Catch ex As Exception
 
@@ -83,12 +89,14 @@ Public Class EditEmployee
         End If
 
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
-            Using cmd As New OleDbCommand("UPDATE EmployeeRoster SET EmployeeID=@empId, EmployeeFName=@fname, EmployeeLName=@lname, EmpStatus=@status, EmpStatusTag=@tag, profile_img=@img WHERE ID=@Id", conn)
-                cmd.Parameters.AddWithValue("@empId", TextBox4.Text)
+            Using cmd As New OleDbCommand("UPDATE EmployeeRoster SET [EmployeeFName]=@fname, [EmployeeLName]=@lname, [EmpStatus]=@status, [EmpStatusTag]=@tag, [Department]=@dep, [JobTitle]=@job, [Position]=@pos, [profile_img]=@img WHERE [ID]=@Id", conn)
                 cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
                 cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
                 cmd.Parameters.AddWithValue("@status", ComboBox2.Text)
                 cmd.Parameters.AddWithValue("@tag", TextBox3.Text)
+                cmd.Parameters.AddWithValue("@dep", TextBox4.Text)
+                cmd.Parameters.AddWithValue("@job", TextBox5.Text)
+                cmd.Parameters.AddWithValue("@pos", TextBox6.Text)
                 cmd.Parameters.AddWithValue("@img", arrImage)
                 cmd.Parameters.AddWithValue("@Id", Id)
                 conn.Open()

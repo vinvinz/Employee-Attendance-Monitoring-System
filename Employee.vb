@@ -11,13 +11,16 @@ Public Class Employee
     Dim EmployeeLname
     Dim Status
     Dim StatusTag
+    Dim EmployeeDep
+    Dim EmployeeJob
+    Dim EmployeePos
 
 
     Public Function GetEmployeesList() As DataTable
 
         Dim Dt As New DataTable
 
-        Using cmd As New OleDbCommand("SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag FROM EmployeeRoster ORDER BY ID ASC", conn)
+        Using cmd As New OleDbCommand("SELECT [ID], [EmployeeID], [EmployeeFName], [EmployeeLName], [EmpStatus], [EmpStatusTag], [Department], [JobTitle], [Position] FROM EmployeeRoster ORDER BY ID ASC", conn)
             conn.Open()
             Dim readList As OleDbDataReader = cmd.ExecuteReader()
             Dt.Load(readList)
@@ -40,7 +43,7 @@ Public Class Employee
     Public Function SearchEmployee() As DataTable
         Dim Test As New DataTable
         Using cmd As New OleDbCommand(
-        "SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag FROM EmployeeRoster WHERE (
+        "SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, Department, JobTitle, Position FROM EmployeeRoster WHERE (
         [EmployeeFName] LIKE @searchtxt OR
         [EmployeeLName] LIKE @searchtxt OR
         [EmpStatus] LIKE @searchtxt OR
@@ -74,6 +77,9 @@ Public Class Employee
             .Columns(3).HeaderCell.Value = "Last Name"
             .Columns(4).HeaderCell.Value = "Status"
             .Columns(5).HeaderCell.Value = "Status Tag"
+            .Columns(6).HeaderCell.Value = "Department"
+            .Columns(7).HeaderCell.Value = "Job Title"
+            .Columns(8).HeaderCell.Value = "Position"
         End With
 
         If (cookie.GetUserType() = "admin") Then
@@ -103,6 +109,26 @@ Public Class Employee
             EmployeeLname = DataGridView1.SelectedRows(0).Cells(3).Value.ToString()
             Status = DataGridView1.SelectedRows(0).Cells(4).Value.ToString()
             StatusTag = DataGridView1.SelectedRows(0).Cells(5).Value.ToString()
+            EmployeeDep = DataGridView1.SelectedRows(0).Cells(6).Value.ToString()
+            EmployeeJob = DataGridView1.SelectedRows(0).Cells(7).Value.ToString()
+            EmployeePos = DataGridView1.SelectedRows(0).Cells(8).Value.ToString()
+            name_lbl.Text = EmployeeFname & " " & EmployeeLname
+        Catch ex As Exception
+
+        End Try
+        Try
+            Using dmc As New OleDbCommand("select profile_img from EmployeeRoster where ID=@id", conn)
+
+                dmc.Parameters.AddWithValue("@id", ID)
+                Dim stream As New IO.MemoryStream()
+                conn.Open()
+                Dim image As Byte() = DirectCast(dmc.ExecuteScalar(), Byte())
+                stream.Write(image, 0, image.Length)
+                Dim bitmap As New Bitmap(stream)
+                PictureBox2.Image = bitmap
+                stream.Close()
+                conn.Close()
+            End Using
         Catch ex As Exception
 
         End Try
@@ -112,7 +138,7 @@ Public Class Employee
         If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
             MessageBox.Show("You have no permission to edit Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
-            EditEmployee.setData(ID, EmployeeID, EmployeeFname, EmployeeLname, Status, StatusTag)
+            EditEmployee.setData(ID, EmployeeFname, EmployeeLname, Status, StatusTag, EmployeeDep, EmployeeJob, EmployeePos)
             EditEmployee.Show()
         End If
     End Sub

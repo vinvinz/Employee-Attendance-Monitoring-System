@@ -44,7 +44,7 @@ Public Class Profile
                 Dim image As Byte() = DirectCast(dmc.ExecuteScalar(), Byte())
                 stream.Write(image, 0, image.Length)
                 Dim bitmap As New Bitmap(stream)
-                PictureBox1.Image = bitmap '--->I have used another picturebox to display image from database.
+                PictureBox1.Image = bitmap
                 stream.Close()
                 conn.Close()
             End Using

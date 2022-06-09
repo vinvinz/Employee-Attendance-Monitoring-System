@@ -41,10 +41,14 @@ Partial Class Employee
         Me.SearchBox = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.name_lbl = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -53,7 +57,7 @@ Partial Class Employee
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(802, 38)
+        Me.Panel1.Size = New System.Drawing.Size(1026, 38)
         Me.Panel1.TabIndex = 1
         '
         'Label3
@@ -91,7 +95,7 @@ Partial Class Employee
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(149, 450)
+        Me.Panel2.Size = New System.Drawing.Size(149, 495)
         Me.Panel2.TabIndex = 2
         '
         'Button4
@@ -158,7 +162,7 @@ Partial Class Employee
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -185,7 +189,7 @@ Partial Class Employee
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(607, 260)
+        Me.DataGridView1.Size = New System.Drawing.Size(632, 272)
         Me.DataGridView1.TabIndex = 3
         '
         'Add_btn
@@ -195,7 +199,7 @@ Partial Class Employee
         Me.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Add_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Add_btn.Location = New System.Drawing.Point(426, 405)
+        Me.Add_btn.Location = New System.Drawing.Point(452, 428)
         Me.Add_btn.Name = "Add_btn"
         Me.Add_btn.Size = New System.Drawing.Size(113, 33)
         Me.Add_btn.TabIndex = 4
@@ -209,7 +213,7 @@ Partial Class Employee
         Me.Edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Edit_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Edit_btn.Location = New System.Drawing.Point(545, 405)
+        Me.Edit_btn.Location = New System.Drawing.Point(571, 428)
         Me.Edit_btn.Name = "Edit_btn"
         Me.Edit_btn.Size = New System.Drawing.Size(113, 33)
         Me.Edit_btn.TabIndex = 5
@@ -223,7 +227,7 @@ Partial Class Employee
         Me.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Delete_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Delete_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Delete_btn.Location = New System.Drawing.Point(664, 405)
+        Me.Delete_btn.Location = New System.Drawing.Point(690, 428)
         Me.Delete_btn.Name = "Delete_btn"
         Me.Delete_btn.Size = New System.Drawing.Size(113, 33)
         Me.Delete_btn.TabIndex = 6
@@ -269,19 +273,53 @@ Partial Class Employee
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button5.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Button5.Location = New System.Drawing.Point(171, 405)
+        Me.Button5.Location = New System.Drawing.Point(169, 428)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(113, 33)
         Me.Button5.TabIndex = 10
         Me.Button5.Text = "VIEW"
         Me.Button5.UseVisualStyleBackColor = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox2.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
+        Me.PictureBox2.Location = New System.Drawing.Point(836, 65)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(166, 166)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 11
+        Me.PictureBox2.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(833, 255)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(37, 14)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Name:"
+        '
+        'name_lbl
+        '
+        Me.name_lbl.AutoSize = True
+        Me.name_lbl.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.name_lbl.Location = New System.Drawing.Point(877, 255)
+        Me.name_lbl.Name = "name_lbl"
+        Me.name_lbl.Size = New System.Drawing.Size(95, 14)
+        Me.name_lbl.TabIndex = 13
+        Me.name_lbl.Text = "Employee Name"
+        '
         'Employee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1025, 495)
+        Me.Controls.Add(Me.name_lbl)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.SearchBox)
@@ -301,6 +339,7 @@ Partial Class Employee
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -323,4 +362,7 @@ Partial Class Employee
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents name_lbl As Label
 End Class

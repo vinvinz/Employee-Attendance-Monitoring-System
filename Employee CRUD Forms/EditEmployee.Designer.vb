@@ -23,10 +23,14 @@ Partial Class EditEmployee
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -44,10 +48,14 @@ Partial Class EditEmployee
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.TextBox6)
+        Me.GroupBox1.Controls.Add(Me.TextBox5)
+        Me.GroupBox1.Controls.Add(Me.TextBox4)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.TextBox3)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
@@ -60,16 +68,73 @@ Partial Class EditEmployee
         Me.GroupBox1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 23)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(747, 415)
+        Me.GroupBox1.Size = New System.Drawing.Size(811, 357)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Update Employee Details"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox6.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.TextBox6.Location = New System.Drawing.Point(633, 148)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(157, 22)
+        Me.TextBox6.TabIndex = 22
+        '
+        'TextBox5
+        '
+        Me.TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox5.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.TextBox5.Location = New System.Drawing.Point(633, 101)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(157, 22)
+        Me.TextBox5.TabIndex = 21
+        '
+        'TextBox4
+        '
+        Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox4.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.TextBox4.Location = New System.Drawing.Point(633, 61)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(157, 22)
+        Me.TextBox4.TabIndex = 20
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(543, 152)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 15)
+        Me.Label7.TabIndex = 19
+        Me.Label7.Text = "Position:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(543, 105)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(77, 15)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Job Title:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(543, 61)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(84, 15)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Department:"
         '
         'Button2
         '
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(74, 268)
+        Me.Button2.Location = New System.Drawing.Point(47, 266)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(133, 25)
         Me.Button2.TabIndex = 16
@@ -80,35 +145,18 @@ Partial Class EditEmployee
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(47, 59)
+        Me.PictureBox1.Location = New System.Drawing.Point(20, 57)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(195, 189)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 15
         Me.PictureBox1.TabStop = False
         '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.TextBox4.Location = New System.Drawing.Point(455, 48)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(85, 22)
-        Me.TextBox4.TabIndex = 12
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(357, 51)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(91, 15)
-        Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Employee ID:"
-        '
         'TextBox3
         '
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox3.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.TextBox3.Location = New System.Drawing.Point(455, 230)
+        Me.TextBox3.Location = New System.Drawing.Point(327, 195)
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(191, 93)
@@ -120,7 +168,7 @@ Partial Class EditEmployee
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(271, 355)
+        Me.Button1.Location = New System.Drawing.Point(329, 312)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(191, 33)
         Me.Button1.TabIndex = 9
@@ -134,23 +182,25 @@ Partial Class EditEmployee
         Me.ComboBox2.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Employed", "Terminated"})
-        Me.ComboBox2.Location = New System.Drawing.Point(455, 184)
+        Me.ComboBox2.Location = New System.Drawing.Point(327, 149)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(192, 24)
         Me.ComboBox2.TabIndex = 8
         '
         'TextBox2
         '
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox2.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.TextBox2.Location = New System.Drawing.Point(455, 137)
+        Me.TextBox2.Location = New System.Drawing.Point(327, 102)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(192, 22)
         Me.TextBox2.TabIndex = 5
         '
         'TextBox1
         '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox1.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.TextBox1.Location = New System.Drawing.Point(455, 93)
+        Me.TextBox1.Location = New System.Drawing.Point(327, 58)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(192, 22)
         Me.TextBox1.TabIndex = 4
@@ -159,7 +209,7 @@ Partial Class EditEmployee
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Consolas", 9.75!)
-        Me.Label4.Location = New System.Drawing.Point(357, 233)
+        Me.Label4.Location = New System.Drawing.Point(229, 198)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(84, 15)
         Me.Label4.TabIndex = 3
@@ -169,7 +219,7 @@ Partial Class EditEmployee
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Consolas", 9.75!)
-        Me.Label3.Location = New System.Drawing.Point(357, 187)
+        Me.Label3.Location = New System.Drawing.Point(229, 152)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 15)
         Me.Label3.TabIndex = 2
@@ -179,7 +229,7 @@ Partial Class EditEmployee
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Consolas", 9.75!)
-        Me.Label2.Location = New System.Drawing.Point(357, 140)
+        Me.Label2.Location = New System.Drawing.Point(229, 105)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(77, 15)
         Me.Label2.TabIndex = 1
@@ -189,7 +239,7 @@ Partial Class EditEmployee
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(357, 96)
+        Me.Label1.Location = New System.Drawing.Point(229, 61)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(84, 15)
         Me.Label1.TabIndex = 0
@@ -204,7 +254,7 @@ Partial Class EditEmployee
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(771, 450)
+        Me.ClientSize = New System.Drawing.Size(835, 392)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "EditEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -218,18 +268,22 @@ Partial Class EditEmployee
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label3 As Label
 End Class
