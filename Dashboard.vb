@@ -11,6 +11,7 @@ Public Class Dashboard
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Button3.FlatAppearance.BorderSize = 0
+        Button4.FlatAppearance.BorderSize = 0
         Button3.Visible = False
         If (cookie.GetUserType() = "admin") Then
             Button3.Visible = True
@@ -181,5 +182,10 @@ Public Class Dashboard
         Me.Hide()
         UserProfile.SetProfileInfo()
         UserProfile.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Attendance.Show()
+        Me.Hide()
     End Sub
 End Class

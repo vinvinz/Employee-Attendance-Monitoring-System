@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A4538B6-2F31-4AF2-AA06-34452708A78A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Employee_Attendance_Monitoring.Login</StartupObject>
+    <StartupObject>Employee_Attendance_Monitoring.Attendance</StartupObject>
     <RootNamespace>Employee_Attendance_Monitoring</RootNamespace>
     <AssemblyName>Employee Attendance Monitoring</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -145,6 +145,12 @@
     <Compile Include="Admin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Attendance.Designer.vb">
+      <DependentUpon>Attendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance.resx">
+      <DependentUpon>Attendance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>

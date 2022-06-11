@@ -41,8 +41,6 @@ Partial Class Dashboard
         Me.EmployeesBindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet3 = New Employee_Attendance_Monitoring.EAMDataSet3()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Generate = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.turnover_lbl = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -52,6 +50,8 @@ Partial Class Dashboard
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.present_lbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Generate = New System.Windows.Forms.Button()
         Me.EmployeesBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EAMDataSet1 = New Employee_Attendance_Monitoring.EAMDataSet1()
@@ -67,6 +67,7 @@ Partial Class Dashboard
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,6 +130,7 @@ Partial Class Dashboard
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
@@ -147,7 +149,7 @@ Partial Class Dashboard
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(0, 205)
+        Me.Button3.Location = New System.Drawing.Point(0, 252)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(149, 48)
         Me.Button3.TabIndex = 5
@@ -242,31 +244,6 @@ Partial Class Dashboard
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(575, 112)
         Me.Panel4.TabIndex = 5
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.CustomFormat = "MM/dd/yyyy"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(431, 21)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(106, 20)
-        Me.DateTimePicker1.TabIndex = 4
-        Me.DateTimePicker1.Value = New Date(2022, 5, 4, 0, 0, 0, 0)
-        '
-        'Generate
-        '
-        Me.Generate.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Generate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Generate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Generate.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.Generate.ForeColor = System.Drawing.Color.White
-        Me.Generate.Location = New System.Drawing.Point(441, 56)
-        Me.Generate.Name = "Generate"
-        Me.Generate.Size = New System.Drawing.Size(91, 25)
-        Me.Generate.TabIndex = 3
-        Me.Generate.Text = "GENERATE"
-        Me.Generate.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -367,6 +344,31 @@ Partial Class Dashboard
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "PRESENT"
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "MM/dd/yyyy"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(431, 21)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(106, 20)
+        Me.DateTimePicker1.TabIndex = 4
+        Me.DateTimePicker1.Value = New Date(2022, 5, 4, 0, 0, 0, 0)
+        '
+        'Generate
+        '
+        Me.Generate.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Generate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Generate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Generate.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.Generate.ForeColor = System.Drawing.Color.White
+        Me.Generate.Location = New System.Drawing.Point(441, 56)
+        Me.Generate.Name = "Generate"
+        Me.Generate.Size = New System.Drawing.Size(91, 25)
+        Me.Generate.TabIndex = 3
+        Me.Generate.Text = "GENERATE"
+        Me.Generate.UseVisualStyleBackColor = False
+        '
         'EmployeesBindingSource3
         '
         Me.EmployeesBindingSource3.DataMember = "Employees"
@@ -466,6 +468,19 @@ Partial Class Dashboard
         Me.Panel8.Size = New System.Drawing.Size(726, 336)
         Me.Panel8.TabIndex = 8
         '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Transparent
+        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(0, 206)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(149, 48)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "RECORDS"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -551,4 +566,5 @@ Partial Class Dashboard
     Friend WithEvents present_lbl As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel8 As Panel
+    Friend WithEvents Button4 As Button
 End Class
