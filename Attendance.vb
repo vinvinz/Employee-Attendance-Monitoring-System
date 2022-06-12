@@ -112,7 +112,7 @@ Public Class Attendance
         emp_btn.FlatAppearance.BorderSize = 0
         admin_btn.FlatAppearance.BorderSize = 0
         records_btn.FlatAppearance.BorderSize = 0
-        Dim row As String() = New String() {"q", "w", "e"}
+        DateTimePicker1.Value = dateToday
         'MsgBox(dateToday)
         With DataGridView1
             .DataSource = GetTable(dateToday)
