@@ -52,7 +52,7 @@ Public Class AddEmployee
 
         If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
             Try
-                Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @img)", conn)
+                Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, Department, JobTitle, Position profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @dep, @title, @pos, @img)", conn)
                     'Profile Picture
                     Dim arrImage() As Byte
                     Dim mstream As New System.IO.MemoryStream()
@@ -67,6 +67,9 @@ Public Class AddEmployee
                     cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
                     cmd.Parameters.AddWithValue("@empStatus", ComboBox2.Text)
                     cmd.Parameters.AddWithValue("@empStatusTag", TextBox3.Text)
+                    cmd.Parameters.AddWithValue("@dep", TextBox4.Text)
+                    cmd.Parameters.AddWithValue("@title", TextBox5.Text)
+                    cmd.Parameters.AddWithValue("@pos", TextBox6.Text)
                     cmd.Parameters.AddWithValue("@img", arrImage)
 
                     conn.Open()

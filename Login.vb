@@ -45,6 +45,7 @@ Public Class Login
                 Dashboard.Button3.Visible = True
                 Employee.Button4.Visible = True
                 UserProfile.Button3.Visible = True
+                Attendance.admin_btn.Visible = True
             End If
             TextBox1.Clear()
                 TextBox2.Clear()

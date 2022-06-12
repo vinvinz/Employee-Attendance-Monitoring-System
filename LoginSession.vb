@@ -18,6 +18,9 @@ Public Class LoginSession
     Public Shared EmpID
     Public Shared EmployeeStatus
     Public Shared EmployeeStatusTag
+    Public Shared EmployeeDepartment
+    Public Shared EmployeeJobTitle
+    Public Shared EmployeePosition
 
     Public Function SetUserID(ByVal ID)
         UserID = ID
@@ -57,6 +60,18 @@ Public Class LoginSession
         Return EmployeeStatusTag
     End Function
 
+    Public Function GetEmpDepartment()
+        Return EmployeeDepartment
+    End Function
+
+    Public Function GetEmpJobTitle()
+        Return EmployeeJobTitle
+    End Function
+
+    Public Function GetEmpPosition()
+        Return EmployeePosition
+    End Function
+
     Public Function GetLinkedID(ByVal IdNum)
         Dim isLinked As New OleDbCommand("SELECT EmpID FROM HR_Accounts WHERE ID=@id", conn)
         isLinked.Parameters.AddWithValue("@id", IdNum)
@@ -77,6 +92,9 @@ Public Class LoginSession
                 EmpID = FetchValue("EmployeeID")
                 EmployeeStatus = FetchValue("EmpStatus")
                 EmployeeStatusTag = FetchValue("EmpStatusTag")
+                EmployeeDepartment = FetchValue("Department")
+                EmployeeJobTitle = FetchValue("JobTitle")
+                EmployeePosition = FetchValue("Position")
             End If
         Catch ex As Exception
 

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A4538B6-2F31-4AF2-AA06-34452708A78A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Employee_Attendance_Monitoring.Attendance</StartupObject>
+    <StartupObject>Employee_Attendance_Monitoring.Login</StartupObject>
     <RootNamespace>Employee_Attendance_Monitoring</RootNamespace>
     <AssemblyName>Employee Attendance Monitoring</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -367,6 +367,8 @@
     <Content Include="EAM.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\syslogo text.png" />
+    <None Include="Resources\syslogo.png" />
     <None Include="Resources\19729.jpg" />
     <None Include="Resources\21404.jpg" />
     <None Include="Resources\download.png" />

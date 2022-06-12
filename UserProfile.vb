@@ -4,6 +4,7 @@
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Button3.FlatAppearance.BorderSize = 0
+        Button6.FlatAppearance.BorderSize = 0
         LinkLabel1.LinkVisited = True
 
         If (cookie.GetUserType() = "admin") Then
@@ -18,8 +19,11 @@
     Public Function SetProfileInfo()
         cookie.FetchUserData()
         LinkLabel1.Text = cookie.GetUsername()
-        name_lbl.Text = cookie.GetUserFullName()
-        empID_lbl.Text = cookie.GetEmpID()
+        name_txt.Text = cookie.GetUserFullName()
+        empID_txt.Text = cookie.GetEmpID()
+        dep_txt.Text = cookie.GetEmpDepartment()
+        jobTitle_txt.Text = cookie.GetEmpJobTitle()
+        position_txt.Text = cookie.GetEmpPosition()
         PictureBox1.Image = My.Resources.download
         PictureBox2.Image = My.Resources.download
         If (cookie.GetUserImage() IsNot Nothing) Then
@@ -53,9 +57,36 @@
             cookie.EndSession()
             Button3.Visible = False
             Employee.Button4.Visible = False
+            Dashboard.Button3.Visible = False
+            Attendance.admin_btn.Visible = False
             Me.Hide()
             Login.Show()
         End If
     End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Hide()
+        Attendance.SetProfileInfo()
+        Attendance.Show()
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles dep_txt.TextChanged
+
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
+    End Sub
+
+    Private Sub position_txt_TextChanged(sender As Object, e As EventArgs) Handles position_txt.TextChanged
+
+    End Sub
+
+    Private Sub jobTitle_txt_TextChanged(sender As Object, e As EventArgs) Handles jobTitle_txt.TextChanged
+
+    End Sub
 End Class

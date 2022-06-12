@@ -4,6 +4,8 @@ Public Class Dashboard
     Dim cookie = New LoginSession()
     Dim EmployeeCount
 
+    '<a href="https//www.freepik.com/vectors/sample-logo">Sample logo vector created by rawpixel.com - www.freepik.com</a>
+
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'EAMDataSet3.Employees' table. You can move, or remove it, as needed.
         'Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
@@ -105,6 +107,7 @@ Public Class Dashboard
             cookie.EndSession()
             Button3.Visible = False
             Employee.Button4.Visible = False
+            Attendance.admin_btn.Visible = False
             Me.Hide()
             Login.Show()
         End If
@@ -134,7 +137,7 @@ Public Class Dashboard
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Generate.Click
         'Dim dtepcker As Date = DateTimePicker1.Value.Date
         conn.Open()
-        Dim countPrsntToday As New OleDbCommand("SELECT COUNT(*) From [Employees] WHERE WorkDate=@date1", conn)
+        Dim countPrsntToday As New OleDbCommand("SELECT COUNT(*) From [Employees] WHERE WorkDate=@date1 AND Attendance=Yes", conn)
         countPrsntToday.Parameters.AddWithValue("@date1", DateTimePicker1.Value.Date)
         Dim countPrsntGenerated = CInt(countPrsntToday.ExecuteScalar())
         present_lbl.Text = CStr(countPrsntGenerated)
@@ -187,7 +190,8 @@ Public Class Dashboard
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Attendance.Show()
         Me.Hide()
+        Attendance.SetProfileInfo()
+        Attendance.Show()
     End Sub
 End Class

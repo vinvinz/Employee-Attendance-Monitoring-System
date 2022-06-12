@@ -179,6 +179,7 @@ Partial Class EditEmployee
         '
         Me.ComboBox2.BackColor = System.Drawing.Color.White
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.Enabled = False
         Me.ComboBox2.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Employed", "Terminated"})

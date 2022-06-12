@@ -64,6 +64,7 @@ Public Class Employee
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
         Button4.FlatAppearance.BorderSize = 0
+        Button6.FlatAppearance.BorderSize = 0
         Edit_btn.Enabled = False
         Delete_btn.Enabled = False
         Edit_btn.ForeColor = Color.White
@@ -207,5 +208,26 @@ Public Class Employee
         Me.Hide()
         UserProfile.SetProfileInfo()
         UserProfile.ShowDialog()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Hide()
+        Attendance.SetProfileInfo()
+        Attendance.Show()
+    End Sub
+
+    Private Sub logout_btn_Click(sender As Object, e As EventArgs) Handles logout_btn.Click
+
+        Dim choice = MsgBox("Do you want to logout?", vbYesNo, "Confirm Logout")
+        If choice = vbYes Then
+            cookie.EndSession()
+            Attendance.admin_btn.Visible = False
+            Button4.Visible = False
+            UserProfile.Button3.Visible = False
+            Dashboard.Button3.Visible = False
+            Me.Hide()
+            Login.Show()
+        End If
+
     End Sub
 End Class
