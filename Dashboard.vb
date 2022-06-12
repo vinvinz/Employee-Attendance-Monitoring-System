@@ -26,8 +26,10 @@ Public Class Dashboard
     End Sub
 
     Public Function SetAttendanceTable()
+        Chart1.Series(0).Points.Clear()
+        Chart1.Series(1).Points.Clear()
         Dim dateToday As DateTime = Date.Today()
-        dateToday = dateToday.AddDays(-20)
+        dateToday = dateToday.AddDays(-7)
         For a = 0 To 6
             Dim cmd As New OleDbCommand("SELECT COUNT(*) FROM Employees WHERE WorkDate=@date AND Attendance=Yes", conn)
             cmd.Parameters.AddWithValue("@date", dateToday.AddDays(a))

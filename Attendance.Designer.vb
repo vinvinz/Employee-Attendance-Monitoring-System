@@ -22,7 +22,8 @@ Partial Class Attendance
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -35,11 +36,11 @@ Partial Class Attendance
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.records_btn = New System.Windows.Forms.Button()
         Me.admin_btn = New System.Windows.Forms.Button()
         Me.emp_btn = New System.Windows.Forms.Button()
         Me.dash_btn = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.records_btn = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,31 +55,39 @@ Partial Class Attendance
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(1)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle15.Padding = New System.Windows.Forms.Padding(1)
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Arial", 9.75!)
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridView1.Location = New System.Drawing.Point(196, 95)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(708, 342)
+        Me.DataGridView1.Size = New System.Drawing.Size(789, 310)
         Me.DataGridView1.TabIndex = 0
         '
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(196, 443)
+        Me.Button1.Location = New System.Drawing.Point(196, 428)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(159, 32)
+        Me.Button1.Size = New System.Drawing.Size(159, 47)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Mark as Present"
         Me.Button1.UseVisualStyleBackColor = True
@@ -88,7 +97,7 @@ Partial Class Attendance
         Me.DateTimePicker1.CustomFormat = ""
         Me.DateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(623, 65)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(706, 65)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(279, 24)
         Me.DateTimePicker1.TabIndex = 2
@@ -96,9 +105,9 @@ Partial Class Attendance
         'Button2
         '
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(701, 443)
+        Me.Button2.Location = New System.Drawing.Point(752, 428)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(98, 32)
+        Me.Button2.Size = New System.Drawing.Size(98, 47)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Time-In"
         Me.Button2.UseVisualStyleBackColor = True
@@ -106,9 +115,9 @@ Partial Class Attendance
         'Button3
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(805, 443)
+        Me.Button3.Location = New System.Drawing.Point(887, 428)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(98, 32)
+        Me.Button3.Size = New System.Drawing.Size(98, 47)
         Me.Button3.TabIndex = 4
         Me.Button3.Text = "Time-Out"
         Me.Button3.UseVisualStyleBackColor = True
@@ -116,18 +125,19 @@ Partial Class Attendance
         'DateTimePicker2
         '
         Me.DateTimePicker2.CausesValidation = False
+        Me.DateTimePicker2.CustomFormat = "H:mm tt"
         Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DateTimePicker2.Location = New System.Drawing.Point(401, 65)
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(517, 65)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.ShowUpDown = True
-        Me.DateTimePicker2.Size = New System.Drawing.Size(127, 24)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(94, 24)
         Me.DateTimePicker2.TabIndex = 5
         '
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(534, 66)
+        Me.Button4.Location = New System.Drawing.Point(617, 66)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(83, 23)
         Me.Button4.TabIndex = 6
@@ -140,7 +150,7 @@ Partial Class Attendance
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(-41, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1026, 38)
+        Me.Panel1.Size = New System.Drawing.Size(1050, 38)
         Me.Panel1.TabIndex = 7
         '
         'Label3
@@ -189,8 +199,22 @@ Partial Class Attendance
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(149, 490)
+        Me.Panel2.Size = New System.Drawing.Size(149, 506)
         Me.Panel2.TabIndex = 8
+        '
+        'records_btn
+        '
+        Me.records_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.records_btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.records_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.records_btn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.records_btn.ForeColor = System.Drawing.Color.White
+        Me.records_btn.Location = New System.Drawing.Point(0, 207)
+        Me.records_btn.Name = "records_btn"
+        Me.records_btn.Size = New System.Drawing.Size(149, 48)
+        Me.records_btn.TabIndex = 11
+        Me.records_btn.Text = "RECORDS"
+        Me.records_btn.UseVisualStyleBackColor = False
         '
         'admin_btn
         '
@@ -240,26 +264,12 @@ Partial Class Attendance
         Me.Panel3.Size = New System.Drawing.Size(653, 381)
         Me.Panel3.TabIndex = 0
         '
-        'records_btn
-        '
-        Me.records_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.records_btn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.records_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.records_btn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.records_btn.ForeColor = System.Drawing.Color.White
-        Me.records_btn.Location = New System.Drawing.Point(0, 207)
-        Me.records_btn.Name = "records_btn"
-        Me.records_btn.Size = New System.Drawing.Size(149, 48)
-        Me.records_btn.TabIndex = 11
-        Me.records_btn.Text = "RECORDS"
-        Me.records_btn.UseVisualStyleBackColor = False
-        '
         'Attendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
-        Me.ClientSize = New System.Drawing.Size(944, 490)
+        Me.ClientSize = New System.Drawing.Size(1005, 506)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Button4)
