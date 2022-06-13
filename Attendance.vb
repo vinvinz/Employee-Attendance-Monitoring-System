@@ -25,7 +25,7 @@ Public Class Attendance
 
     Public Function GetTable(ByVal dateVar) As DataTable
         Dim table As New DataTable
-        Dim row As String() = New String() {"", "", "", "", "", "", ""}
+        Dim row As String() = New String() {"Not Set", "Not Set", "Not Set", "Not Set", "Not Set", "Not Set", "Not Set"}
 
         table.Columns.Add("Employee ID")
         table.Columns.Add("Employee Name")
@@ -110,6 +110,7 @@ Public Class Attendance
                                 End If
                             End Using
                             table.Rows.Add(row)
+                            row = {"Not Set", "Not Set", "Not Set", "Not Set", "Not Set", "Not Set", "Not Set"}
                         Catch ex As Exception
                             MsgBox(ex.Message)
                         End Try
