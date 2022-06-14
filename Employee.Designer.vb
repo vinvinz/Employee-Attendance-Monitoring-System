@@ -22,14 +22,19 @@ Partial Class Employee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.logout_btn = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Add_btn = New System.Windows.Forms.Button()
@@ -41,18 +46,13 @@ Partial Class Employee
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.name_lbl = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.logout_btn = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -64,6 +64,34 @@ Partial Class Employee
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1096, 38)
         Me.Panel1.TabIndex = 1
+        '
+        'logout_btn
+        '
+        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
+        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.logout_btn.Location = New System.Drawing.Point(981, 3)
+        Me.logout_btn.Name = "logout_btn"
+        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
+        Me.logout_btn.TabIndex = 21
+        Me.logout_btn.Text = "Logout"
+        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout_btn.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(361, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(342, 19)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "EMPLOYEE ATTENDANCE MONITORING SYSTEM"
         '
         'LinkLabel1
         '
@@ -93,6 +121,29 @@ Partial Class Employee
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(149, 524)
         Me.Panel2.TabIndex = 2
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.syslogo
+        Me.PictureBox4.Location = New System.Drawing.Point(12, 368)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(124, 121)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 11
+        Me.PictureBox4.TabStop = False
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.Transparent
+        Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(0, 205)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(149, 48)
+        Me.Button6.TabIndex = 11
+        Me.Button6.Text = "RECORDS"
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -135,6 +186,16 @@ Partial Class Employee
         Me.Button1.Text = "DASHBOARD"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Panel3
         '
         Me.Panel3.Location = New System.Drawing.Point(149, 69)
@@ -150,24 +211,24 @@ Partial Class Employee
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.Padding = New System.Windows.Forms.Padding(1, 0, 4, 0)
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.Padding = New System.Windows.Forms.Padding(1, 0, 4, 0)
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.Location = New System.Drawing.Point(170, 130)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
@@ -185,7 +246,7 @@ Partial Class Employee
         Me.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Add_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Add_btn.Location = New System.Drawing.Point(471, 456)
+        Me.Add_btn.Location = New System.Drawing.Point(285, 456)
         Me.Add_btn.Name = "Add_btn"
         Me.Add_btn.Size = New System.Drawing.Size(113, 33)
         Me.Add_btn.TabIndex = 4
@@ -199,7 +260,7 @@ Partial Class Employee
         Me.Edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Edit_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Edit_btn.Location = New System.Drawing.Point(590, 456)
+        Me.Edit_btn.Location = New System.Drawing.Point(439, 456)
         Me.Edit_btn.Name = "Edit_btn"
         Me.Edit_btn.Size = New System.Drawing.Size(113, 33)
         Me.Edit_btn.TabIndex = 5
@@ -213,7 +274,7 @@ Partial Class Employee
         Me.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Delete_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Delete_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Delete_btn.Location = New System.Drawing.Point(709, 456)
+        Me.Delete_btn.Location = New System.Drawing.Point(590, 456)
         Me.Delete_btn.Name = "Delete_btn"
         Me.Delete_btn.Size = New System.Drawing.Size(113, 33)
         Me.Delete_btn.TabIndex = 6
@@ -233,10 +294,10 @@ Partial Class Employee
         'SearchBox
         '
         Me.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SearchBox.Location = New System.Drawing.Point(526, 99)
+        Me.SearchBox.Location = New System.Drawing.Point(594, 100)
         Me.SearchBox.MinimumSize = New System.Drawing.Size(168, 25)
         Me.SearchBox.Name = "SearchBox"
-        Me.SearchBox.Size = New System.Drawing.Size(168, 20)
+        Me.SearchBox.Size = New System.Drawing.Size(168, 25)
         Me.SearchBox.TabIndex = 8
         '
         'Button3
@@ -245,7 +306,7 @@ Partial Class Employee
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(699, 97)
+        Me.Button3.Location = New System.Drawing.Point(767, 100)
         Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 25)
@@ -256,10 +317,11 @@ Partial Class Employee
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Button5.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Button5.Location = New System.Drawing.Point(188, 456)
+        Me.Button5.Location = New System.Drawing.Point(915, 368)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(113, 33)
         Me.Button5.TabIndex = 10
@@ -286,19 +348,6 @@ Partial Class Employee
         Me.name_lbl.TabIndex = 13
         Me.name_lbl.Text = "Employee Name"
         '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.Transparent
-        Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(0, 205)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(149, 48)
-        Me.Button6.TabIndex = 11
-        Me.Button6.Text = "RECORDS"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -309,54 +358,6 @@ Partial Class Employee
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 11
         Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(361, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(342, 19)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "EMPLOYEE ATTENDANCE MONITORING SYSTEM"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.syslogo
-        Me.PictureBox4.Location = New System.Drawing.Point(12, 368)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(124, 121)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 11
-        Me.PictureBox4.TabStop = False
-        '
-        'logout_btn
-        '
-        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
-        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.logout_btn.Location = New System.Drawing.Point(981, 3)
-        Me.logout_btn.Name = "logout_btn"
-        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
-        Me.logout_btn.TabIndex = 21
-        Me.logout_btn.Text = "Logout"
-        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.logout_btn.UseVisualStyleBackColor = False
         '
         'Employee
         '
@@ -384,10 +385,10 @@ Partial Class Employee
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

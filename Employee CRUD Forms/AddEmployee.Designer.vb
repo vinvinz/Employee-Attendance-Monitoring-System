@@ -31,16 +31,16 @@ Partial Class AddEmployee
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.EmpOpenDialog = New System.Windows.Forms.OpenFileDialog()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.EmpOpenDialog = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -155,41 +155,6 @@ Partial Class AddEmployee
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ADD EMPLOYEE"
         '
-        'Button2
-        '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(53, 255)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(133, 25)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "Upload Picture"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(26, 46)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(195, 189)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 13
-        Me.PictureBox1.TabStop = False
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Arial", 9.75!)
-        Me.TextBox3.Location = New System.Drawing.Point(337, 183)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(192, 110)
-        Me.TextBox3.TabIndex = 10
-        '
-        'EmpOpenDialog
-        '
-        Me.EmpOpenDialog.FileName = "EmpOpenDialog"
-        '
         'TextBox6
         '
         Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -247,6 +212,41 @@ Partial Class AddEmployee
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "Department:"
         '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(53, 255)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(133, 25)
+        Me.Button2.TabIndex = 14
+        Me.Button2.Text = "Upload Picture"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 46)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(195, 189)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 13
+        Me.PictureBox1.TabStop = False
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Font = New System.Drawing.Font("Arial", 9.75!)
+        Me.TextBox3.Location = New System.Drawing.Point(337, 183)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(192, 110)
+        Me.TextBox3.TabIndex = 10
+        '
+        'EmpOpenDialog
+        '
+        Me.EmpOpenDialog.FileName = "EmpOpenDialog"
+        '
         'AddEmployee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -254,9 +254,10 @@ Partial Class AddEmployee
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(835, 392)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "AddEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Add Employee"
+        Me.Text = "ADD EMPLOYEE"
         Me.TopMost = True
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

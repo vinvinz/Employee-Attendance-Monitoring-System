@@ -71,7 +71,7 @@ Partial Class EditEmployee
         Me.GroupBox1.Size = New System.Drawing.Size(811, 357)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Update Employee Details"
+        Me.GroupBox1.Text = "UPDATE EMPLOYEE RECORDS"
         '
         'TextBox6
         '
@@ -257,9 +257,10 @@ Partial Class EditEmployee
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(835, 392)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "EditEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EditEmployee"
+        Me.Text = "UPDATE EPLOYEE"
         Me.TopMost = True
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

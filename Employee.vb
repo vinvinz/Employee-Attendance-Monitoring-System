@@ -153,7 +153,7 @@ Public Class Employee
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Delete_btn.Click
         If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
             MessageBox.Show("You have no permission to delete Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
+        ElseIf (cookie.GetUserStatus() = "enabled" And cookie.GetUserType() = "admin") Then
             Dim opt = MessageBox.Show("Are you sure you want to Delete Employee with " & ID & "?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             If (opt = 1) Then
                 Using cmd As New OleDbCommand("DELETE FROM EmployeeRoster WHERE ID=@id", conn)
@@ -168,6 +168,8 @@ Public Class Employee
                     Delete_btn.Enabled = False
                 End Using
             End If
+        Else
+            MessageBox.Show("You have no permission to delete Data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

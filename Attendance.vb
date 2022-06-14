@@ -300,26 +300,11 @@ Public Class Attendance
         'End If
         'conn.Close()
         If (cookie.GetUserStatus() = "disabled" And cookie.GetUserType() = "user") Then
-                MessageBox.Show("You have no permission to modify Records.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
+            MessageBox.Show("You have no permission to modify Records.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf (cookie.GetUserStatus() = "enabled" Or cookie.GetUserType() = "admin") Then
 
             If selectedDate >= latestLogDate Then
-                If selectedEmpStatus = "Not Set" Then
-                    Dim InsertEmpStatus As New OleDbCommand("INSERT INTO EmployeeLogs(Type, Logdate, EmployeeID) VALUES(@type, @date, @id)", conn)
-                    InsertEmpStatus.Parameters.AddWithValue("@type", "employed")
-                    InsertEmpStatus.Parameters.AddWithValue("@date", selectedDate)
-                    InsertEmpStatus.Parameters.AddWithValue("@id", selectedEmpID)
-
-                    Dim UpdateEmployeeStatus As New OleDbCommand("UPDATE EmployeeRoster SET EmpStatus=@status WHERE EmployeeID=@id", conn)
-                    UpdateEmployeeStatus.Parameters.AddWithValue("@status", "Employed")
-                    UpdateEmployeeStatus.Parameters.AddWithValue("@id", selectedEmpID)
-                    conn.Open()
-                    InsertEmpStatus.ExecuteNonQuery()
-                    UpdateEmployeeStatus.ExecuteNonQuery()
-                    conn.Close()
-                    DataGridView1.DataSource = GetTable(selectedDate)
-                    DataGridView1.ClearSelection()
-                ElseIf selectedEmpStatus = "Employed" Then
+                If selectedEmpStatus = "Employed" Then
                     Dim InsertEmpStatus As New OleDbCommand("INSERT INTO EmployeeLogs(Type, Logdate, EmployeeID) VALUES(@type, @date, @id)", conn)
                     InsertEmpStatus.Parameters.AddWithValue("@type", "terminated")
                     InsertEmpStatus.Parameters.AddWithValue("@date", selectedDate)
@@ -351,6 +336,21 @@ Public Class Attendance
                     UpdateEmployeeStatus.ExecuteNonQuery()
                     conn.Close()
 
+                    DataGridView1.DataSource = GetTable(selectedDate)
+                    DataGridView1.ClearSelection()
+                ElseIf selectedEmpStatus = "Not Set" Then
+                    Dim InsertEmpStatus As New OleDbCommand("INSERT INTO EmployeeLogs(Type, Logdate, EmployeeID) VALUES(@type, @date, @id)", conn)
+                    InsertEmpStatus.Parameters.AddWithValue("@type", "employed")
+                    InsertEmpStatus.Parameters.AddWithValue("@date", selectedDate)
+                    InsertEmpStatus.Parameters.AddWithValue("@id", selectedEmpID)
+
+                    Dim UpdateEmployeeStatus As New OleDbCommand("UPDATE EmployeeRoster SET EmpStatus=@status WHERE EmployeeID=@id", conn)
+                    UpdateEmployeeStatus.Parameters.AddWithValue("@status", "Employed")
+                    UpdateEmployeeStatus.Parameters.AddWithValue("@id", selectedEmpID)
+                    conn.Open()
+                    InsertEmpStatus.ExecuteNonQuery()
+                    UpdateEmployeeStatus.ExecuteNonQuery()
+                    conn.Close()
                     DataGridView1.DataSource = GetTable(selectedDate)
                     DataGridView1.ClearSelection()
                 End If
@@ -390,4 +390,5 @@ Public Class Attendance
         End If
 
     End Sub
+
 End Class

@@ -9,6 +9,9 @@ Public Class Profile
     Dim EmpStat
     Dim StatTag
     Dim EmpID
+    Dim Department
+    Dim JobTitle
+    Dim Position
 
     Public Function GetUserID(ByVal ID)
         Me.userID = ID
@@ -16,6 +19,8 @@ Public Class Profile
     End Function
 
     Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Chart1.ChartAreas(0).AxisY.LabelStyle.Enabled = False
+
         Dim cmd As New OleDbCommand("SELECT * FROM EmployeeRoster WHERE ID=@id", conn)
         cmd.Parameters.AddWithValue("@id", userID)
         conn.Open()
@@ -26,12 +31,18 @@ Public Class Profile
             EmpStat = fetch("EmpStatus")
             StatTag = fetch("EmpStatusTag")
             EmpID = fetch("EmployeeID")
+            Department = fetch("Department")
+            JobTitle = fetch("JobTitle")
+            Position = fetch("Position")
         End If
         conn.Close()
         Try
-            name_lbl.Text = name_lbl.Text & "" & name
-            empstatus_lbl.Text = empstatus_lbl.Text & "" & EmpStat
-            TextBox1.Text = StatTag
+            name_txt.Text = name
+            empStat_txt.Text = EmpStat
+            dep_txt.Text = Department
+            title_txt.Text = JobTitle
+            pos_txt.Text = Position
+            emp_tag.Text = StatTag
         Catch ex As Exception
 
         End Try
@@ -70,8 +81,4 @@ Public Class Profile
         'MsgBox(dateToday.AddDays(-6))
         Return Nothing
     End Function
-
-    Private Sub Chart2_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class
