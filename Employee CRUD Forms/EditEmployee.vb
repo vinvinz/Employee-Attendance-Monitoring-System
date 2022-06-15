@@ -107,6 +107,7 @@ Public Class EditEmployee
                 Employee.DataGridView1.ClearSelection()
                 Employee.Edit_btn.Enabled = False
                 Employee.Delete_btn.Enabled = False
+                Attendance.DataGridView1.DataSource = Attendance.GetTable(Date.Today)
                 Employee.Show()
                 Me.Close()
             End Using

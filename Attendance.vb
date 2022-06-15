@@ -14,6 +14,8 @@ Public Class Attendance
     Dim selectedEmpAttendance
     Dim selectedEmpStatus
 
+
+
     Public Function SetProfileInfo()
         LinkLabel1.Text = cookie.GetUsername()
         PictureBox1.Image = My.Resources.download
@@ -40,6 +42,7 @@ Public Class Attendance
         conn.Open()
         empCount = EmployeeCounter.ExecuteScalar()
         conn.Close()
+
         conn.Open()
         For number As Integer = 1 To empCount
             Using cmd As New OleDbCommand("SELECT EmployeeID, EmployeeFName, Department, EmployeeLName FROM EmployeeRoster WHERE ID=@id", conn)
@@ -60,6 +63,7 @@ Public Class Attendance
 
                                     If fetchEmpAttendance("Attendance") = -1 Then
                                         row(3) = "PRESENT"
+                                        'DataGridView1.Item(number)
                                         If IsDBNull(fetchEmpAttendance("time-in")) = False Then
                                             row(4) = fetchEmpAttendance("time-in")
                                         ElseIf IsDBNull(fetchEmpAttendance("time-in")) = True Then
@@ -123,6 +127,15 @@ Public Class Attendance
         Next
         conn.Close()
         Return table
+    End Function
+
+    Public Function ColorTable()
+        For num As Integer = 0 To DataGridView1.RowCount
+            If DataGridView1.Rows(num).Cells(2).Value = "I.T." Then
+                DataGridView1.Rows(num).Cells(2).Style.BackColor = Color.Green
+            End If
+        Next
+        Return Nothing
     End Function
 
     Private Sub Attendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -354,6 +367,7 @@ Public Class Attendance
                     DataGridView1.DataSource = GetTable(selectedDate)
                     DataGridView1.ClearSelection()
                 End If
+                Employee.DataGridView1.DataSource = Employee.GetEmployeesList()
             End If
         End If
     End Sub

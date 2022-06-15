@@ -50,9 +50,9 @@ Public Class AddEmployee
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(ComboBox2.Text) Then
+        If Not String.IsNullOrEmpty(TextBox1.Text) And Not String.IsNullOrEmpty(TextBox2.Text) And Not String.IsNullOrEmpty(TextBox4.Text) And Not String.IsNullOrEmpty(TextBox5.Text) And Not String.IsNullOrEmpty(TextBox6.Text) Then
             Try
-                Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster (EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, Department, JobTitle, Position profile_img) VALUES (@empID, @fname, @lname, @empStatus, @empStatusTag, @dep, @title, @pos, @img)", conn)
+                Using cmd As New OleDbCommand("INSERT INTO EmployeeRoster ([EmployeeID], [EmployeeFName], [EmployeeLName], [Department], [JobTitle], [Position], [profile_img]) VALUES (@empID, @fname, @lname, @dep, @title, @pos, @img)", conn)
                     'Profile Picture
                     Dim arrImage() As Byte
                     Dim mstream As New System.IO.MemoryStream()
@@ -65,8 +65,6 @@ Public Class AddEmployee
                     cmd.Parameters.AddWithValue("@empID", GenerateEmployeeID())
                     cmd.Parameters.AddWithValue("@fname", TextBox1.Text)
                     cmd.Parameters.AddWithValue("@lname", TextBox2.Text)
-                    cmd.Parameters.AddWithValue("@empStatus", ComboBox2.Text)
-                    cmd.Parameters.AddWithValue("@empStatusTag", TextBox3.Text)
                     cmd.Parameters.AddWithValue("@dep", TextBox4.Text)
                     cmd.Parameters.AddWithValue("@title", TextBox5.Text)
                     cmd.Parameters.AddWithValue("@pos", TextBox6.Text)
@@ -81,10 +79,11 @@ Public Class AddEmployee
                     Employee.Edit_btn.Enabled = False
                     Me.Hide()
                     Employee.Show()
+                    Attendance.DataGridView1.DataSource = Attendance.GetTable(Date.Today)
                 End Using
 
             Catch ex As Exception
-
+                MsgBox(ex.Message)
             End Try
         Else
             MsgBox("Empty Field Detected", vbCritical, "Warning")
@@ -119,6 +118,10 @@ Public Class AddEmployee
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
 
     End Sub
 End Class

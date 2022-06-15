@@ -43,12 +43,15 @@ Public Class Employee
     Public Function SearchEmployee() As DataTable
         Dim Test As New DataTable
         Using cmd As New OleDbCommand(
-        "SELECT ID, EmployeeID, EmployeeFName, EmployeeLName, EmpStatus, EmpStatusTag, Department, JobTitle, Position FROM EmployeeRoster WHERE (
+        "SELECT [ID], [EmployeeID], [EmployeeFName], [EmployeeLName], [EmpStatus], [EmpStatusTag], [Department], [JobTitle], [Position] FROM EmployeeRoster WHERE (
         [EmployeeFName] LIKE @searchtxt OR
         [EmployeeLName] LIKE @searchtxt OR
         [EmpStatus] LIKE @searchtxt OR
         [EmployeeID] LIKE @searchtxt OR
-        [EmpStatusTag] LIKE @searchtxt)", conn)
+        [EmpStatusTag] LIKE @searchtxt OR
+        [Department] LIKE @searchtxt OR
+        [JobTitle] LIKE @searchtxt OR
+        [Position] LIKE @searchtxt)", conn)
             cmd.Parameters.AddWithValue("@searchtxt", "%" & SearchBox.Text & "%")
             conn.Open()
             Dim readList As OleDbDataReader = cmd.ExecuteReader()

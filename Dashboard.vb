@@ -9,6 +9,7 @@ Public Class Dashboard
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'EAMDataSet3.Employees' table. You can move, or remove it, as needed.
         'Me.EmployeesTableAdapter3.Fill(Me.EAMDataSet3.Employees)
+        DateTimePicker1.Value = Date.Today
 
         Button1.FlatAppearance.BorderSize = 0
         Button2.FlatAppearance.BorderSize = 0
@@ -31,7 +32,7 @@ Public Class Dashboard
         Chart1.Series(0).Points.Clear()
         Chart1.Series(1).Points.Clear()
         Dim dateToday As DateTime = Date.Today()
-        dateToday = dateToday.AddDays(-7)
+        dateToday = dateToday.AddDays(-6)
         For a = 0 To 6
             Dim cmd As New OleDbCommand("SELECT COUNT(*) FROM Employees WHERE WorkDate=@date AND Attendance=Yes", conn)
             cmd.Parameters.AddWithValue("@date", dateToday.AddDays(a))

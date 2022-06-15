@@ -246,7 +246,7 @@ Partial Class Employee
         Me.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Add_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Add_btn.Location = New System.Drawing.Point(285, 456)
+        Me.Add_btn.Location = New System.Drawing.Point(358, 456)
         Me.Add_btn.Name = "Add_btn"
         Me.Add_btn.Size = New System.Drawing.Size(113, 33)
         Me.Add_btn.TabIndex = 4
@@ -260,11 +260,11 @@ Partial Class Employee
         Me.Edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Edit_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Edit_btn.Location = New System.Drawing.Point(439, 456)
+        Me.Edit_btn.Location = New System.Drawing.Point(477, 456)
         Me.Edit_btn.Name = "Edit_btn"
         Me.Edit_btn.Size = New System.Drawing.Size(113, 33)
         Me.Edit_btn.TabIndex = 5
-        Me.Edit_btn.Text = "EDIT"
+        Me.Edit_btn.Text = "UPDATE"
         Me.Edit_btn.UseVisualStyleBackColor = False
         '
         'Delete_btn
@@ -274,7 +274,7 @@ Partial Class Employee
         Me.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Delete_btn.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Delete_btn.ForeColor = System.Drawing.Color.GhostWhite
-        Me.Delete_btn.Location = New System.Drawing.Point(590, 456)
+        Me.Delete_btn.Location = New System.Drawing.Point(596, 456)
         Me.Delete_btn.Name = "Delete_btn"
         Me.Delete_btn.Size = New System.Drawing.Size(113, 33)
         Me.Delete_btn.TabIndex = 6
@@ -297,7 +297,7 @@ Partial Class Employee
         Me.SearchBox.Location = New System.Drawing.Point(594, 100)
         Me.SearchBox.MinimumSize = New System.Drawing.Size(168, 25)
         Me.SearchBox.Name = "SearchBox"
-        Me.SearchBox.Size = New System.Drawing.Size(168, 25)
+        Me.SearchBox.Size = New System.Drawing.Size(168, 20)
         Me.SearchBox.TabIndex = 8
         '
         'Button3
@@ -306,7 +306,7 @@ Partial Class Employee
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(767, 100)
+        Me.Button3.Location = New System.Drawing.Point(767, 97)
         Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 25)
@@ -361,6 +361,7 @@ Partial Class Employee
         '
         'Employee
         '
+        Me.AcceptButton = Me.Button3
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
