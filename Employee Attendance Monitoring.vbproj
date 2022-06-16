@@ -367,6 +367,7 @@
     <Content Include="EAM.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\png-transparent-computer-icons-next-button-blue-angle-rectangle.png" />
     <None Include="Resources\syslogo text.png" />
     <None Include="Resources\syslogo.png" />
     <None Include="Resources\19729.jpg" />

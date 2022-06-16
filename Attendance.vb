@@ -150,7 +150,6 @@ Public Class Attendance
             .DataSource = GetTable(dateToday)
             .ClearSelection()
         End With
-        DateTimePicker1.MaxDate = dateToday
 
         If (cookie.GetUserType() = "admin") Then
             admin_btn.Visible = True
@@ -405,4 +404,11 @@ Public Class Attendance
 
     End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        DateTimePicker1.Value = DateTimePicker1.Value.AddDays(-1)
+    End Sub
+
+    Private Sub Button7_Click_1(sender As Object, e As EventArgs) Handles Button7.Click
+        DateTimePicker1.Value = DateTimePicker1.Value.AddDays(1)
+    End Sub
 End Class

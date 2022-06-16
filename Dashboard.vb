@@ -49,20 +49,18 @@ Public Class Dashboard
     End Function
 
     Public Function CalculateAttritionRate()
-        Dim dateToday As DateTime = Date.Today()
-        Dim dateFrom = dateToday.AddDays(-100).ToString("d")
-        Dim dateTo = dateToday.ToString("d")
+        'Dim dateToday As DateTime = Date.Today()
+        'Dim dateFrom = dateToday.AddDays(-100).ToString("d")
+        'Dim dateTo = dateToday.ToString("d")
         Dim term = Nothing
         Dim emp = Nothing
         'MsgBox("SELECT COUNT(*) FROM EmployeeLogs WHERE LogDate BETWEEN " & Date.Today & " AND " & dateToday.AddDays(-30))
         'MsgBox(dateFrom & " " & dateTo)
 
-        Dim countEmployed As New OleDbCommand("SELECT COUNT(*) FROM EmployeeLogs WHERE Type='employed' AND LogDate BETWEEN @from AND @to", conn)
-        countEmployed.Parameters.AddWithValue("@from", dateFrom)
-        countEmployed.Parameters.AddWithValue("@to", dateTo)
-        Dim countTerminated As New OleDbCommand("SELECT COUNT(*) FROM EmployeeLogs WHERE Type='terminated' AND LogDate BETWEEN @from AND @to", conn)
-        countTerminated.Parameters.AddWithValue("@from", dateFrom)
-        countTerminated.Parameters.AddWithValue("@to", dateTo)
+        Dim countEmployed As New OleDbCommand("SELECT COUNT(*) FROM EmployeeRoster WHERE EmpStatus=@type", conn)
+        countEmployed.Parameters.AddWithValue("@type", "Employed")
+        Dim countTerminated As New OleDbCommand("SELECT COUNT(*) FROM EmployeeRoster WHERE EmpStatus=@type", conn)
+        countTerminated.Parameters.AddWithValue("@type", "Terminated")
 
         conn.Open()
         emp = countEmployed.ExecuteScalar()
@@ -70,7 +68,7 @@ Public Class Dashboard
         conn.Close()
 
         Dim averageNumberOfEmp = (emp + (emp - term)) / 2
-        Dim AttritionRate = (term / averageNumberOfEmp) * 100
+        Dim AttritionRate = Math.Ceiling((term / averageNumberOfEmp) * 100)
         Return AttritionRate
     End Function
 
@@ -152,8 +150,8 @@ Public Class Dashboard
         Dim TurnOverRate = TotalTermiEmp / TotalEmp * 100
 
         turnover_lbl.Text = Math.Ceiling(TurnOverRate) & "%"
-
         conn.Close()
+        attrition_lbl.Text = CalculateAttritionRate() & "%"
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged

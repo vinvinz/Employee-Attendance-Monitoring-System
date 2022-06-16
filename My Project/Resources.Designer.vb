@@ -143,6 +143,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property png_transparent_computer_icons_next_button_blue_angle_rectangle() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("png-transparent-computer-icons-next-button-blue-angle-rectangle", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property syslogo() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("syslogo", resourceCulture)

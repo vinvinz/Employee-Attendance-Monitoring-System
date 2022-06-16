@@ -32,19 +32,21 @@ Partial Class Attendance
         Me.timePicker = New System.Windows.Forms.DateTimePicker()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.logout_btn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.records_btn = New System.Windows.Forms.Button()
         Me.admin_btn = New System.Windows.Forms.Button()
         Me.emp_btn = New System.Windows.Forms.Button()
         Me.dash_btn = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.logout_btn = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -106,7 +108,7 @@ Partial Class Attendance
         Me.DateTimePicker1.CustomFormat = ""
         Me.DateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(700, 102)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(614, 102)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(279, 24)
         Me.DateTimePicker1.TabIndex = 2
@@ -145,7 +147,7 @@ Partial Class Attendance
         Me.timePicker.CustomFormat = "H:mm tt"
         Me.timePicker.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.timePicker.Location = New System.Drawing.Point(511, 102)
+        Me.timePicker.Location = New System.Drawing.Point(415, 102)
         Me.timePicker.Name = "timePicker"
         Me.timePicker.ShowUpDown = True
         Me.timePicker.Size = New System.Drawing.Size(94, 24)
@@ -155,7 +157,7 @@ Partial Class Attendance
         '
         Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(611, 103)
+        Me.Button4.Location = New System.Drawing.Point(515, 103)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(83, 23)
         Me.Button4.TabIndex = 6
@@ -171,23 +173,6 @@ Partial Class Attendance
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1057, 38)
         Me.Panel1.TabIndex = 7
-        '
-        'logout_btn
-        '
-        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
-        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.logout_btn.Location = New System.Drawing.Point(945, 3)
-        Me.logout_btn.Name = "logout_btn"
-        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
-        Me.logout_btn.TabIndex = 20
-        Me.logout_btn.Text = "Logout"
-        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.logout_btn.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -228,16 +213,6 @@ Partial Class Attendance
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(149, 551)
         Me.Panel2.TabIndex = 8
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.syslogo
-        Me.PictureBox4.Location = New System.Drawing.Point(14, 373)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(124, 121)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 11
-        Me.PictureBox4.TabStop = False
         '
         'records_btn
         '
@@ -294,16 +269,6 @@ Partial Class Attendance
         Me.dash_btn.Text = "DASHBOARD"
         Me.dash_btn.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'Panel3
         '
         Me.Panel3.Location = New System.Drawing.Point(149, 69)
@@ -335,12 +300,75 @@ Partial Class Attendance
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "EMPLOYEE RECORDS"
         '
+        'Button7
+        '
+        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(940, 102)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(39, 23)
+        Me.Button7.TabIndex = 12
+        Me.Button7.Text = ">"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(899, 102)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(39, 23)
+        Me.Button6.TabIndex = 11
+        Me.Button6.Text = "<"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'logout_btn
+        '
+        Me.logout_btn.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.logout_btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logout_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.logout_btn.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.Logout_Icon
+        Me.logout_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.logout_btn.Location = New System.Drawing.Point(945, 3)
+        Me.logout_btn.Name = "logout_btn"
+        Me.logout_btn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.logout_btn.Size = New System.Drawing.Size(96, 32)
+        Me.logout_btn.TabIndex = 20
+        Me.logout_btn.Text = "Logout"
+        Me.logout_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.logout_btn.UseVisualStyleBackColor = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.syslogo
+        Me.PictureBox4.Location = New System.Drawing.Point(14, 373)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(124, 121)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 11
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Employee_Attendance_Monitoring.My.Resources.Resources.download
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 41)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Attendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.GhostWhite
         Me.ClientSize = New System.Drawing.Size(1012, 551)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Panel1)
@@ -388,4 +416,6 @@ Partial Class Attendance
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents logout_btn As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
 End Class
